@@ -26,7 +26,6 @@ npm run dev
 
   ```json
   {
-
     "_id": "johndoe@example.com",
     "password": "johnDOE@2000",
     "name": "John Doe",
