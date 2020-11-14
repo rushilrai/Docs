@@ -4,6 +4,7 @@ const morgan = require('morgan');
 const cors = require('cors');
 const bodyparser = require('body-parser');
 const user = require('./routes/user.js');
+const MongoDB = require('./database/db.js');
 
 // app init
 const app = express();
@@ -14,6 +15,9 @@ app.use(bodyparser.json());             // body-parser for json
 app.use(bodyparser.urlencoded({         // body-parser for urlencoded
     extended: false
 }));
+
+// db init
+const mongodb = new MongoDB();
 
 // default route
 app.get('/', (req, res) => {
