@@ -4,3 +4,6 @@ node-api/package-lock.json
 
 # environment vars
 .env
+
+# vscode
+.vscode/
