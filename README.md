@@ -27,13 +27,13 @@ npm run dev
   ```json
   {
 
-    _id: "johndoe@example.com",
-    password: "johnDOE@2000",
-    name: "John Doe",
-    contact_no: "9999999999",
-    address: "Example Address",
-    role: "Patient" | "Doctor"
-    docprofile: {[Object]}
+    "_id": "johndoe@example.com",
+    "password": "johnDOE@2000",
+    "name": "John Doe",
+    "contact_no": "9999999999",
+    "address": "Example Address",
+    "role": "Patient | Doctor",
+    "docprofile": {}
   }
   ```
 
@@ -41,8 +41,8 @@ npm run dev
 
   ```json
   {
-    _id: "johndoe@example.com",
-    password: "johnDOE@2000"
+    "_id": "johndoe@example.com",
+    "password": "johnDOE@2000"
   }
 
   ```
