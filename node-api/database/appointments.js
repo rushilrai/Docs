@@ -40,6 +40,7 @@ class Appointment {
 
     // new appointment object
     constructor(data) {
+        data['_id'] = mongoose.Types.ObjectId();
         this.appointment = new Appointment.ApptModel(data)
     }
 
