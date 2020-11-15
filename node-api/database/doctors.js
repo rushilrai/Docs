@@ -55,8 +55,7 @@ class Doctor extends User {
     static async findDoctors (splzn) {
         return Doctor.DoctorModel.find({
             specialization: splzn           // find doctors by specialisation
-        }).then((res) => {
-            delete res.password;
+        }, "_id name contact_no address specialization qualification slot_start slot_end").then((res) => {
             return {
                 success: true,              // return results
                 result: res

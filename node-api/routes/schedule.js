@@ -9,45 +9,51 @@ const router = express.Router();
 
 // creating and saving the patients appointment
 router.post('/req-appt', (req, res, next) => {
-    // create appointment object
-    var appt = new Appointment(req.body.appt);
 
-    // save appointment request
-    appt.requestAppointment(req.body.userlogin).then((result) => {
+    var appt = new Appointment(req.body.appt);
+    appt.requestAppointment(req.body.userlogin)
+    .then((result) => {
         res.status(
             result.success ? 200 : 400
         ).send(result);
-    })
+    });
+
 });
 
-// approving appointments
+// approving saved appointments
 router.post('/approve-appt/:id', (req, res, next) => {
 
-    Appointment.approveAppointment(req.params.id, req.body.userlogin).then((result) => {
+    Appointment.approveAppointment(req.params.id, req.body.userlogin)
+    .then((result) => {
         res.status(
             result.success ? 200 : 400
         ).send(result);
-    })
+    });
+
 });
 
-// all appointments
+// fetching all appointments
 router.get('/all-appt/:role/:id', (req, res, next) =>{
 
-    Appointment.allAppointments(req.params.role, req.params.id).then((result) => {
+    Appointment.allAppointments(req.params.role, req.params.id)
+    .then((result) => {
         res.status(
             result.success ? 200 : 400
         ).send(result);
-    })
+    });
+
 });
 
-// finding specialised doctors
+// searching for doctors by speciality
 router.get('/search-doc/:speciality', (req, res, next) => {
 
-    Doctor.findDoctors(req.params.speciality).then((result) => {
+    Doctor.findDoctors(req.params.speciality)
+    .then((result) => {
         res.status(
             result.success ? 200 : 400
         ).send(result)
     });
+
 })
 
 // export router
