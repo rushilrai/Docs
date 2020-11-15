@@ -2,42 +2,32 @@
 const mongoose = require('mongoose');
 const bcrypt = require('bcrypt');
 
-// User
+// User template
 class User {
 
     // user schema
-    static UserModel = mongoose.model('users', 
-        new mongoose.Schema({
-            _id: {                  // email id
-                type: String,
-                required: true
-            },
-            password: {         // hashed password
-                type: String,
-                required: true
-            },
-            name: {                 // full name
-                type: String,
-                required: true
-            },
-            contact_no: {           // contact_no
-                type: String,
-                required: true
-            },
-            address: {              // address
-                type: String,
-                required: true
-            },
-            role: {
-                type: String,
-                required: true
-            },
-            docprofile: {
-                type: Object,
-                required: false
-            }
-        })
-    );
+    static UserModel = mongoose.model('users', new mongoose.Schema({
+        _id: {                  // email id
+            type: String,
+            required: true
+        },
+        password: {             // password
+            type: String,
+            required: true
+        },
+        name: {                 // full name
+            type: String,
+            required: true
+        },
+        contact_no: {           // contact_no
+            type: String,
+            required: true
+        },
+        address: {              // address
+            type: Object,
+            required: true
+        }
+    }));
 
     // init user model with data
     constructor (data) {
@@ -71,9 +61,10 @@ class User {
         });
     }
 
+
     // verify user on login
-    static async verifyUser (userLogin) {
-        return User.UserModel.findById(userLogin['_id']).then((res) => {
+    static async verifyUser (userLogin, model) {
+        return model.findById(userLogin['_id']).then((res) => {
 
             if (!res) {
                 return {            // user (_id) not found in db
@@ -85,7 +76,6 @@ class User {
             var res_json = res.toJSON();
 
             if (bcrypt.compareSync(userLogin['password'], res_json['password'])) {
-                delete res_json['password'];
                 return {            // user (_id) found & hash matched
                     success: true,
                     msg: `User ${userLogin['_id']} verified!`,
