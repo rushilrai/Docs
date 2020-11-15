@@ -90,6 +90,26 @@ class User {
  
         });
     }
+
+    // check if user exists
+    static async checkIfExists(user_id, model) {
+        return model.findById(user_id).then((res) => {
+            if (!res) {
+                return {
+                    success: false,
+                    msg: `User ${user_id} does not exist`
+                }
+            } else {
+                var res_json = res.toJSON();
+                delete res_json['password'];
+                return {
+                    success: true,
+                    msg: `User ${user_id} exists!`,
+                    res: res_json
+                }
+            }
+        });
+    }
 }
 
 // export User

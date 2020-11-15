@@ -35,8 +35,12 @@ class Doctor extends User {
             type: String,
             required: true
         },
-        schedule: {
-            type: Object,
+        slot_start: {
+            type: Date,
+            required: true
+        },
+        slot_end: {
+            type: Date,
             required: true
         }
     }));
