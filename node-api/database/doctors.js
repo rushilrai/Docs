@@ -51,6 +51,22 @@ class Doctor extends User {
         this.user = new Doctor.DoctorModel(data);
     }
     
+    // find doctors by specialisation
+    static async findDoctors (splzn) {
+        return Doctor.DoctorModel.find({
+            specialization: splzn           // find doctors by specialisation
+        }).then((res) => {
+            return {
+                success: true,              // return results
+                result: res
+            }
+        }).catch((err) => {
+            return {
+                success: false,             // return error
+                error: ErrorEvent
+            }
+        });
+    }
 }
 
 // exports

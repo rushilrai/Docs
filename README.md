@@ -19,29 +19,3 @@ npm install
 ```bash
 npm run dev
 ```
-
-* Requests
-
-  * For Sign-up: `/POST`
-
-  ```json
-  {
-    "_id": "johndoe@example.com",
-    "password": "johnDOE@2000",
-    "name": "John Doe",
-    "contact_no": "9999999999",
-    "address": "Example Address",
-    "role": "Patient | Doctor",
-    "docprofile": {}
-  }
-  ```
-
-  * For Log-in: `/POST`
-
-  ```json
-  {
-    "_id": "johndoe@example.com",
-    "password": "johnDOE@2000"
-  }
-
-  ```
