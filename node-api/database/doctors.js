@@ -56,6 +56,7 @@ class Doctor extends User {
         return Doctor.DoctorModel.find({
             specialization: splzn           // find doctors by specialisation
         }).then((res) => {
+            delete res.password;
             return {
                 success: true,              // return results
                 result: res
@@ -63,7 +64,7 @@ class Doctor extends User {
         }).catch((err) => {
             return {
                 success: false,             // return error
-                error: ErrorEvent
+                error: err
             }
         });
     }
