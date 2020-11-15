@@ -3,11 +3,6 @@ const mongoose = require('mongoose');
 const User = require('./users.js');
 const Doctor = require('./doctors.js');
 
-
-const MongoDB = require('./db.js');
-new MongoDB();
-
-
 // Appointment template
 class Appointment {
 
@@ -104,7 +99,6 @@ class Appointment {
 
         // check if doctor is logged in
         var loggedIn = await User.verifyUser(userLogin, Doctor.DoctorModel);
-
         if (!loggedIn.success) {
             return {
                 success: false,                 // if doctor isn't logged in
@@ -143,6 +137,35 @@ class Appointment {
                 success: false,
                 error: err
             }
+        });
+    }
+
+    // get all appointments for a user (_id)
+    static async allAppointments(role, id) {
+
+        // build query for finding appointments
+        switch (role) {
+            case 'patient': var db_query = { user_id: id }; break;      // search by user_id for patients
+            case 'doctor': var db_query = { doc_id: id }; break;        // search by doc_id for doctors
+            default: return {                                           // invalid role requested
+                success: false,
+                msg: "Invalid 'role' requested"
+            }
+        }
+
+        // find all appointments
+        return Appointment.ApptModel.find(db_query).then((res) => {
+
+            return {                                                    // find & return all appointments
+                success: true,
+                result: res
+            };
+
+        }).catch((err) => {
+            return {                                                    // error in finding appointments
+                success: false,
+                error: err
+            };             
         });
     }
 }
