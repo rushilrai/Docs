@@ -6,6 +6,27 @@ const { model } = require('mongoose');
 const router = express.Router();
 
 
-//router.get('', (req,res,next) => {
+router.post('/req-appt', (req,res,next) => {
+    console.log(req.body);
+})
 
-//})
+router.post('/approve-appt/:id', (req,res,next) => {
+    console.log(req.body);
+})
+
+router.get('/all-appt/:role/:id', (req,res,next) =>{
+
+    switch(req.params.role){
+
+        case 'patient':
+
+        case 'doctor':
+
+        default:
+            res.status(400).send({
+                success: false,
+                msg: "Invalid 'role' parameter"
+            });
+    }
+} )
+
