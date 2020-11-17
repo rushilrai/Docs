@@ -1,14 +1,13 @@
 // imports
 const express = require('express');
-const { model } = require('mongoose');
 const Appointment = require('../database/appointments');
-const Doctor = require("../database/doctors")
+const Doctor = require("../database/doctors");
 
 // router init
 const router = express.Router();
 
 // creating and saving the patients appointment
-router.post('/req-appt', (req, res, next) => {
+router.post('/new', (req, res, next) => {
 
     var appt = new Appointment(req.body.appt);
     appt.requestAppointment(req.body.userlogin)
@@ -21,7 +20,7 @@ router.post('/req-appt', (req, res, next) => {
 });
 
 // approving saved appointments
-router.post('/approve-appt/:id', (req, res, next) => {
+router.post('/approve/:id', (req, res, next) => {
 
     Appointment.approveAppointment(req.params.id, req.body.userlogin)
     .then((result) => {
@@ -33,7 +32,7 @@ router.post('/approve-appt/:id', (req, res, next) => {
 });
 
 // fetching all appointments
-router.get('/all-appt/:role/:id', (req, res, next) =>{
+router.get('/all/:role/:id', (req, res, next) =>{
 
     Appointment.allAppointments(req.params.role, req.params.id)
     .then((result) => {
@@ -45,13 +44,13 @@ router.get('/all-appt/:role/:id', (req, res, next) =>{
 });
 
 // searching for doctors by speciality
-router.get('/search-doc/:speciality', (req, res, next) => {
+router.get('/search/:speciality', (req, res, next) => {
 
     Doctor.findDoctors(req.params.speciality)
     .then((result) => {
         res.status(
             result.success ? 200 : 400
-        ).send(result)
+        ).send(result);
     });
 
 })

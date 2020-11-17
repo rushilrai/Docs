@@ -3,9 +3,10 @@ const express = require('express');
 const morgan = require('morgan');
 const cors = require('cors');
 const bodyparser = require('body-parser');
-const user = require('./routes/user.js');
 const MongoDB = require('./database/db.js');
-const schedule = require('./routes/schedule.js')
+const user = require('./routes/user.js');
+const appointment = require('./routes/appointment.js');
+const prescription = require('./routes/prescription.js');
 
 // app init
 const app = express();
@@ -27,9 +28,8 @@ app.get('/', (req, res) => {
 
 // use routers
 app.use('/user', user);
-
-//use routers
-app.use('/schedule', schedule)
+app.use('/appointment', appointment);
+app.use('/prescription', prescription)
 
 // listen to port or 8080
 app.listen(port, () => {
