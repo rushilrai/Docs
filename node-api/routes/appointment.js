@@ -50,7 +50,7 @@ router.get('/search/:speciality', (req, res, next) => {
     .then((result) => {
         res.status(
             result.success ? 200 : 400
-        ).send(result)
+        ).send(result);
     });
 
 })
