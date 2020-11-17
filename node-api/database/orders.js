@@ -1,10 +1,9 @@
 // imports
-const MongoDB = require('./db');
 const mongoose = require ('mongoose');
 const User =  require ('./users');
 const Doctor = require ("./doctors")
 
-new MongoDB();
+
 
 // order
 class Order {
@@ -69,7 +68,7 @@ class Order {
         }
     }
 
-    async allOrders(user_id) {
+    static async allOrders(user_id) {
 
         var db_query = { user_id: user_id }
         return Order.OrderModel.find(db_query).then((res) => {        // finding all orders with a given user_id
@@ -82,22 +81,4 @@ class Order {
 
 }
 
-var ord = new Order({
-    _id:"123",
-    user_id:"Mihir",
-    address:"Noida",
-    contact:"86086070",
-    prescription:{
-        med:"Crocin",
-        quant:"7",
-        price:"50"
-    }
-
-})
-
-ord.requestOrder({
-    _id : "mihirs16@gmail.com",
-    password : "mihirs16"
-})
-
-ord.allOrders("Mihir")
+module.exports = Order;
