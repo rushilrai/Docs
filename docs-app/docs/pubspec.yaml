@@ -30,6 +30,8 @@ dependencies:
   jitsi_meet: ^1.0.0
   permission_handler: ^4.0.0
   get: ^3.17.1
+  http: ^0.12.2
+  shared_preferences: ^0.5.12+4
 
 dev_dependencies:
   flutter_test:
@@ -40,8 +42,8 @@ flutter:
   uses-material-design: true
 
   # To add assets to your application, add an assets section, like this:
-  # assets:
-  #   - images/a_dot_burr.jpeg
+  assets:
+    - assets/images/
   #   - images/a_dot_ham.jpeg
 
   # An image asset can refer to one or more resolution-specific "variants", see
@@ -55,10 +57,20 @@ flutter:
   # "family" key with the font family name, and a "fonts" key with a
   # list giving the asset and other descriptors for the font. For
   # example:
-  # fonts:
-  #   - family: Schyler
-  #     fonts:
-  #       - asset: fonts/Schyler-Regular.ttf
+  fonts:
+    - family: Poppins
+      fonts:
+        - asset: assets/fonts/poppins/Poppins-Regular.ttf
+          weight: 100
+        - asset: assets/fonts/poppins/Poppins-Medium.ttf
+          weight: 200
+        - asset: assets/fonts/poppins/Poppins-SemiBold.ttf
+          weight: 400
+        - asset: assets/fonts/poppins/Poppins-Bold.ttf
+          weight: 600
+        - asset: assets/fonts/poppins/Poppins-ExtraBold.ttf
+          weight: 800
+
   #       - asset: fonts/Schyler-Italic.ttf
   #         style: italic
   #   - family: Trajan Pro

@@ -1,8 +1,15 @@
-import 'package:docs/pages/test.dart';
+import 'package:docs/pages/login.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:get/get.dart';
 
-void main() => runApp(MyApp());
+void main() {
+  WidgetsFlutterBinding.ensureInitialized();
+  SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp])
+      .then((_) {
+    runApp(MyApp());
+  });
+}
 
 class MyApp extends StatelessWidget {
   // This widget is the root of your application.
@@ -11,9 +18,9 @@ class MyApp extends StatelessWidget {
     return GetMaterialApp(
       title: 'Docs.',
       theme: ThemeData(
-        primarySwatch: Colors.blue,
+        primarySwatch: Colors.indigo,
       ),
-      home: TestPage(),
+      home: LoginPage(),
     );
   }
 }
