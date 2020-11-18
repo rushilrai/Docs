@@ -1,0 +1,51 @@
+<div style="padding: 10px; background-color: #E5E5E5; font-family: Arial, Helvetica, sans-serif;">
+<center>
+    <div style="background-color: #ffffff; width: 500px; padding-bottom: 10px;">
+        <img src="https://i.ibb.co/jkyWPXS/mail-header.png" alt="mail-header" border="0" width="500px" height="auto">
+        <div style="width: 450px">
+            <p style="color: #444444; font-size: 17.5px; line-height: 20px;">
+                📞 Your Contact Details
+            </p>
+            <table style="border-collapse: collapse; color: #444444; font-size: 15px; line-height: 20px;">
+                <tr>
+                    <td style="padding: 10px; text-align: center; border: 1px dotted #444444;">
+                        Email
+                    </td>
+                    <td style="padding: 10px; text-align: center; border: 1px dotted #444444;">
+                        <%= user_id %>
+                    </td>
+                </tr>
+                <tr>
+                    <td style="padding: 10px; text-align: center; border: 1px dotted #444444;">
+                        Address
+                    </td>
+                    <td style="padding: 10px; text-align: center; border: 1px dotted #444444;">
+                        <%= address %>
+                    </td>
+                </tr>
+                <tr>
+                    <td style="padding: 10px; text-align: center; border: 1px dotted #444444;">
+                        Contact
+                    </td>
+                    <td style="padding: 10px; text-align: center; border: 1px dotted #444444;">
+                        <%= contact %>
+                    </td>
+                </tr>
+            </table>
+            <br>
+            <hr style="width: 80%; border-top: 0.5px solid rgba(68, 68, 68, 0.1);">
+            <p style="color: #444444; font-size: 17.5px; line-height: 20px;">
+                💊 Your Order
+            </p>
+            <table style="    border-collapse: collapse; color: #444444; font-size: 15px; line-height: 20px;">
+                <% for(var i=0; i < prescription.meds.length; i++) { %>
+                    <tr>
+                      <td style="padding: 10px; text-align: center; border: 1px dotted #444444;"><%= prescription.meds[i].name %></td>
+                      <td style="padding: 10px; text-align: center; border: 1px dotted #444444;"><%= prescription.meds[i].quantity %></td>
+                    </tr>
+                <% } %>
+            </table>
+        </div>           
+    </div>
+</center>
+</div>
