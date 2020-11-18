@@ -1,6 +1,7 @@
 // imports
 const express = require('express');
 const Order = require("../database/orders.js");
+const mailer = require("../mailers/mailer")
 
 // router init
 const router = express.Router();
@@ -18,6 +19,20 @@ router.post("/request", (req, res, next) => {
             result.success ? 200 : 400
         ).send(result);
     });
+
+    // sending mail for order confirmation
+    const html = `<b>Receipt</b>
+    <br/>
+    Your order is confirmed
+    <br/>
+    Prescription ID: <b> ${req.body.order.prescription._id} </b>
+    <br/>
+    Medicines: <b> ${req.body.order.prescription.meds} </b>
+    <br/>
+    Total Amount to be paid: Rs. 1234.00 `
+    
+    let mail = req.body.order.user_id
+    mailer.sendEmail("admin@piggy.com",mail,"Your Order",html);
 });
 
 
