@@ -1,44 +1,42 @@
 // imports
 const mongoose = require ('mongoose');
-const User =  require ('./users');
-const Doctor = require ("./doctors")
+const User =  require ('./users.js');
+const Prescription = require('./prescriptions.js');
 
-
-
-// order
+// Order template
 class Order {
 
-    // order model
-    static OrderModel = mongoose.model ('order', new mongoose.Schema({
-        _id: {                                   //  order id
+    // Order model
+    static OrderModel = mongoose.model ('orders', new mongoose.Schema({
+        _id: {                                  //  order id
             type: mongoose.Types.ObjectId,
             required: true
         },
-        user_id: {                               // patient id  
+        user_id: {                              // patient   
             type: String,
             required: true
         },
-        address: {                                // doc id
+        address: {                              // address
             type: String,
             required: true
         },
-        contact: {                             // list of medicines
+        contact: {                              // contact number
             type: String,
             required: true
         },
-        prescription: {                       // prescribed by the doctor
+        prescription: {                         // prescription
             type: Object,
             required: true
         }
     }));
 
-    // object data
+    // new Order object
     constructor(data){
         data['_id'] = mongoose.Types.ObjectId();
         this.order = new Order.OrderModel(data);
     }
     
-    // sending and saving an order
+    // requesting new order
     async requestOrder(userLogin) {
 
         // for this order object
@@ -47,38 +45,52 @@ class Order {
         // check if user is logged in
         var loggedIn = await User.verifyUser(userLogin, User.UserModel);
 
+        // check if prescription is valid
+        var prescriptionValid = await Prescription.verifyPrescription(order_json['prescription']);
 
-        if (loggedIn.success) {
-        
-            this.order.save()   // saving all data
-            .then((result) => {
-                return {              // successful save
-                    success: true,
-                    res: result
-                }
-            })
-            .catch((err) => {
-                return {
-                    success: false,
-                    error: err
-                }
-            })
+        if (loggedIn.success) {                 // if user is logged in
+            if (prescriptionValid.success) {    // if prescription is valid
+                this.order.save()               // saving all data
+                .then((result) => {             // successful save
+                    return {                
+                        success: true,
+                        res: result
+                    };
+                })
+                .catch((err) => {               // error while saving
+                    return {
+                        success: false,
+                        error: err
+                    };
+                });
+            } else {
+                return prescriptionValid;
+            }
         } else {
-            return loggedIn            // user is not logged in
+            return loggedIn;                    // if user is not logged in
         }
     }
 
+    // fetching all orders
     static async allOrders(user_id) {
 
-        var db_query = { user_id: user_id }
-        return Order.OrderModel.find(db_query).then((res) => {        // finding all orders with a given user_id
-            return {
+        // find all orders
+        return Order.OrderModel.find({
+            user_id: user_id
+        }).then((res) => {
+            return {                // found all orders
                 success: true,
                 result: res
-            }
-        })
+            };
+        }).catch((err) => {
+            return {                // error while finding
+                success: false,
+                error: err
+            };
+        });
     }
 
 }
 
+// exports
 module.exports = Order;

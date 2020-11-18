@@ -1,7 +1,7 @@
 // imports
 const mongoose = require('mongoose');
-const Doctor = require('./doctors.js');
 const bcrypt = require('bcrypt');
+const Doctor = require('./doctors.js');
 
 // Prescription template
 class Prescription {

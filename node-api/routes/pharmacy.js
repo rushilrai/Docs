@@ -1,15 +1,17 @@
 // imports
 const express = require('express');
 const Order = require("../database/orders");
-const User = require("../database/users");
 
 // router init
 const router = express.Router();
 
 // placing an order
-router.post("/req-order", (req, res, next) => {
+router.post("/request", (req, res, next) => {
 
+    // new order
     var order = new Order(req.body.order);
+
+    // request for order
     order.requestOrder(req.body.userlogin)
     .then((result) => {
         res.status(
