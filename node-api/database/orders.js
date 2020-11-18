@@ -50,7 +50,7 @@ class Order {
 
         if (loggedIn.success) {                 // if user is logged in
             if (prescriptionValid.success) {    // if prescription is valid
-                this.order.save()               // saving all data
+                return this.order.save()        // saving all data
                 .then((result) => {             // successful save
                     return {                
                         success: true,
@@ -64,10 +64,10 @@ class Order {
                     };
                 });
             } else {
-                return prescriptionValid;
+                return prescriptionValid;       // prescription not valid
             }
         } else {
-            return loggedIn;                    // if user is not logged in
+            return loggedIn                     // if user is not logged in                   
         }
     }
 

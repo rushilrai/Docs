@@ -7,7 +7,7 @@ const MongoDB = require('./database/db.js');
 const user = require('./routes/user.js');
 const appointment = require('./routes/appointment.js');
 const prescription = require('./routes/prescription.js');
-const pharmacy = require("./routes/pharmacy")
+const pharmacy = require("./routes/pharmacy.js");
 
 // app init
 const app = express();
@@ -20,7 +20,7 @@ app.use(bodyparser.urlencoded({         // body-parser for urlencoded
 }));
 
 // db init
-const mongodb = new MongoDB();
+new MongoDB();
 
 // default route
 app.get('/', (req, res) => {
@@ -30,7 +30,7 @@ app.get('/', (req, res) => {
 // use routers
 app.use('/user', user);
 app.use('/appointment', appointment);
-app.use('/prescription', prescription)
+app.use('/prescription', prescription);
 app.use('/pharmacy', pharmacy);
 
 // listen to port or 8080

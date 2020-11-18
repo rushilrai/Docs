@@ -107,23 +107,29 @@ class Prescription {
 
             // check if prescription exists in DB
             if (!res) {
-
-                // hash prescription from order
-                var hashFromOrder = bcrypt.hashSync(JSON.stringify(prescriptionFromOrder), 10);
-                
-                // compare hashes with prescription from db
-                if (bcrypt.compareSync(JSON.stringify(res), hashFromOrder)) {
-                    return {
-                        success: true,
-                        msg: "Prescription verified"
-                    }
-                } else {
-                    return {
-                        success: false,
-                        msg: "Prescription compromised"
-                    }
+                return {
+                    success: false,
+                    msg: "Prescription not found."
                 }
+            }
 
+            // hash prescription from order
+            var hashFromOrder = {
+                prescription: bcrypt.hashSync(JSON.stringify(prescriptionFromOrder), 10),
+                meds: bcrypt.hashSync(JSON.stringify(prescriptionFromOrder['meds']), 10)
+            }
+
+            // compare hashes with prescription from db
+            if (bcrypt.compareSync(JSON.stringify(res), hashFromOrder['prescription']) && bcrypt.compareSync(JSON.stringify(res['meds']), hashFromOrder['meds'])) {
+                return {
+                    success: true,
+                    msg: "Prescription verified"
+                }
+            } else {
+                return {
+                    success: false,
+                    msg: "Prescription compromised"
+                }
             }
          
         })

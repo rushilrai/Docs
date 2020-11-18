@@ -1,6 +1,6 @@
 // imports
 const express = require('express');
-const Order = require("../database/orders");
+const Order = require("../database/orders.js");
 
 // router init
 const router = express.Router();
@@ -22,7 +22,7 @@ router.post("/request", (req, res, next) => {
 
 
 // list of all orders by user_id
-router.get("/allorders/:id", (req, res, next) => {
+router.get("/all/:id", (req, res, next) => {
 
     Order.allOrders(req.params.id)
     .then((result) => {
