@@ -1,6 +1,5 @@
 // imports
 const express = require('express');
-const { model } = require('mongoose');
 const User = require('../database/users.js');
 const Doctor = require('../database/doctors.js');
 
