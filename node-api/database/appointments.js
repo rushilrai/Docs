@@ -12,11 +12,19 @@ class Appointment {
             type: mongoose.Types.ObjectId,
             required: true
         },
-        user_id: {              // appointment requested by
+        name_user: {            // name of the user appointment requested by
             type: String,
             required: true
         },
-        doc_id: {               // appointment requested to
+        name_doc: {            // name of the doc appointment requested to
+            type: String,
+            required: true
+        },
+        user_id: {              // id of the user appointment requested by
+            type: String,
+            required: true
+        },
+        doc_id: {               // id of the doc appointment requested to
             type: String,
             required: true
         },
