@@ -16,7 +16,7 @@ class Appointment {
             type: String,
             required: true
         },
-        name_doc: {            // name of the doc appointment requested to
+        name_doc: {             // name of the doc appointment requested to
             type: String,
             required: true
         },
