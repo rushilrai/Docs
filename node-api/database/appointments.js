@@ -12,11 +12,19 @@ class Appointment {
             type: mongoose.Types.ObjectId,
             required: true
         },
-        user_id: {              // appointment requested by
+        name_user: {            // name of the user appointment requested by
             type: String,
             required: true
         },
-        doc_id: {               // appointment requested to
+        name_doc: {             // name of the doc appointment requested to
+            type: String,
+            required: true
+        },
+        user_id: {              // id of the user appointment requested by
+            type: String,
+            required: true
+        },
+        doc_id: {               // id of the doc appointment requested to
             type: String,
             required: true
         },
@@ -61,8 +69,8 @@ class Appointment {
             if (doctorExists.success) {
 
                 // check if time requested is within doctor's schedule
-                var startTimeCheck = appt_json['time_start'].getTime() > doctorExists['res']['slot_start'].getTime();
-                var stopTimeCheck = appt_json['time_end'].getTime() < doctorExists['res']['slot_end'].getTime();
+                var startTimeCheck = appt_json['time_start'].getHours() > doctorExists['res']['slot_start'].getHours();
+                var stopTimeCheck = appt_json['time_end'].getHours() < doctorExists['res']['slot_end'].getHours();
                 if (startTimeCheck && stopTimeCheck) {
 
                     return this.appointment     // save on all conditions satisfy
