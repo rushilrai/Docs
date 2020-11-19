@@ -1,3 +1,5 @@
+import 'package:docs/models/user.dart';
+import 'package:docs/pages/signup_address.dart';
 import 'package:docs/utils/constants.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -38,6 +40,9 @@ class _SignUpDocInfoPageState extends State<SignUpDocInfoPage> {
   var initSelected;
   var finalSelected;
   bool periodSelection;
+  TextEditingController qualificationController = TextEditingController();
+  TextEditingController localityController = TextEditingController();
+  TextEditingController clinicController = TextEditingController();
   @override
   void initState() {
     spezSelected = '';
@@ -91,7 +96,7 @@ class _SignUpDocInfoPageState extends State<SignUpDocInfoPage> {
                                   borderRadius: BorderRadius.circular(13),
                                   splashColor: darkPurple,
                                   onTap: () {
-                                    print('hello');
+                                    Get.back();
                                   },
                                   child: Container(
                                     decoration: BoxDecoration(
@@ -265,7 +270,7 @@ class _SignUpDocInfoPageState extends State<SignUpDocInfoPage> {
                                                   );
                                                 },
                                               ),
-                                            )
+                                            ),
                                           ],
                                         ),
                                       ),
@@ -296,10 +301,12 @@ class _SignUpDocInfoPageState extends State<SignUpDocInfoPage> {
                                 ),
                                 child: Theme(
                                   data: ThemeData(
-                                    textSelectionHandleColor:
-                                        Color.fromRGBO(98, 112, 221, 0.34),
-                                    textSelectionColor:
-                                        Color.fromRGBO(98, 112, 221, 0.34),
+                                    textSelectionTheme: TextSelectionThemeData(
+                                      selectionColor:
+                                          Color.fromRGBO(98, 112, 221, 0.34),
+                                      selectionHandleColor:
+                                          Color.fromRGBO(98, 112, 221, 0.34),
+                                    ),
                                   ),
                                   child: TextField(
                                     enabled: false,
@@ -363,12 +370,15 @@ class _SignUpDocInfoPageState extends State<SignUpDocInfoPage> {
                               ),
                               child: Theme(
                                 data: ThemeData(
-                                  textSelectionHandleColor:
-                                      Color.fromRGBO(98, 112, 221, 0.34),
-                                  textSelectionColor:
-                                      Color.fromRGBO(98, 112, 221, 0.34),
+                                  textSelectionTheme: TextSelectionThemeData(
+                                    selectionColor:
+                                        Color.fromRGBO(98, 112, 221, 0.34),
+                                    selectionHandleColor:
+                                        Color.fromRGBO(98, 112, 221, 0.34),
+                                  ),
                                 ),
                                 child: TextField(
+                                  controller: qualificationController,
                                   cursorColor: lightPurple,
                                   cursorRadius: Radius.circular(30),
                                   cursorWidth: 3,
@@ -376,7 +386,7 @@ class _SignUpDocInfoPageState extends State<SignUpDocInfoPage> {
                                       disabledBorder: InputBorder.none,
                                       focusedBorder: InputBorder.none,
                                       enabledBorder: InputBorder.none,
-                                      hintText: 'Qualification',
+                                      hintText: 'Qualifications',
                                       hintStyle: TextStyle(
                                         color:
                                             Color.fromRGBO(98, 112, 221, 0.34),
@@ -419,12 +429,15 @@ class _SignUpDocInfoPageState extends State<SignUpDocInfoPage> {
                               ),
                               child: Theme(
                                 data: ThemeData(
-                                  textSelectionHandleColor:
-                                      Color.fromRGBO(98, 112, 221, 0.34),
-                                  textSelectionColor:
-                                      Color.fromRGBO(98, 112, 221, 0.34),
+                                  textSelectionTheme: TextSelectionThemeData(
+                                    selectionColor:
+                                        Color.fromRGBO(98, 112, 221, 0.34),
+                                    selectionHandleColor:
+                                        Color.fromRGBO(98, 112, 221, 0.34),
+                                  ),
                                 ),
                                 child: TextField(
+                                  controller: localityController,
                                   cursorColor: lightPurple,
                                   cursorRadius: Radius.circular(30),
                                   cursorWidth: 3,
@@ -432,7 +445,7 @@ class _SignUpDocInfoPageState extends State<SignUpDocInfoPage> {
                                       disabledBorder: InputBorder.none,
                                       focusedBorder: InputBorder.none,
                                       enabledBorder: InputBorder.none,
-                                      hintText: 'Locality',
+                                      hintText: 'Clinic Locality',
                                       hintStyle: TextStyle(
                                         color:
                                             Color.fromRGBO(98, 112, 221, 0.34),
@@ -475,12 +488,15 @@ class _SignUpDocInfoPageState extends State<SignUpDocInfoPage> {
                               ),
                               child: Theme(
                                 data: ThemeData(
-                                  textSelectionHandleColor:
-                                      Color.fromRGBO(98, 112, 221, 0.34),
-                                  textSelectionColor:
-                                      Color.fromRGBO(98, 112, 221, 0.34),
+                                  textSelectionTheme: TextSelectionThemeData(
+                                    selectionColor:
+                                        Color.fromRGBO(98, 112, 221, 0.34),
+                                    selectionHandleColor:
+                                        Color.fromRGBO(98, 112, 221, 0.34),
+                                  ),
                                 ),
                                 child: TextField(
+                                  controller: clinicController,
                                   cursorColor: lightPurple,
                                   cursorRadius: Radius.circular(30),
                                   cursorWidth: 3,
@@ -488,7 +504,7 @@ class _SignUpDocInfoPageState extends State<SignUpDocInfoPage> {
                                       disabledBorder: InputBorder.none,
                                       focusedBorder: InputBorder.none,
                                       enabledBorder: InputBorder.none,
-                                      hintText: 'Clinic/Hospital',
+                                      hintText: 'Clinic/Hospital Name',
                                       hintStyle: TextStyle(
                                         color:
                                             Color.fromRGBO(98, 112, 221, 0.34),
@@ -694,10 +710,12 @@ class _SignUpDocInfoPageState extends State<SignUpDocInfoPage> {
                                 ),
                                 child: Theme(
                                   data: ThemeData(
-                                    textSelectionHandleColor:
-                                        Color.fromRGBO(98, 112, 221, 0.34),
-                                    textSelectionColor:
-                                        Color.fromRGBO(98, 112, 221, 0.34),
+                                    textSelectionTheme: TextSelectionThemeData(
+                                      selectionColor:
+                                          Color.fromRGBO(98, 112, 221, 0.34),
+                                      selectionHandleColor:
+                                          Color.fromRGBO(98, 112, 221, 0.34),
+                                    ),
                                   ),
                                   child: TextField(
                                     enabled: false,
@@ -754,7 +772,41 @@ class _SignUpDocInfoPageState extends State<SignUpDocInfoPage> {
                               borderRadius: BorderRadius.circular(13),
                               splashColor: darkPurple,
                               onTap: () {
-                                print('hello');
+                                if (spezSelection == true &&
+                                    qualificationController.text.length > 0 &&
+                                    periodSelection == true) {
+                                  userSpecialization = spezSelected;
+                                  userQualification =
+                                      qualificationController.text;
+                                  userPeriodInit = initSelected;
+                                  userPeriodFinal = finalSelected;
+                                  Get.to(SignUpAddressPage());
+                                } else {
+                                  Get.snackbar(
+                                    'Error',
+                                    "Fill all Details",
+                                    barBlur: 0,
+                                    snackPosition: SnackPosition.TOP,
+                                    backgroundColor: bgColor,
+                                    borderRadius: 10,
+                                    titleText: Text(
+                                      'Error',
+                                      style: TextStyle(
+                                        fontFamily: 'Trueno',
+                                        fontWeight: FontWeight.w800,
+                                        color: lightPurple,
+                                      ),
+                                    ),
+                                    messageText: Text(
+                                      'Fill all Details',
+                                      style: TextStyle(
+                                        fontFamily: 'Trueno',
+                                        fontWeight: FontWeight.w400,
+                                        color: lightPurple,
+                                      ),
+                                    ),
+                                  );
+                                }
                               },
                               child: Container(
                                 decoration: BoxDecoration(

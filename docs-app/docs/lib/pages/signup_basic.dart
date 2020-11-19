@@ -1,3 +1,6 @@
+import 'package:docs/models/user.dart';
+import 'package:docs/pages/signup_address.dart';
+import 'package:docs/pages/signup_docinfo.dart';
 import 'package:docs/utils/constants.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -9,6 +12,9 @@ class SignUpBasicPage extends StatefulWidget {
 }
 
 class _SignUpBasicPageState extends State<SignUpBasicPage> {
+  TextEditingController nameController = TextEditingController();
+  TextEditingController emailController = TextEditingController();
+  TextEditingController mobileController = TextEditingController();
   bool maleSelected;
   bool femaleSelected;
   bool othersSelected;
@@ -68,7 +74,7 @@ class _SignUpBasicPageState extends State<SignUpBasicPage> {
                                   borderRadius: BorderRadius.circular(13),
                                   splashColor: darkPurple,
                                   onTap: () {
-                                    print('hello');
+                                    Get.back();
                                   },
                                   child: Container(
                                     decoration: BoxDecoration(
@@ -117,12 +123,15 @@ class _SignUpBasicPageState extends State<SignUpBasicPage> {
                               ),
                               child: Theme(
                                 data: ThemeData(
-                                  textSelectionHandleColor:
-                                      Color.fromRGBO(98, 112, 221, 0.34),
-                                  textSelectionColor:
-                                      Color.fromRGBO(98, 112, 221, 0.34),
+                                  textSelectionTheme: TextSelectionThemeData(
+                                    selectionColor:
+                                        Color.fromRGBO(98, 112, 221, 0.34),
+                                    selectionHandleColor:
+                                        Color.fromRGBO(98, 112, 221, 0.34),
+                                  ),
                                 ),
                                 child: TextField(
+                                  controller: nameController,
                                   cursorColor: lightPurple,
                                   cursorRadius: Radius.circular(30),
                                   cursorWidth: 3,
@@ -173,12 +182,15 @@ class _SignUpBasicPageState extends State<SignUpBasicPage> {
                               ),
                               child: Theme(
                                 data: ThemeData(
-                                  textSelectionHandleColor:
-                                      Color.fromRGBO(98, 112, 221, 0.34),
-                                  textSelectionColor:
-                                      Color.fromRGBO(98, 112, 221, 0.34),
+                                  textSelectionTheme: TextSelectionThemeData(
+                                    selectionColor:
+                                        Color.fromRGBO(98, 112, 221, 0.34),
+                                    selectionHandleColor:
+                                        Color.fromRGBO(98, 112, 221, 0.34),
+                                  ),
                                 ),
                                 child: TextField(
+                                  controller: emailController,
                                   cursorColor: lightPurple,
                                   cursorRadius: Radius.circular(30),
                                   cursorWidth: 3,
@@ -465,10 +477,12 @@ class _SignUpBasicPageState extends State<SignUpBasicPage> {
                                 ),
                                 child: Theme(
                                   data: ThemeData(
-                                    textSelectionHandleColor:
-                                        Color.fromRGBO(98, 112, 221, 0.34),
-                                    textSelectionColor:
-                                        Color.fromRGBO(98, 112, 221, 0.34),
+                                    textSelectionTheme: TextSelectionThemeData(
+                                      selectionColor:
+                                          Color.fromRGBO(98, 112, 221, 0.34),
+                                      selectionHandleColor:
+                                          Color.fromRGBO(98, 112, 221, 0.34),
+                                    ),
                                   ),
                                   child: TextField(
                                     enabled: false,
@@ -540,16 +554,22 @@ class _SignUpBasicPageState extends State<SignUpBasicPage> {
                               ),
                               child: Theme(
                                 data: ThemeData(
-                                  textSelectionHandleColor:
-                                      Color.fromRGBO(98, 112, 221, 0.34),
-                                  textSelectionColor:
-                                      Color.fromRGBO(98, 112, 221, 0.34),
+                                  textSelectionTheme: TextSelectionThemeData(
+                                    selectionColor:
+                                        Color.fromRGBO(98, 112, 221, 0.34),
+                                    selectionHandleColor:
+                                        Color.fromRGBO(98, 112, 221, 0.34),
+                                  ),
                                 ),
                                 child: TextField(
+                                  keyboardType: TextInputType.phone,
+                                  maxLength: 10,
+                                  controller: mobileController,
                                   cursorColor: lightPurple,
                                   cursorRadius: Radius.circular(30),
                                   cursorWidth: 3,
                                   decoration: InputDecoration(
+                                      counterText: '',
                                       disabledBorder: InputBorder.none,
                                       focusedBorder: InputBorder.none,
                                       enabledBorder: InputBorder.none,
@@ -777,10 +797,12 @@ class _SignUpBasicPageState extends State<SignUpBasicPage> {
                                 ),
                                 child: Theme(
                                   data: ThemeData(
-                                    textSelectionHandleColor:
-                                        Color.fromRGBO(98, 112, 221, 0.34),
-                                    textSelectionColor:
-                                        Color.fromRGBO(98, 112, 221, 0.34),
+                                    textSelectionTheme: TextSelectionThemeData(
+                                      selectionColor:
+                                          Color.fromRGBO(98, 112, 221, 0.34),
+                                      selectionHandleColor:
+                                          Color.fromRGBO(98, 112, 221, 0.34),
+                                    ),
                                   ),
                                   child: TextField(
                                     enabled: false,
@@ -838,7 +860,64 @@ class _SignUpBasicPageState extends State<SignUpBasicPage> {
                               borderRadius: BorderRadius.circular(13),
                               splashColor: darkPurple,
                               onTap: () {
-                                print('hello');
+                                if (nameController.text.length > 0 &&
+                                    emailController.text.length > 0 &&
+                                    (maleSelected == true ||
+                                        femaleSelected == true ||
+                                        othersSelected == true) &&
+                                    mobileController.text.length == 10 &&
+                                    (patientSelected == true ||
+                                        doctorSelected == true)) {
+                                  if (patientSelected) {
+                                    userName = nameController.text;
+                                    userEmail = emailController.text;
+                                    userGender = (maleSelected)
+                                        ? 'Male'
+                                        : (femaleSelected)
+                                            ? 'Female'
+                                            : 'Other';
+                                    userMobile = mobileController.text;
+                                    userRole = 'Patient';
+                                    Get.to(SignUpAddressPage());
+                                  } else {
+                                    userName = nameController.text;
+                                    userEmail = emailController.text;
+                                    userGender = (maleSelected)
+                                        ? 'Male'
+                                        : (femaleSelected)
+                                            ? 'Female'
+                                            : 'Other';
+                                    userMobile = mobileController.text;
+                                    userRole = 'Doctor';
+                                    Get.to(SignUpDocInfoPage());
+                                  }
+                                  print('valid');
+                                } else {
+                                  Get.snackbar(
+                                    'Error',
+                                    "Fill all Details",
+                                    barBlur: 0,
+                                    snackPosition: SnackPosition.TOP,
+                                    backgroundColor: bgColor,
+                                    borderRadius: 10,
+                                    titleText: Text(
+                                      'Error',
+                                      style: TextStyle(
+                                        fontFamily: 'Trueno',
+                                        fontWeight: FontWeight.w800,
+                                        color: lightPurple,
+                                      ),
+                                    ),
+                                    messageText: Text(
+                                      'Fill all Details',
+                                      style: TextStyle(
+                                        fontFamily: 'Trueno',
+                                        fontWeight: FontWeight.w400,
+                                        color: lightPurple,
+                                      ),
+                                    ),
+                                  );
+                                }
                               },
                               child: Container(
                                 decoration: BoxDecoration(

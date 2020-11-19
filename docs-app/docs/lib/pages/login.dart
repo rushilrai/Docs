@@ -1,6 +1,7 @@
 import 'dart:convert';
 
 import 'package:docs/pages/home.dart';
+import 'package:docs/pages/signup_basic.dart';
 import 'package:docs/utils/constants.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -302,10 +303,12 @@ class _LoginPageState extends State<LoginPage> {
                               ),
                               child: Theme(
                                 data: ThemeData(
-                                  textSelectionHandleColor:
-                                      Color.fromRGBO(98, 112, 221, 0.34),
-                                  textSelectionColor:
-                                      Color.fromRGBO(98, 112, 221, 0.34),
+                                  textSelectionTheme: TextSelectionThemeData(
+                                    selectionColor:
+                                        Color.fromRGBO(98, 112, 221, 0.34),
+                                    selectionHandleColor:
+                                        Color.fromRGBO(98, 112, 221, 0.34),
+                                  ),
                                 ),
                                 child: TextField(
                                   enabled: false,
@@ -373,12 +376,15 @@ class _LoginPageState extends State<LoginPage> {
                             ),
                             child: Theme(
                               data: ThemeData(
-                                textSelectionHandleColor:
-                                    Color.fromRGBO(98, 112, 221, 0.34),
-                                textSelectionColor:
-                                    Color.fromRGBO(98, 112, 221, 0.34),
+                                textSelectionTheme: TextSelectionThemeData(
+                                  selectionColor:
+                                      Color.fromRGBO(98, 112, 221, 0.34),
+                                  selectionHandleColor:
+                                      Color.fromRGBO(98, 112, 221, 0.34),
+                                ),
                               ),
                               child: TextField(
+                                keyboardType: TextInputType.visiblePassword,
                                 controller: emailController,
                                 cursorColor: lightPurple,
                                 cursorRadius: Radius.circular(30),
@@ -429,10 +435,12 @@ class _LoginPageState extends State<LoginPage> {
                             ),
                             child: Theme(
                               data: ThemeData(
-                                textSelectionHandleColor:
-                                    Color.fromRGBO(98, 112, 221, 0.34),
-                                textSelectionColor:
-                                    Color.fromRGBO(98, 112, 221, 0.34),
+                                textSelectionTheme: TextSelectionThemeData(
+                                  selectionColor:
+                                      Color.fromRGBO(98, 112, 221, 0.34),
+                                  selectionHandleColor:
+                                      Color.fromRGBO(98, 112, 221, 0.34),
+                                ),
                               ),
                               child: TextField(
                                 controller: passwordController,
@@ -476,18 +484,6 @@ class _LoginPageState extends State<LoginPage> {
                                 ),
                               ),
                             ),
-                          ),
-                        ),
-                        SizedBox(
-                          height: 5,
-                        ),
-                        Text(
-                          'Password minimum length is 6',
-                          style: TextStyle(
-                            color: !(pswdError) ? bgColor : Colors.red[100],
-                            fontSize: 14,
-                            fontWeight: FontWeight.w600,
-                            fontFamily: 'Poppins',
                           ),
                         ),
                         Spacer(
@@ -546,13 +542,18 @@ class _LoginPageState extends State<LoginPage> {
                                 color: Color.fromRGBO(98, 112, 221, 0.34),
                               ),
                             ),
-                            Text(
-                              'Sign Up',
-                              style: TextStyle(
-                                fontFamily: 'Poppins',
-                                fontSize: 18,
-                                fontWeight: FontWeight.w600,
-                                color: lightPurple,
+                            GestureDetector(
+                              onTap: () {
+                                Get.to(SignUpBasicPage());
+                              },
+                              child: Text(
+                                'Sign Up',
+                                style: TextStyle(
+                                  fontFamily: 'Poppins',
+                                  fontSize: 18,
+                                  fontWeight: FontWeight.w600,
+                                  color: lightPurple,
+                                ),
                               ),
                             ),
                           ],
@@ -615,24 +616,61 @@ void _login(
   );
   if (loginResponse.statusCode == 200) {
     String loginResponseJson = loginResponse.body;
+    print(loginResponseJson);
+    SharedPreferences prefs = await SharedPreferences.getInstance();
     var id;
     var name;
     var mobile;
     var address;
+
     id = jsonDecode(loginResponseJson)['user']['_id'];
     name = jsonDecode(loginResponseJson)['user']['name'];
     mobile = jsonDecode(loginResponseJson)['user']['contact_no'];
     address = jsonDecode(loginResponseJson)['user']['address'];
-    SharedPreferences prefs = await SharedPreferences.getInstance();
+
     prefs.setString('role', role);
     prefs.setString('userid', id);
     prefs.setString('password', password);
     prefs.setString('name', name);
     prefs.setString('mobile', mobile);
     prefs.setString('address', address);
+
+    //doctor
+
+    if (role == 'Doctor') {
+      var spez;
+      var qual;
+      var slotStart;
+      var slotStartObj;
+      var slotEnd;
+      var slotEndObj;
+
+      spez = jsonDecode(loginResponseJson)['user']['specialization'];
+      qual = jsonDecode(loginResponseJson)['user']['qualification'];
+      slotStart = jsonDecode(loginResponseJson)['user']['slot_start'];
+      // ignore: await_only_futures
+      slotStartObj = await DateTime.parse(slotStart).hour;
+      slotEnd = jsonDecode(loginResponseJson)['user']['slot_end'];
+      // ignore: await_only_futures
+      slotEndObj = await DateTime.parse(slotEnd).hour;
+
+      prefs.setString('spez', spez);
+      prefs.setString('qual', qual);
+      if (slotStartObj < 10) {
+        prefs.setString('slotStart', '0' + slotStartObj);
+      } else {
+        prefs.setString('slotStart', slotStartObj);
+      }
+      if (slotEndObj < 10) {
+        prefs.setString('slotEnd', '0' + slotEndObj);
+      } else {
+        prefs.setString('slotEnd', slotEndObj);
+      }
+    }
+
     prefs.setBool('loggedin', true);
-    print(prefs.getBool('loggedin'));
-    Get.offAll(HomePage());
+
+    Get.offAll(HomePage(name, role));
   } else {
     Get.back();
     Get.snackbar(

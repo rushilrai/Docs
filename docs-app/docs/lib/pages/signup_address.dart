@@ -1,3 +1,5 @@
+import 'package:docs/models/user.dart';
+import 'package:docs/pages/signup_password.dart';
 import 'package:docs/utils/constants.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -9,12 +11,17 @@ class SignUpAddressPage extends StatefulWidget {
 }
 
 class _SignUpAddressPageState extends State<SignUpAddressPage> {
+  TextEditingController pincodeController = TextEditingController();
+  TextEditingController stateController = TextEditingController();
+  TextEditingController cityController = TextEditingController();
+  TextEditingController localityController = TextEditingController();
+  TextEditingController houseController = TextEditingController();
   @override
   Widget build(BuildContext context) {
     return AnnotatedRegion<SystemUiOverlayStyle>(
       value: SystemUiOverlayStyle(
         statusBarBrightness: Brightness.light,
-        statusBarColor: lightPurple,
+        statusBarColor: Colors.transparent,
         systemNavigationBarColor: bgColor,
       ),
       child: Scaffold(
@@ -52,7 +59,7 @@ class _SignUpAddressPageState extends State<SignUpAddressPage> {
                                   borderRadius: BorderRadius.circular(13),
                                   splashColor: darkPurple,
                                   onTap: () {
-                                    print('hello');
+                                    Get.back();
                                   },
                                   child: Container(
                                     decoration: BoxDecoration(
@@ -101,16 +108,21 @@ class _SignUpAddressPageState extends State<SignUpAddressPage> {
                               ),
                               child: Theme(
                                 data: ThemeData(
-                                  textSelectionHandleColor:
-                                      Color.fromRGBO(98, 112, 221, 0.34),
-                                  textSelectionColor:
-                                      Color.fromRGBO(98, 112, 221, 0.34),
+                                  textSelectionTheme: TextSelectionThemeData(
+                                    selectionColor:
+                                        Color.fromRGBO(98, 112, 221, 0.34),
+                                    selectionHandleColor:
+                                        Color.fromRGBO(98, 112, 221, 0.34),
+                                  ),
                                 ),
                                 child: TextField(
+                                  controller: pincodeController,
+                                  maxLength: 6,
                                   cursorColor: lightPurple,
                                   cursorRadius: Radius.circular(30),
                                   cursorWidth: 3,
                                   decoration: InputDecoration(
+                                      counterText: '',
                                       disabledBorder: InputBorder.none,
                                       focusedBorder: InputBorder.none,
                                       enabledBorder: InputBorder.none,
@@ -157,12 +169,15 @@ class _SignUpAddressPageState extends State<SignUpAddressPage> {
                               ),
                               child: Theme(
                                 data: ThemeData(
-                                  textSelectionHandleColor:
-                                      Color.fromRGBO(98, 112, 221, 0.34),
-                                  textSelectionColor:
-                                      Color.fromRGBO(98, 112, 221, 0.34),
+                                  textSelectionTheme: TextSelectionThemeData(
+                                    selectionColor:
+                                        Color.fromRGBO(98, 112, 221, 0.34),
+                                    selectionHandleColor:
+                                        Color.fromRGBO(98, 112, 221, 0.34),
+                                  ),
                                 ),
                                 child: TextField(
+                                  controller: stateController,
                                   cursorColor: lightPurple,
                                   cursorRadius: Radius.circular(30),
                                   cursorWidth: 3,
@@ -213,12 +228,15 @@ class _SignUpAddressPageState extends State<SignUpAddressPage> {
                               ),
                               child: Theme(
                                 data: ThemeData(
-                                  textSelectionHandleColor:
-                                      Color.fromRGBO(98, 112, 221, 0.34),
-                                  textSelectionColor:
-                                      Color.fromRGBO(98, 112, 221, 0.34),
+                                  textSelectionTheme: TextSelectionThemeData(
+                                    selectionColor:
+                                        Color.fromRGBO(98, 112, 221, 0.34),
+                                    selectionHandleColor:
+                                        Color.fromRGBO(98, 112, 221, 0.34),
+                                  ),
                                 ),
                                 child: TextField(
+                                  controller: cityController,
                                   cursorColor: lightPurple,
                                   cursorRadius: Radius.circular(30),
                                   cursorWidth: 3,
@@ -269,12 +287,15 @@ class _SignUpAddressPageState extends State<SignUpAddressPage> {
                               ),
                               child: Theme(
                                 data: ThemeData(
-                                  textSelectionHandleColor:
-                                      Color.fromRGBO(98, 112, 221, 0.34),
-                                  textSelectionColor:
-                                      Color.fromRGBO(98, 112, 221, 0.34),
+                                  textSelectionTheme: TextSelectionThemeData(
+                                    selectionColor:
+                                        Color.fromRGBO(98, 112, 221, 0.34),
+                                    selectionHandleColor:
+                                        Color.fromRGBO(98, 112, 221, 0.34),
+                                  ),
                                 ),
                                 child: TextField(
+                                  controller: localityController,
                                   cursorColor: lightPurple,
                                   cursorRadius: Radius.circular(30),
                                   cursorWidth: 3,
@@ -325,12 +346,15 @@ class _SignUpAddressPageState extends State<SignUpAddressPage> {
                               ),
                               child: Theme(
                                 data: ThemeData(
-                                  textSelectionHandleColor:
-                                      Color.fromRGBO(98, 112, 221, 0.34),
-                                  textSelectionColor:
-                                      Color.fromRGBO(98, 112, 221, 0.34),
+                                  textSelectionTheme: TextSelectionThemeData(
+                                    selectionColor:
+                                        Color.fromRGBO(98, 112, 221, 0.34),
+                                    selectionHandleColor:
+                                        Color.fromRGBO(98, 112, 221, 0.34),
+                                  ),
                                 ),
                                 child: TextField(
+                                  controller: houseController,
                                   cursorColor: lightPurple,
                                   cursorRadius: Radius.circular(30),
                                   cursorWidth: 3,
@@ -370,7 +394,43 @@ class _SignUpAddressPageState extends State<SignUpAddressPage> {
                               borderRadius: BorderRadius.circular(13),
                               splashColor: darkPurple,
                               onTap: () {
-                                print('hello');
+                                if (pincodeController.text.length == 6 &&
+                                    stateController.text.length > 0 &&
+                                    cityController.text.length > 0 &&
+                                    localityController.text.length > 0 &&
+                                    houseController.text.length > 0) {
+                                  userPincode = pincodeController.text;
+                                  userState = stateController.text;
+                                  userCity = cityController.text;
+                                  userLocality = localityController.text;
+                                  userHouse = houseController.text;
+                                  Get.to(SignUpPasswordPage());
+                                } else {
+                                  Get.snackbar(
+                                    'Failed',
+                                    "Incorrect Details",
+                                    barBlur: 0,
+                                    snackPosition: SnackPosition.TOP,
+                                    backgroundColor: bgColor,
+                                    borderRadius: 10,
+                                    titleText: Text(
+                                      'Failed',
+                                      style: TextStyle(
+                                        fontFamily: 'Trueno',
+                                        fontWeight: FontWeight.w800,
+                                        color: lightPurple,
+                                      ),
+                                    ),
+                                    messageText: Text(
+                                      'Incorrect Details',
+                                      style: TextStyle(
+                                        fontFamily: 'Trueno',
+                                        fontWeight: FontWeight.w400,
+                                        color: lightPurple,
+                                      ),
+                                    ),
+                                  );
+                                }
                               },
                               child: Container(
                                 decoration: BoxDecoration(
