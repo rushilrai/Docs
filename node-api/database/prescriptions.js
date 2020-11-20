@@ -29,6 +29,7 @@ class Prescription {
 
     // new prescription object
     constructor (data) {
+        data['_id'] = mongoose.Types.ObjectId();
         this.prescription = new Prescription.PrescriptionModel(data);
     }
 

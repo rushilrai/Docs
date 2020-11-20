@@ -17,6 +17,8 @@ router.post('/signup/:role', (req, res, next) => {
                 res.status(
                     result.success ? 200 : 400
                 ).send(result);
+            }).catch((err) => {
+                res.status(500).send(err);
             });
             break;
         
@@ -26,6 +28,8 @@ router.post('/signup/:role', (req, res, next) => {
                 res.status(
                     result.success ? 200 : 400
                 ).send(result);
+            }).catch((err) => {
+                res.status(500).send(err);
             });
             break;
         

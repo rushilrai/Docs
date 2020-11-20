@@ -14,6 +14,9 @@ router.post('/new', (req, res, next) => {
         res.status(
             result.success ? 200 : 400
         ).send(result);
+    })
+    .catch((err) => {
+        res.status(500).send(err);
     });
 
 });
@@ -26,6 +29,9 @@ router.get('/all/:role/:id', (req, res, next) =>{
         res.status(
             result.success ? 200 : 400
         ).send(result);
+    })
+    .catch((err) => {
+        res.status(500).send(err);
     });
 
 });
