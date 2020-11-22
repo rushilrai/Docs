@@ -955,7 +955,7 @@ class _SignUpBasicPageState extends State<SignUpBasicPage> {
                                               ? 'Female'
                                               : 'Other';
                                       userMobile = mobileController.text;
-                                      userRole = 'Patient';
+                                      userRole = 'patient';
                                       Get.to(SignUpAddressPage());
                                     } else {
                                       userName = nameController.text;
@@ -966,7 +966,7 @@ class _SignUpBasicPageState extends State<SignUpBasicPage> {
                                               ? 'Female'
                                               : 'Other';
                                       userMobile = mobileController.text;
-                                      userRole = 'Doctor';
+                                      userRole = 'doctor';
                                       Get.to(SignUpDocInfoPage());
                                     }
                                     print('valid');

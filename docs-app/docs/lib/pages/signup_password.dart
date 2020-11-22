@@ -2,7 +2,6 @@ import 'dart:convert';
 
 import 'package:docs/models/user.dart';
 import 'package:docs/pages/home.dart';
-import 'package:docs/pages/login.dart';
 import 'package:docs/utils/constants.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -22,6 +21,7 @@ class _SignUpPasswordPageState extends State<SignUpPasswordPage> {
   TextEditingController passwordConfirmController = TextEditingController();
   @override
   void initState() {
+    print(userRole);
     pswdConditions = false;
     pswdError = true;
     super.initState();
@@ -275,7 +275,8 @@ class _SignUpPasswordPageState extends State<SignUpPasswordPage> {
                                   if (passwordController.text ==
                                       passwordConfirmController.text) {
                                     if (passwordController.text.length > 6) {
-                                      if (userRole == 'Patient') {
+                                      if (userRole == 'patient') {
+                                        print(userRole);
                                         _signupPatient(
                                             userEmail,
                                             passwordController.text,
@@ -469,10 +470,10 @@ void _signupPatient(String id, String password, String name, String contact,
     await prefs.setString('address', address);
     await prefs.setBool('loggedin', true);
     print(userRole);
-    Get.offAll(LoginPage());
+    Get.offAll(HomePage(name, userRole));
     Get.snackbar(
       'Successful',
-      "Login to continue",
+      "Welcome to Docs.",
       barBlur: 0,
       snackPosition: SnackPosition.TOP,
       backgroundColor: bgColor,
@@ -486,7 +487,7 @@ void _signupPatient(String id, String password, String name, String contact,
         ),
       ),
       messageText: Text(
-        'Login to continue',
+        'Welcome to Docs.',
         style: TextStyle(
           fontFamily: 'Trueno',
           fontWeight: FontWeight.w400,
@@ -573,14 +574,14 @@ void _signupDoctor(
   } else {
     Get.back();
     Get.snackbar(
-      'Failed',
-      "We are having trouble signing up",
+      'Successful',
+      "Welcome to Docs.",
       barBlur: 0,
       snackPosition: SnackPosition.TOP,
       backgroundColor: bgColor,
       borderRadius: 10,
       titleText: Text(
-        'Failed',
+        'Successful',
         style: TextStyle(
           fontFamily: 'Trueno',
           fontWeight: FontWeight.w800,
@@ -588,7 +589,7 @@ void _signupDoctor(
         ),
       ),
       messageText: Text(
-        'We are having trouble signing up',
+        'Welcome to Docs.',
         style: TextStyle(
           fontFamily: 'Trueno',
           fontWeight: FontWeight.w400,

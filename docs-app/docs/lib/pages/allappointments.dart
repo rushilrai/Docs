@@ -15,8 +15,15 @@ class AllApointmentsPage extends StatefulWidget {
 class _AllApointmentsPageState extends State<AllApointmentsPage> {
   @override
   void initState() {
-    getAppointments();
+    getAppointments().then(
+      (value) => setState2(),
+    );
     super.initState();
+  }
+
+  void setState2() {
+    print('ss');
+    setState(() {});
   }
 
   @override
@@ -56,6 +63,68 @@ class _AllApointmentsPageState extends State<AllApointmentsPage> {
                           Row(
                             mainAxisAlignment: MainAxisAlignment.end,
                             children: [
+                              FadeIn(
+                                0.5,
+                                Material(
+                                  borderRadius: BorderRadius.circular(13),
+                                  color: lightPurple,
+                                  child: InkWell(
+                                    borderRadius: BorderRadius.circular(13),
+                                    splashColor: darkPurple,
+                                    onTap: () {
+                                      Get.snackbar(
+                                        'Refreshing',
+                                        "Fetching all Appointments",
+                                        barBlur: 0,
+                                        snackPosition: SnackPosition.TOP,
+                                        backgroundColor: bgColor,
+                                        borderRadius: 10,
+                                        titleText: Text(
+                                          'Refreshing',
+                                          style: TextStyle(
+                                            fontFamily: 'Trueno',
+                                            fontWeight: FontWeight.w800,
+                                            color: lightPurple,
+                                          ),
+                                        ),
+                                        messageText: Text(
+                                          'Fetching all Appointments',
+                                          style: TextStyle(
+                                            fontFamily: 'Trueno',
+                                            fontWeight: FontWeight.w400,
+                                            color: lightPurple,
+                                          ),
+                                        ),
+                                      );
+                                      getAppointments().then(
+                                        (value) => setState2(),
+                                      );
+                                    },
+                                    child: Container(
+                                      decoration: BoxDecoration(
+                                        borderRadius: BorderRadius.circular(13),
+                                      ),
+                                      height: Get.width * 0.12,
+                                      width: Get.width * 0.12,
+                                      child: Center(
+                                        child: Row(
+                                          mainAxisAlignment:
+                                              MainAxisAlignment.center,
+                                          children: [
+                                            Icon(
+                                              Icons.refresh,
+                                              color: Colors.white,
+                                            )
+                                          ],
+                                        ),
+                                      ),
+                                    ),
+                                  ),
+                                ),
+                              ),
+                              SizedBox(
+                                width: 15,
+                              ),
                               FadeIn(
                                 0.5,
                                 Material(
