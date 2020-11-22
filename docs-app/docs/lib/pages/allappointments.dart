@@ -50,31 +50,34 @@ class _AllApointmentsPageState extends State<AllApointmentsPage> {
                           Row(
                             mainAxisAlignment: MainAxisAlignment.end,
                             children: [
-                              Material(
-                                borderRadius: BorderRadius.circular(13),
-                                color: lightPurple,
-                                child: InkWell(
+                              FadeIn(
+                                0.5,
+                                Material(
                                   borderRadius: BorderRadius.circular(13),
-                                  splashColor: darkPurple,
-                                  onTap: () {
-                                    Get.back();
-                                  },
-                                  child: Container(
-                                    decoration: BoxDecoration(
-                                      borderRadius: BorderRadius.circular(13),
-                                    ),
-                                    height: Get.width * 0.12,
-                                    width: Get.width * 0.12,
-                                    child: Center(
-                                      child: Row(
-                                        mainAxisAlignment:
-                                            MainAxisAlignment.center,
-                                        children: [
-                                          Icon(
-                                            Icons.arrow_back,
-                                            color: Colors.white,
-                                          )
-                                        ],
+                                  color: lightPurple,
+                                  child: InkWell(
+                                    borderRadius: BorderRadius.circular(13),
+                                    splashColor: darkPurple,
+                                    onTap: () {
+                                      Get.back();
+                                    },
+                                    child: Container(
+                                      decoration: BoxDecoration(
+                                        borderRadius: BorderRadius.circular(13),
+                                      ),
+                                      height: Get.width * 0.12,
+                                      width: Get.width * 0.12,
+                                      child: Center(
+                                        child: Row(
+                                          mainAxisAlignment:
+                                              MainAxisAlignment.center,
+                                          children: [
+                                            Icon(
+                                              Icons.arrow_back,
+                                              color: Colors.white,
+                                            )
+                                          ],
+                                        ),
                                       ),
                                     ),
                                   ),
@@ -92,164 +95,176 @@ class _AllApointmentsPageState extends State<AllApointmentsPage> {
                                 shrinkWrap: true,
                                 itemCount: appointmentsList.length,
                                 itemBuilder: (context, index) {
-                                  return Padding(
-                                    padding: const EdgeInsets.only(top: 12.0),
-                                    child: Container(
-                                      child: Padding(
-                                        padding: const EdgeInsets.all(12.0),
-                                        child: Column(
-                                          children: [
-                                            Row(
-                                              mainAxisAlignment:
-                                                  MainAxisAlignment
-                                                      .spaceBetween,
-                                              children: [
-                                                Text(
-                                                  DateFormat('LLL d, y').format(
-                                                      DateTime.parse(
-                                                          appointmentsList[
-                                                                  index]
-                                                              .timeStart)),
-                                                  style: TextStyle(
-                                                    fontFamily: 'Poppins',
-                                                    fontSize: 24,
-                                                    fontWeight: FontWeight.w600,
-                                                    color: Color.fromRGBO(
-                                                        98, 112, 221, 0.8),
+                                  return FadeIn(
+                                    (0.5 + 0.3 * (index)),
+                                    Padding(
+                                      padding: const EdgeInsets.only(top: 12.0),
+                                      child: Container(
+                                        child: Padding(
+                                          padding: const EdgeInsets.all(12.0),
+                                          child: Column(
+                                            children: [
+                                              Row(
+                                                mainAxisAlignment:
+                                                    MainAxisAlignment
+                                                        .spaceBetween,
+                                                children: [
+                                                  Text(
+                                                    DateFormat('LLL d, y')
+                                                        .format(DateTime.parse(
+                                                            appointmentsList[
+                                                                    index]
+                                                                .timeStart)),
+                                                    style: TextStyle(
+                                                      fontFamily: 'Poppins',
+                                                      fontSize: 24,
+                                                      fontWeight:
+                                                          FontWeight.w600,
+                                                      color: Color.fromRGBO(
+                                                          98, 112, 221, 0.8),
+                                                    ),
                                                   ),
-                                                ),
-                                                Text(
-                                                  DateFormat('H:mm').format(
-                                                      DateTime.parse(
-                                                          appointmentsList[
-                                                                  index]
-                                                              .timeStart)),
-                                                  style: TextStyle(
-                                                    fontFamily: 'Poppins',
-                                                    fontSize: 24,
-                                                    fontWeight: FontWeight.w600,
-                                                    color: Color.fromRGBO(
-                                                        98, 112, 221, 0.8),
+                                                  Text(
+                                                    DateFormat('H:mm').format(
+                                                        DateTime.parse(
+                                                            appointmentsList[
+                                                                    index]
+                                                                .timeStart)),
+                                                    style: TextStyle(
+                                                      fontFamily: 'Poppins',
+                                                      fontSize: 24,
+                                                      fontWeight:
+                                                          FontWeight.w600,
+                                                      color: Color.fromRGBO(
+                                                          98, 112, 221, 0.8),
+                                                    ),
+                                                  )
+                                                ],
+                                              ),
+                                              Row(
+                                                children: [
+                                                  Text(
+                                                    appointmentsList[index]
+                                                        .patientName,
+                                                    style: TextStyle(
+                                                      fontFamily: 'Poppins',
+                                                      fontSize: 32,
+                                                      fontWeight:
+                                                          FontWeight.w600,
+                                                      color: darkPurple,
+                                                    ),
                                                   ),
-                                                )
-                                              ],
-                                            ),
-                                            Row(
-                                              children: [
-                                                Text(
-                                                  appointmentsList[index]
-                                                      .patientName,
-                                                  style: TextStyle(
-                                                    fontFamily: 'Poppins',
-                                                    fontSize: 32,
-                                                    fontWeight: FontWeight.w600,
-                                                    color: darkPurple,
-                                                  ),
-                                                ),
-                                              ],
-                                            ),
-                                            Spacer(),
-                                            Row(
-                                              mainAxisAlignment:
-                                                  MainAxisAlignment
-                                                      .spaceBetween,
-                                              children: [
-                                                Material(
-                                                  borderRadius:
-                                                      BorderRadius.circular(5),
-                                                  color: lightPurple,
-                                                  child: InkWell(
+                                                ],
+                                              ),
+                                              Spacer(),
+                                              Row(
+                                                mainAxisAlignment:
+                                                    MainAxisAlignment
+                                                        .spaceBetween,
+                                                children: [
+                                                  Material(
                                                     borderRadius:
                                                         BorderRadius.circular(
                                                             5),
-                                                    splashColor: darkPurple,
-                                                    onTap: () async {
-                                                      SharedPreferences prefs =
-                                                          await SharedPreferences
-                                                              .getInstance();
-                                                      final role = prefs
-                                                          .getString('role');
-                                                      Get.to(
-                                                        AppointmentDetailsPage(
-                                                          appointmentsList[
-                                                                  index]
-                                                              .userId,
-                                                          role,
-                                                          appointmentsList[
-                                                                  index]
-                                                              .id,
-                                                          appointmentsList[
-                                                                  index]
-                                                              .patientName,
-                                                          appointmentsList[
-                                                                  index]
-                                                              .docName,
-                                                          appointmentsList[
-                                                                  index]
-                                                              .timeStart,
-                                                          appointmentsList[
-                                                                  index]
-                                                              .timeEnd,
-                                                          appointmentsList[
-                                                                  index]
-                                                              .desc,
-                                                          appointmentsList[
-                                                                  index]
-                                                              .approved,
+                                                    color: lightPurple,
+                                                    child: InkWell(
+                                                      borderRadius:
+                                                          BorderRadius.circular(
+                                                              5),
+                                                      splashColor: darkPurple,
+                                                      onTap: () async {
+                                                        SharedPreferences
+                                                            prefs =
+                                                            await SharedPreferences
+                                                                .getInstance();
+                                                        final role = prefs
+                                                            .getString('role');
+                                                        Get.to(
+                                                          AppointmentDetailsPage(
+                                                            appointmentsList[
+                                                                    index]
+                                                                .userId,
+                                                            role,
+                                                            appointmentsList[
+                                                                    index]
+                                                                .id,
+                                                            appointmentsList[
+                                                                    index]
+                                                                .patientName,
+                                                            appointmentsList[
+                                                                    index]
+                                                                .docName,
+                                                            appointmentsList[
+                                                                    index]
+                                                                .timeStart,
+                                                            appointmentsList[
+                                                                    index]
+                                                                .timeEnd,
+                                                            appointmentsList[
+                                                                    index]
+                                                                .desc,
+                                                            appointmentsList[
+                                                                    index]
+                                                                .approved,
+                                                          ),
+                                                        );
+                                                      },
+                                                      child: Container(
+                                                        decoration:
+                                                            BoxDecoration(
+                                                          borderRadius:
+                                                              BorderRadius
+                                                                  .circular(5),
                                                         ),
-                                                      );
-                                                    },
-                                                    child: Container(
-                                                      decoration: BoxDecoration(
-                                                        borderRadius:
-                                                            BorderRadius
-                                                                .circular(5),
-                                                      ),
-                                                      height: Get.width * 0.08,
-                                                      width: Get.width * 0.37,
-                                                      child: Center(
-                                                        child: Row(
-                                                          mainAxisAlignment:
-                                                              MainAxisAlignment
-                                                                  .center,
-                                                          children: [
-                                                            Icon(
-                                                              Icons.info,
-                                                              color:
-                                                                  Colors.white,
-                                                              size: 18,
-                                                            ),
-                                                            SizedBox(
-                                                              width: 7,
-                                                            ),
-                                                            Text(
-                                                              'Details',
-                                                              style: TextStyle(
-                                                                fontFamily:
-                                                                    'Poppins',
-                                                                fontSize: 18,
-                                                                fontWeight:
-                                                                    FontWeight
-                                                                        .w600,
+                                                        height:
+                                                            Get.width * 0.08,
+                                                        width: Get.width * 0.37,
+                                                        child: Center(
+                                                          child: Row(
+                                                            mainAxisAlignment:
+                                                                MainAxisAlignment
+                                                                    .center,
+                                                            children: [
+                                                              Icon(
+                                                                Icons.info,
                                                                 color: Colors
                                                                     .white,
+                                                                size: 18,
                                                               ),
-                                                            ),
-                                                          ],
+                                                              SizedBox(
+                                                                width: 7,
+                                                              ),
+                                                              Text(
+                                                                'Details',
+                                                                style:
+                                                                    TextStyle(
+                                                                  fontFamily:
+                                                                      'Poppins',
+                                                                  fontSize: 18,
+                                                                  fontWeight:
+                                                                      FontWeight
+                                                                          .w600,
+                                                                  color: Colors
+                                                                      .white,
+                                                                ),
+                                                              ),
+                                                            ],
+                                                          ),
                                                         ),
                                                       ),
                                                     ),
                                                   ),
-                                                ),
-                                              ],
-                                            ),
-                                          ],
+                                                ],
+                                              ),
+                                            ],
+                                          ),
                                         ),
-                                      ),
-                                      height: Get.width * 0.4,
-                                      decoration: BoxDecoration(
-                                        borderRadius: BorderRadius.circular(10),
-                                        color: Colors.white,
+                                        height: Get.width * 0.4,
+                                        decoration: BoxDecoration(
+                                          borderRadius:
+                                              BorderRadius.circular(10),
+                                          color: Colors.white,
+                                        ),
                                       ),
                                     ),
                                   );

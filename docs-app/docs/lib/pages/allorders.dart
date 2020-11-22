@@ -60,31 +60,34 @@ class _AllOrdersPageState extends State<AllOrdersPage> {
                           Row(
                             mainAxisAlignment: MainAxisAlignment.end,
                             children: [
-                              Material(
-                                borderRadius: BorderRadius.circular(13),
-                                color: lightPurple,
-                                child: InkWell(
+                              FadeIn(
+                                0.5,
+                                Material(
                                   borderRadius: BorderRadius.circular(13),
-                                  splashColor: darkPurple,
-                                  onTap: () {
-                                    Get.back();
-                                  },
-                                  child: Container(
-                                    decoration: BoxDecoration(
-                                      borderRadius: BorderRadius.circular(13),
-                                    ),
-                                    height: Get.width * 0.12,
-                                    width: Get.width * 0.12,
-                                    child: Center(
-                                      child: Row(
-                                        mainAxisAlignment:
-                                            MainAxisAlignment.center,
-                                        children: [
-                                          Icon(
-                                            Icons.arrow_back,
-                                            color: Colors.white,
-                                          )
-                                        ],
+                                  color: lightPurple,
+                                  child: InkWell(
+                                    borderRadius: BorderRadius.circular(13),
+                                    splashColor: darkPurple,
+                                    onTap: () {
+                                      Get.back();
+                                    },
+                                    child: Container(
+                                      decoration: BoxDecoration(
+                                        borderRadius: BorderRadius.circular(13),
+                                      ),
+                                      height: Get.width * 0.12,
+                                      width: Get.width * 0.12,
+                                      child: Center(
+                                        child: Row(
+                                          mainAxisAlignment:
+                                              MainAxisAlignment.center,
+                                          children: [
+                                            Icon(
+                                              Icons.arrow_back,
+                                              color: Colors.white,
+                                            )
+                                          ],
+                                        ),
                                       ),
                                     ),
                                   ),
@@ -102,148 +105,157 @@ class _AllOrdersPageState extends State<AllOrdersPage> {
                                 shrinkWrap: true,
                                 itemCount: ordersList.length,
                                 itemBuilder: (context, index) {
-                                  return Padding(
-                                    padding: const EdgeInsets.only(
-                                      top: 12.0,
-                                    ),
-                                    child: Container(
-                                      child: Padding(
-                                        padding: const EdgeInsets.only(
-                                          bottom: 12.0,
-                                        ),
-                                        child: Column(
-                                          crossAxisAlignment:
-                                              CrossAxisAlignment.start,
-                                          children: [
-                                            ListView.builder(
-                                              physics:
-                                                  NeverScrollableScrollPhysics(),
-                                              shrinkWrap: true,
-                                              itemCount:
-                                                  ordersList[index].meds.length,
-                                              itemBuilder: (context, i) {
-                                                return Padding(
-                                                  padding: const EdgeInsets.all(
-                                                      12.0),
-                                                  child: Column(
-                                                    crossAxisAlignment:
-                                                        CrossAxisAlignment
-                                                            .start,
-                                                    children: [
-                                                      Text(
-                                                        '• ' +
-                                                            ordersList[index]
-                                                                .meds[i]
-                                                                .name
-                                                                .toString(),
-                                                        style: TextStyle(
-                                                          fontFamily: 'Poppins',
-                                                          fontSize: 18,
-                                                          fontWeight:
-                                                              FontWeight.w600,
-                                                          color: lightPurple,
-                                                        ),
-                                                      ),
-                                                      Text(
-                                                        '    ' +
-                                                            ordersList[index]
-                                                                .meds[i]
-                                                                .comment
-                                                                .toString(),
-                                                        style: TextStyle(
-                                                          fontFamily: 'Poppins',
-                                                          fontSize: 14,
-                                                          fontWeight:
-                                                              FontWeight.w600,
-                                                          color: Color.fromRGBO(
-                                                              98,
-                                                              112,
-                                                              221,
-                                                              0.7),
-                                                        ),
-                                                      ),
-                                                    ],
-                                                  ),
-                                                );
-                                              },
-                                            ),
-                                            Padding(
-                                              padding: const EdgeInsets.only(
-                                                left: 14.0,
-                                                right: 14.0,
-                                              ),
-                                              child: Column(
-                                                crossAxisAlignment:
-                                                    CrossAxisAlignment.start,
-                                                children: [
-                                                  Text(
-                                                    'Address:',
-                                                    style: TextStyle(
-                                                      fontFamily: 'Poppins',
-                                                      fontSize: 14,
-                                                      fontWeight:
-                                                          FontWeight.w600,
-                                                      color: lightPurple,
-                                                    ),
-                                                  ),
-                                                  Text(
-                                                    ordersList[index].address,
-                                                    style: TextStyle(
-                                                      fontFamily: 'Poppins',
-                                                      fontSize: 14,
-                                                      fontWeight:
-                                                          FontWeight.w600,
-                                                      color: Color.fromRGBO(
-                                                          98, 112, 221, 0.7),
-                                                    ),
-                                                  ),
-                                                ],
-                                              ),
-                                            ),
-                                            SizedBox(
-                                              height: 10,
-                                            ),
-                                            Padding(
-                                              padding: const EdgeInsets.only(
-                                                left: 14.0,
-                                                right: 14.0,
-                                              ),
-                                              child: Column(
-                                                crossAxisAlignment:
-                                                    CrossAxisAlignment.start,
-                                                children: [
-                                                  Text(
-                                                    'Contact Number:',
-                                                    style: TextStyle(
-                                                      fontFamily: 'Poppins',
-                                                      fontSize: 14,
-                                                      fontWeight:
-                                                          FontWeight.w600,
-                                                      color: lightPurple,
-                                                    ),
-                                                  ),
-                                                  Text(
-                                                    ordersList[index].contact,
-                                                    style: TextStyle(
-                                                      fontFamily: 'Poppins',
-                                                      fontSize: 14,
-                                                      fontWeight:
-                                                          FontWeight.w600,
-                                                      color: Color.fromRGBO(
-                                                          98, 112, 221, 0.7),
-                                                    ),
-                                                  ),
-                                                ],
-                                              ),
-                                            ),
-                                          ],
-                                        ),
+                                  return FadeIn(
+                                    (0.5 + 0.3 * (index)),
+                                    Padding(
+                                      padding: const EdgeInsets.only(
+                                        top: 12.0,
                                       ),
+                                      child: Container(
+                                        child: Padding(
+                                          padding: const EdgeInsets.only(
+                                            bottom: 12.0,
+                                          ),
+                                          child: Column(
+                                            crossAxisAlignment:
+                                                CrossAxisAlignment.start,
+                                            children: [
+                                              ListView.builder(
+                                                physics:
+                                                    NeverScrollableScrollPhysics(),
+                                                shrinkWrap: true,
+                                                itemCount: ordersList[index]
+                                                    .meds
+                                                    .length,
+                                                itemBuilder: (context, i) {
+                                                  return Padding(
+                                                    padding:
+                                                        const EdgeInsets.all(
+                                                            12.0),
+                                                    child: Column(
+                                                      crossAxisAlignment:
+                                                          CrossAxisAlignment
+                                                              .start,
+                                                      children: [
+                                                        Text(
+                                                          '• ' +
+                                                              ordersList[index]
+                                                                  .meds[i]
+                                                                  .name
+                                                                  .toString(),
+                                                          style: TextStyle(
+                                                            fontFamily:
+                                                                'Poppins',
+                                                            fontSize: 18,
+                                                            fontWeight:
+                                                                FontWeight.w600,
+                                                            color: lightPurple,
+                                                          ),
+                                                        ),
+                                                        Text(
+                                                          '    ' +
+                                                              ordersList[index]
+                                                                  .meds[i]
+                                                                  .comment
+                                                                  .toString(),
+                                                          style: TextStyle(
+                                                            fontFamily:
+                                                                'Poppins',
+                                                            fontSize: 14,
+                                                            fontWeight:
+                                                                FontWeight.w600,
+                                                            color:
+                                                                Color.fromRGBO(
+                                                                    98,
+                                                                    112,
+                                                                    221,
+                                                                    0.7),
+                                                          ),
+                                                        ),
+                                                      ],
+                                                    ),
+                                                  );
+                                                },
+                                              ),
+                                              Padding(
+                                                padding: const EdgeInsets.only(
+                                                  left: 14.0,
+                                                  right: 14.0,
+                                                ),
+                                                child: Column(
+                                                  crossAxisAlignment:
+                                                      CrossAxisAlignment.start,
+                                                  children: [
+                                                    Text(
+                                                      'Address:',
+                                                      style: TextStyle(
+                                                        fontFamily: 'Poppins',
+                                                        fontSize: 14,
+                                                        fontWeight:
+                                                            FontWeight.w600,
+                                                        color: lightPurple,
+                                                      ),
+                                                    ),
+                                                    Text(
+                                                      ordersList[index].address,
+                                                      style: TextStyle(
+                                                        fontFamily: 'Poppins',
+                                                        fontSize: 14,
+                                                        fontWeight:
+                                                            FontWeight.w600,
+                                                        color: Color.fromRGBO(
+                                                            98, 112, 221, 0.7),
+                                                      ),
+                                                    ),
+                                                  ],
+                                                ),
+                                              ),
+                                              SizedBox(
+                                                height: 10,
+                                              ),
+                                              Padding(
+                                                padding: const EdgeInsets.only(
+                                                  left: 14.0,
+                                                  right: 14.0,
+                                                ),
+                                                child: Column(
+                                                  crossAxisAlignment:
+                                                      CrossAxisAlignment.start,
+                                                  children: [
+                                                    Text(
+                                                      'Contact Number:',
+                                                      style: TextStyle(
+                                                        fontFamily: 'Poppins',
+                                                        fontSize: 14,
+                                                        fontWeight:
+                                                            FontWeight.w600,
+                                                        color: lightPurple,
+                                                      ),
+                                                    ),
+                                                    Text(
+                                                      ordersList[index].contact,
+                                                      style: TextStyle(
+                                                        fontFamily: 'Poppins',
+                                                        fontSize: 14,
+                                                        fontWeight:
+                                                            FontWeight.w600,
+                                                        color: Color.fromRGBO(
+                                                            98, 112, 221, 0.7),
+                                                      ),
+                                                    ),
+                                                  ],
+                                                ),
+                                              ),
+                                            ],
+                                          ),
+                                        ),
 
-                                      //height: Get.width * 0.4,
-                                      decoration: BoxDecoration(
-                                        borderRadius: BorderRadius.circular(10),
-                                        color: Colors.white,
+                                        //height: Get.width * 0.4,
+                                        decoration: BoxDecoration(
+                                          borderRadius:
+                                              BorderRadius.circular(10),
+                                          color: Colors.white,
+                                        ),
                                       ),
                                     ),
                                   );

@@ -70,31 +70,34 @@ class _AllPrescriptionPageState extends State<AllPrescriptionPage> {
                           Row(
                             mainAxisAlignment: MainAxisAlignment.end,
                             children: [
-                              Material(
-                                borderRadius: BorderRadius.circular(13),
-                                color: lightPurple,
-                                child: InkWell(
+                              FadeIn(
+                                0.5,
+                                Material(
                                   borderRadius: BorderRadius.circular(13),
-                                  splashColor: darkPurple,
-                                  onTap: () {
-                                    Get.back();
-                                  },
-                                  child: Container(
-                                    decoration: BoxDecoration(
-                                      borderRadius: BorderRadius.circular(13),
-                                    ),
-                                    height: Get.width * 0.12,
-                                    width: Get.width * 0.12,
-                                    child: Center(
-                                      child: Row(
-                                        mainAxisAlignment:
-                                            MainAxisAlignment.center,
-                                        children: [
-                                          Icon(
-                                            Icons.arrow_back,
-                                            color: Colors.white,
-                                          )
-                                        ],
+                                  color: lightPurple,
+                                  child: InkWell(
+                                    borderRadius: BorderRadius.circular(13),
+                                    splashColor: darkPurple,
+                                    onTap: () {
+                                      Get.back();
+                                    },
+                                    child: Container(
+                                      decoration: BoxDecoration(
+                                        borderRadius: BorderRadius.circular(13),
+                                      ),
+                                      height: Get.width * 0.12,
+                                      width: Get.width * 0.12,
+                                      child: Center(
+                                        child: Row(
+                                          mainAxisAlignment:
+                                              MainAxisAlignment.center,
+                                          children: [
+                                            Icon(
+                                              Icons.arrow_back,
+                                              color: Colors.white,
+                                            )
+                                          ],
+                                        ),
                                       ),
                                     ),
                                   ),
@@ -112,185 +115,194 @@ class _AllPrescriptionPageState extends State<AllPrescriptionPage> {
                                 shrinkWrap: true,
                                 itemCount: prescriptionsList.length,
                                 itemBuilder: (context, index) {
-                                  return Padding(
-                                    padding: const EdgeInsets.only(
-                                      top: 12.0,
-                                    ),
-                                    child: Container(
-                                      child: Padding(
-                                        padding: const EdgeInsets.only(
-                                          bottom: 12.0,
-                                        ),
-                                        child: Column(
-                                          crossAxisAlignment:
-                                              CrossAxisAlignment.start,
-                                          children: [
-                                            ListView.builder(
-                                              physics:
-                                                  NeverScrollableScrollPhysics(),
-                                              shrinkWrap: true,
-                                              itemCount:
-                                                  prescriptionsList[index]
-                                                      .meds
-                                                      .length,
-                                              itemBuilder: (context, i) {
-                                                return Padding(
-                                                  padding: const EdgeInsets.all(
-                                                      12.0),
-                                                  child: Column(
-                                                    crossAxisAlignment:
-                                                        CrossAxisAlignment
-                                                            .start,
-                                                    children: [
-                                                      Text(
-                                                        ' • ' +
-                                                            prescriptionsList[
-                                                                    index]
-                                                                .meds[i]
-                                                                .name
-                                                                .toString(),
-                                                        style: TextStyle(
-                                                          fontFamily: 'Poppins',
-                                                          fontSize: 18,
-                                                          fontWeight:
-                                                              FontWeight.w600,
-                                                          color: lightPurple,
-                                                        ),
-                                                      ),
-                                                      Text(
-                                                        '     ' +
-                                                            prescriptionsList[
-                                                                    index]
-                                                                .meds[i]
-                                                                .comment
-                                                                .toString(),
-                                                        style: TextStyle(
-                                                          fontFamily: 'Poppins',
-                                                          fontSize: 14,
-                                                          fontWeight:
-                                                              FontWeight.w600,
-                                                          color: Color.fromRGBO(
-                                                              98,
-                                                              112,
-                                                              221,
-                                                              0.7),
-                                                        ),
-                                                      ),
-                                                    ],
-                                                  ),
-                                                );
-                                              },
-                                            ),
-                                            (role == 'doctor')
-                                                ? SizedBox(height: 0)
-                                                : SizedBox(
-                                                    height: 10,
-                                                  ),
-                                            (role == 'doctor')
-                                                ? Container()
-                                                : Padding(
+                                  return FadeIn(
+                                    (0.5 + 0.3 * (index)),
+                                    Padding(
+                                      padding: const EdgeInsets.only(
+                                        top: 12.0,
+                                      ),
+                                      child: Container(
+                                        child: Padding(
+                                          padding: const EdgeInsets.only(
+                                            bottom: 12.0,
+                                          ),
+                                          child: Column(
+                                            crossAxisAlignment:
+                                                CrossAxisAlignment.start,
+                                            children: [
+                                              ListView.builder(
+                                                physics:
+                                                    NeverScrollableScrollPhysics(),
+                                                shrinkWrap: true,
+                                                itemCount:
+                                                    prescriptionsList[index]
+                                                        .meds
+                                                        .length,
+                                                itemBuilder: (context, i) {
+                                                  return Padding(
                                                     padding:
-                                                        const EdgeInsets.only(
-                                                            left: 16.0),
-                                                    child: Material(
-                                                      borderRadius:
-                                                          BorderRadius.circular(
-                                                              5),
-                                                      color: lightPurple,
-                                                      child: InkWell(
+                                                        const EdgeInsets.all(
+                                                            12.0),
+                                                    child: Column(
+                                                      crossAxisAlignment:
+                                                          CrossAxisAlignment
+                                                              .start,
+                                                      children: [
+                                                        Text(
+                                                          ' • ' +
+                                                              prescriptionsList[
+                                                                      index]
+                                                                  .meds[i]
+                                                                  .name
+                                                                  .toString(),
+                                                          style: TextStyle(
+                                                            fontFamily:
+                                                                'Poppins',
+                                                            fontSize: 18,
+                                                            fontWeight:
+                                                                FontWeight.w600,
+                                                            color: lightPurple,
+                                                          ),
+                                                        ),
+                                                        Text(
+                                                          '     ' +
+                                                              prescriptionsList[
+                                                                      index]
+                                                                  .meds[i]
+                                                                  .comment
+                                                                  .toString(),
+                                                          style: TextStyle(
+                                                            fontFamily:
+                                                                'Poppins',
+                                                            fontSize: 14,
+                                                            fontWeight:
+                                                                FontWeight.w600,
+                                                            color:
+                                                                Color.fromRGBO(
+                                                                    98,
+                                                                    112,
+                                                                    221,
+                                                                    0.7),
+                                                          ),
+                                                        ),
+                                                      ],
+                                                    ),
+                                                  );
+                                                },
+                                              ),
+                                              (role == 'doctor')
+                                                  ? SizedBox(height: 0)
+                                                  : SizedBox(
+                                                      height: 10,
+                                                    ),
+                                              (role == 'doctor')
+                                                  ? Container()
+                                                  : Padding(
+                                                      padding:
+                                                          const EdgeInsets.only(
+                                                              left: 16.0),
+                                                      child: Material(
                                                         borderRadius:
                                                             BorderRadius
                                                                 .circular(5),
-                                                        splashColor: darkPurple,
-                                                        onTap: () async {
-                                                          SharedPreferences
-                                                              prefs =
-                                                              await SharedPreferences
-                                                                  .getInstance();
-                                                          final userid =
-                                                              // ignore: await_only_futures
-                                                              await prefs
-                                                                  .getString(
-                                                                      'userid');
-                                                          final password =
-                                                              // ignore: await_only_futures
-                                                              await prefs
-                                                                  .getString(
-                                                                      'password');
-                                                          final address =
-                                                              // ignore: await_only_futures
-                                                              await prefs
-                                                                  .getString(
-                                                                      'address');
-                                                          final contact =
-                                                              // ignore: await_only_futures
-                                                              await prefs
-                                                                  .getString(
-                                                                      'mobile');
-                                                          newOrder(
-                                                              context,
-                                                              userid,
-                                                              prescriptionsList[
-                                                                      index]
-                                                                  .docId,
-                                                              prescriptionsList[
-                                                                      index]
-                                                                  .meds,
-                                                              password,
-                                                              prescriptionsList[
-                                                                      index]
-                                                                  .prescriptionId,
-                                                              address,
-                                                              contact);
-                                                        },
-                                                        child: Container(
-                                                          decoration:
-                                                              BoxDecoration(
-                                                            borderRadius:
-                                                                BorderRadius
-                                                                    .circular(
-                                                                        5),
-                                                          ),
-                                                          height:
-                                                              Get.width * 0.08,
-                                                          width:
-                                                              Get.width * 0.37,
-                                                          child: Center(
-                                                            child: Row(
-                                                              mainAxisAlignment:
-                                                                  MainAxisAlignment
-                                                                      .center,
-                                                              children: [
-                                                                Text(
-                                                                  'Place Order',
-                                                                  style:
-                                                                      TextStyle(
-                                                                    fontFamily:
-                                                                        'Poppins',
-                                                                    fontSize:
-                                                                        18,
-                                                                    fontWeight:
-                                                                        FontWeight
-                                                                            .w600,
-                                                                    color: Colors
-                                                                        .white,
+                                                        color: lightPurple,
+                                                        child: InkWell(
+                                                          borderRadius:
+                                                              BorderRadius
+                                                                  .circular(5),
+                                                          splashColor:
+                                                              darkPurple,
+                                                          onTap: () async {
+                                                            SharedPreferences
+                                                                prefs =
+                                                                await SharedPreferences
+                                                                    .getInstance();
+                                                            final userid =
+                                                                // ignore: await_only_futures
+                                                                await prefs
+                                                                    .getString(
+                                                                        'userid');
+                                                            final password =
+                                                                // ignore: await_only_futures
+                                                                await prefs
+                                                                    .getString(
+                                                                        'password');
+                                                            final address =
+                                                                // ignore: await_only_futures
+                                                                await prefs
+                                                                    .getString(
+                                                                        'address');
+                                                            final contact =
+                                                                // ignore: await_only_futures
+                                                                await prefs
+                                                                    .getString(
+                                                                        'mobile');
+                                                            newOrder(
+                                                                context,
+                                                                userid,
+                                                                prescriptionsList[
+                                                                        index]
+                                                                    .docId,
+                                                                prescriptionsList[
+                                                                        index]
+                                                                    .meds,
+                                                                password,
+                                                                prescriptionsList[
+                                                                        index]
+                                                                    .prescriptionId,
+                                                                address,
+                                                                contact);
+                                                          },
+                                                          child: Container(
+                                                            decoration:
+                                                                BoxDecoration(
+                                                              borderRadius:
+                                                                  BorderRadius
+                                                                      .circular(
+                                                                          5),
+                                                            ),
+                                                            height: Get.width *
+                                                                0.08,
+                                                            width: Get.width *
+                                                                0.37,
+                                                            child: Center(
+                                                              child: Row(
+                                                                mainAxisAlignment:
+                                                                    MainAxisAlignment
+                                                                        .center,
+                                                                children: [
+                                                                  Text(
+                                                                    'Place Order',
+                                                                    style:
+                                                                        TextStyle(
+                                                                      fontFamily:
+                                                                          'Poppins',
+                                                                      fontSize:
+                                                                          18,
+                                                                      fontWeight:
+                                                                          FontWeight
+                                                                              .w600,
+                                                                      color: Colors
+                                                                          .white,
+                                                                    ),
                                                                   ),
-                                                                ),
-                                                              ],
+                                                                ],
+                                                              ),
                                                             ),
                                                           ),
                                                         ),
                                                       ),
                                                     ),
-                                                  ),
-                                          ],
+                                            ],
+                                          ),
                                         ),
-                                      ),
 
-                                      //height: Get.width * 0.4,
-                                      decoration: BoxDecoration(
-                                        borderRadius: BorderRadius.circular(10),
-                                        color: Colors.white,
+                                        //height: Get.width * 0.4,
+                                        decoration: BoxDecoration(
+                                          borderRadius:
+                                              BorderRadius.circular(10),
+                                          color: Colors.white,
+                                        ),
                                       ),
                                     ),
                                   );

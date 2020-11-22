@@ -124,31 +124,34 @@ class _AppointmentDetailsPageState extends State<AppointmentDetailsPage> {
                           Row(
                             mainAxisAlignment: MainAxisAlignment.end,
                             children: [
-                              Material(
-                                borderRadius: BorderRadius.circular(13),
-                                color: lightPurple,
-                                child: InkWell(
+                              FadeIn(
+                                0.5,
+                                Material(
                                   borderRadius: BorderRadius.circular(13),
-                                  splashColor: darkPurple,
-                                  onTap: () {
-                                    Get.back();
-                                  },
-                                  child: Container(
-                                    decoration: BoxDecoration(
-                                      borderRadius: BorderRadius.circular(13),
-                                    ),
-                                    height: Get.width * 0.12,
-                                    width: Get.width * 0.12,
-                                    child: Center(
-                                      child: Row(
-                                        mainAxisAlignment:
-                                            MainAxisAlignment.center,
-                                        children: [
-                                          Icon(
-                                            Icons.arrow_back,
-                                            color: Colors.white,
-                                          )
-                                        ],
+                                  color: lightPurple,
+                                  child: InkWell(
+                                    borderRadius: BorderRadius.circular(13),
+                                    splashColor: darkPurple,
+                                    onTap: () {
+                                      Get.back();
+                                    },
+                                    child: Container(
+                                      decoration: BoxDecoration(
+                                        borderRadius: BorderRadius.circular(13),
+                                      ),
+                                      height: Get.width * 0.12,
+                                      width: Get.width * 0.12,
+                                      child: Center(
+                                        child: Row(
+                                          mainAxisAlignment:
+                                              MainAxisAlignment.center,
+                                          children: [
+                                            Icon(
+                                              Icons.arrow_back,
+                                              color: Colors.white,
+                                            )
+                                          ],
+                                        ),
                                       ),
                                     ),
                                   ),

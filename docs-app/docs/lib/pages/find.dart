@@ -526,312 +526,327 @@ class _FindPageState extends State<FindPage> {
                                         return Padding(
                                           padding:
                                               const EdgeInsets.only(top: 12.0),
-                                          child: Container(
-                                            child: Padding(
-                                              padding:
-                                                  const EdgeInsets.all(12.0),
-                                              child: Column(
-                                                children: [
-                                                  Row(
-                                                    mainAxisAlignment:
-                                                        MainAxisAlignment
-                                                            .spaceBetween,
-                                                    children: [
-                                                      Text(
-                                                        nameDoctors[index],
-                                                        style: TextStyle(
-                                                          color: lightPurple,
-                                                          fontSize: 28,
-                                                          fontFamily: "Poppins",
-                                                          fontWeight:
-                                                              FontWeight.w600,
-                                                        ),
-                                                      ),
-                                                      Material(
-                                                        borderRadius:
-                                                            BorderRadius
-                                                                .circular(7),
-                                                        color: lightPurple,
-                                                        child: InkWell(
-                                                          borderRadius:
-                                                              BorderRadius
-                                                                  .circular(7),
-                                                          splashColor:
-                                                              darkPurple,
-                                                          onTap: () async {
-                                                            var number =
-                                                                mobileDoctors[
-                                                                    index];
-                                                            if (await canLaunch(
-                                                                'tel:$number')) {
-                                                              await launch(
-                                                                  'tel:$number');
-                                                            } else {
-                                                              throw 'Could not send mail';
-                                                            }
-                                                          },
-                                                          child: Container(
-                                                            decoration:
-                                                                BoxDecoration(
-                                                              borderRadius:
-                                                                  BorderRadius
-                                                                      .circular(
-                                                                          7),
-                                                            ),
-                                                            height: Get.width *
-                                                                0.07,
-                                                            width: Get.width *
-                                                                0.07,
-                                                            child: Center(
-                                                              child: Row(
-                                                                mainAxisAlignment:
-                                                                    MainAxisAlignment
-                                                                        .center,
-                                                                children: [
-                                                                  Icon(
-                                                                    Icons.call,
-                                                                    color: Colors
-                                                                        .white,
-                                                                    size: 14,
-                                                                  )
-                                                                ],
-                                                              ),
-                                                            ),
+                                          child: FadeIn(
+                                            (0.5 + 0.3 * (index)),
+                                            Container(
+                                              child: Padding(
+                                                padding:
+                                                    const EdgeInsets.all(12.0),
+                                                child: Column(
+                                                  children: [
+                                                    Row(
+                                                      mainAxisAlignment:
+                                                          MainAxisAlignment
+                                                              .spaceBetween,
+                                                      children: [
+                                                        Text(
+                                                          nameDoctors[index],
+                                                          style: TextStyle(
+                                                            color: lightPurple,
+                                                            fontSize: 28,
+                                                            fontFamily:
+                                                                "Poppins",
+                                                            fontWeight:
+                                                                FontWeight.w600,
                                                           ),
                                                         ),
-                                                      ),
-                                                    ],
-                                                  ),
-                                                  Row(
-                                                    mainAxisAlignment:
-                                                        MainAxisAlignment
-                                                            .spaceBetween,
-                                                    children: [
-                                                      Text(
-                                                        qualDoctors[index],
-                                                        style: TextStyle(
-                                                          color: Color.fromRGBO(
-                                                              98,
-                                                              112,
-                                                              221,
-                                                              0.34),
-                                                          fontSize: 18,
-                                                          fontFamily: "Poppins",
-                                                          fontWeight:
-                                                              FontWeight.w600,
-                                                        ),
-                                                      ),
-                                                      Material(
-                                                        borderRadius:
-                                                            BorderRadius
-                                                                .circular(7),
-                                                        color: lightPurple,
-                                                        child: InkWell(
+                                                        Material(
                                                           borderRadius:
                                                               BorderRadius
                                                                   .circular(7),
-                                                          splashColor:
-                                                              darkPurple,
-                                                          onTap: () async {
-                                                            var mail =
-                                                                idDoctors[
-                                                                    index];
-
-                                                            if (await canLaunch(
-                                                                'mailto:$mail')) {
-                                                              await launch(
-                                                                  "mailto:$mail?subject=Query regarding Appointment&body=Generated from Docs");
-                                                            } else {
-                                                              throw 'Could not send mail';
-                                                            }
-                                                            //print(nameDoctors.length);
-                                                          },
-                                                          child: Container(
-                                                            decoration:
-                                                                BoxDecoration(
-                                                              borderRadius:
-                                                                  BorderRadius
-                                                                      .circular(
-                                                                          7),
-                                                            ),
-                                                            height: Get.width *
-                                                                0.07,
-                                                            width: Get.width *
-                                                                0.07,
-                                                            child: Center(
-                                                              child: Row(
-                                                                mainAxisAlignment:
-                                                                    MainAxisAlignment
-                                                                        .center,
-                                                                children: [
-                                                                  Icon(
-                                                                    Icons
-                                                                        .mail_rounded,
-                                                                    color: Colors
-                                                                        .white,
-                                                                    size: 14,
-                                                                  )
-                                                                ],
+                                                          color: lightPurple,
+                                                          child: InkWell(
+                                                            borderRadius:
+                                                                BorderRadius
+                                                                    .circular(
+                                                                        7),
+                                                            splashColor:
+                                                                darkPurple,
+                                                            onTap: () async {
+                                                              var number =
+                                                                  mobileDoctors[
+                                                                      index];
+                                                              if (await canLaunch(
+                                                                  'tel:$number')) {
+                                                                await launch(
+                                                                    'tel:$number');
+                                                              } else {
+                                                                throw 'Could not send mail';
+                                                              }
+                                                            },
+                                                            child: Container(
+                                                              decoration:
+                                                                  BoxDecoration(
+                                                                borderRadius:
+                                                                    BorderRadius
+                                                                        .circular(
+                                                                            7),
                                                               ),
-                                                            ),
-                                                          ),
-                                                        ),
-                                                      ),
-                                                    ],
-                                                  ),
-                                                  Row(
-                                                    children: [
-                                                      Text(
-                                                        (DateTime.parse(slotInitDoctors[
-                                                                        index])
-                                                                    .hour >
-                                                                10)
-                                                            ? DateTime.parse(
-                                                                        slotInitDoctors[
-                                                                            index])
-                                                                    .hour
-                                                                    .toString() +
-                                                                ':00'
-                                                            : '0' +
-                                                                DateTime.parse(
-                                                                        slotInitDoctors[
-                                                                            index])
-                                                                    .hour
-                                                                    .toString() +
-                                                                ':00',
-                                                        style: TextStyle(
-                                                          color: lightPurple,
-                                                          fontSize: 18,
-                                                          fontFamily: "Poppins",
-                                                          fontWeight:
-                                                              FontWeight.w600,
-                                                        ),
-                                                      ),
-                                                      Text(
-                                                        ' - ',
-                                                        style: TextStyle(
-                                                          color: lightPurple,
-                                                          fontSize: 18,
-                                                          fontFamily: "Poppins",
-                                                          fontWeight:
-                                                              FontWeight.w600,
-                                                        ),
-                                                      ),
-                                                      Text(
-                                                        (DateTime.parse(slotEndDoctors[
-                                                                        index])
-                                                                    .hour >
-                                                                10)
-                                                            ? DateTime.parse(
-                                                                        slotEndDoctors[
-                                                                            index])
-                                                                    .hour
-                                                                    .toString() +
-                                                                ':00'
-                                                            : '0' +
-                                                                DateTime.parse(
-                                                                        slotEndDoctors[
-                                                                            index])
-                                                                    .hour
-                                                                    .toString() +
-                                                                ':00',
-                                                        style: TextStyle(
-                                                          color: lightPurple,
-                                                          fontSize: 18,
-                                                          fontFamily: "Poppins",
-                                                          fontWeight:
-                                                              FontWeight.w600,
-                                                        ),
-                                                      ),
-                                                    ],
-                                                  ),
-                                                  Spacer(
-                                                    flex: 1,
-                                                  ),
-                                                  Row(
-                                                    children: [
-                                                      Material(
-                                                        borderRadius:
-                                                            BorderRadius
-                                                                .circular(7),
-                                                        color: lightPurple,
-                                                        child: InkWell(
-                                                          borderRadius:
-                                                              BorderRadius
-                                                                  .circular(7),
-                                                          splashColor:
-                                                              darkPurple,
-                                                          onTap: () async {
-                                                            Get.to(
-                                                              ScheduleAppointmentPage(
-                                                                nameDoctors[
-                                                                    index],
-                                                                idDoctors[
-                                                                    index],
-                                                                slotInitDoctors[
-                                                                    index],
-                                                                slotEndDoctors[
-                                                                    index],
-                                                              ),
-                                                            );
-                                                            //print(nameDoctors.length);
-                                                          },
-                                                          child: Container(
-                                                            decoration:
-                                                                BoxDecoration(
-                                                              borderRadius:
-                                                                  BorderRadius
-                                                                      .circular(
-                                                                          7),
-                                                            ),
-                                                            height: Get.width *
-                                                                0.08,
-                                                            width: Get.width *
-                                                                0.43,
-                                                            child: Center(
-                                                              child: Row(
-                                                                mainAxisAlignment:
-                                                                    MainAxisAlignment
-                                                                        .spaceEvenly,
-                                                                children: [
-                                                                  Icon(
-                                                                    Icons
-                                                                        .calendar_today_rounded,
-                                                                    color: Colors
-                                                                        .white,
-                                                                    size: 13,
-                                                                  ),
-                                                                  Text(
-                                                                    'Schedule Appointment',
-                                                                    style:
-                                                                        TextStyle(
+                                                              height:
+                                                                  Get.width *
+                                                                      0.07,
+                                                              width: Get.width *
+                                                                  0.07,
+                                                              child: Center(
+                                                                child: Row(
+                                                                  mainAxisAlignment:
+                                                                      MainAxisAlignment
+                                                                          .center,
+                                                                  children: [
+                                                                    Icon(
+                                                                      Icons
+                                                                          .call,
                                                                       color: Colors
                                                                           .white,
-                                                                      fontSize:
-                                                                          12,
-                                                                      fontFamily:
-                                                                          "Poppins",
-                                                                      fontWeight:
-                                                                          FontWeight
-                                                                              .w600,
-                                                                    ),
-                                                                  )
-                                                                ],
+                                                                      size: 14,
+                                                                    )
+                                                                  ],
+                                                                ),
                                                               ),
                                                             ),
                                                           ),
                                                         ),
-                                                      ),
-                                                    ],
-                                                  ),
-                                                ],
+                                                      ],
+                                                    ),
+                                                    Row(
+                                                      mainAxisAlignment:
+                                                          MainAxisAlignment
+                                                              .spaceBetween,
+                                                      children: [
+                                                        Text(
+                                                          qualDoctors[index],
+                                                          style: TextStyle(
+                                                            color:
+                                                                Color.fromRGBO(
+                                                                    98,
+                                                                    112,
+                                                                    221,
+                                                                    0.34),
+                                                            fontSize: 18,
+                                                            fontFamily:
+                                                                "Poppins",
+                                                            fontWeight:
+                                                                FontWeight.w600,
+                                                          ),
+                                                        ),
+                                                        Material(
+                                                          borderRadius:
+                                                              BorderRadius
+                                                                  .circular(7),
+                                                          color: lightPurple,
+                                                          child: InkWell(
+                                                            borderRadius:
+                                                                BorderRadius
+                                                                    .circular(
+                                                                        7),
+                                                            splashColor:
+                                                                darkPurple,
+                                                            onTap: () async {
+                                                              var mail =
+                                                                  idDoctors[
+                                                                      index];
+
+                                                              if (await canLaunch(
+                                                                  'mailto:$mail')) {
+                                                                await launch(
+                                                                    "mailto:$mail?subject=Query regarding Appointment&body=Generated from Docs");
+                                                              } else {
+                                                                throw 'Could not send mail';
+                                                              }
+                                                              //print(nameDoctors.length);
+                                                            },
+                                                            child: Container(
+                                                              decoration:
+                                                                  BoxDecoration(
+                                                                borderRadius:
+                                                                    BorderRadius
+                                                                        .circular(
+                                                                            7),
+                                                              ),
+                                                              height:
+                                                                  Get.width *
+                                                                      0.07,
+                                                              width: Get.width *
+                                                                  0.07,
+                                                              child: Center(
+                                                                child: Row(
+                                                                  mainAxisAlignment:
+                                                                      MainAxisAlignment
+                                                                          .center,
+                                                                  children: [
+                                                                    Icon(
+                                                                      Icons
+                                                                          .mail_rounded,
+                                                                      color: Colors
+                                                                          .white,
+                                                                      size: 14,
+                                                                    )
+                                                                  ],
+                                                                ),
+                                                              ),
+                                                            ),
+                                                          ),
+                                                        ),
+                                                      ],
+                                                    ),
+                                                    Row(
+                                                      children: [
+                                                        Text(
+                                                          (DateTime.parse(slotInitDoctors[
+                                                                          index])
+                                                                      .hour >
+                                                                  10)
+                                                              ? DateTime.parse(
+                                                                          slotInitDoctors[
+                                                                              index])
+                                                                      .hour
+                                                                      .toString() +
+                                                                  ':00'
+                                                              : '0' +
+                                                                  DateTime.parse(
+                                                                          slotInitDoctors[
+                                                                              index])
+                                                                      .hour
+                                                                      .toString() +
+                                                                  ':00',
+                                                          style: TextStyle(
+                                                            color: lightPurple,
+                                                            fontSize: 18,
+                                                            fontFamily:
+                                                                "Poppins",
+                                                            fontWeight:
+                                                                FontWeight.w600,
+                                                          ),
+                                                        ),
+                                                        Text(
+                                                          ' - ',
+                                                          style: TextStyle(
+                                                            color: lightPurple,
+                                                            fontSize: 18,
+                                                            fontFamily:
+                                                                "Poppins",
+                                                            fontWeight:
+                                                                FontWeight.w600,
+                                                          ),
+                                                        ),
+                                                        Text(
+                                                          (DateTime.parse(slotEndDoctors[
+                                                                          index])
+                                                                      .hour >
+                                                                  10)
+                                                              ? DateTime.parse(
+                                                                          slotEndDoctors[
+                                                                              index])
+                                                                      .hour
+                                                                      .toString() +
+                                                                  ':00'
+                                                              : '0' +
+                                                                  DateTime.parse(
+                                                                          slotEndDoctors[
+                                                                              index])
+                                                                      .hour
+                                                                      .toString() +
+                                                                  ':00',
+                                                          style: TextStyle(
+                                                            color: lightPurple,
+                                                            fontSize: 18,
+                                                            fontFamily:
+                                                                "Poppins",
+                                                            fontWeight:
+                                                                FontWeight.w600,
+                                                          ),
+                                                        ),
+                                                      ],
+                                                    ),
+                                                    Spacer(
+                                                      flex: 1,
+                                                    ),
+                                                    Row(
+                                                      children: [
+                                                        Material(
+                                                          borderRadius:
+                                                              BorderRadius
+                                                                  .circular(7),
+                                                          color: lightPurple,
+                                                          child: InkWell(
+                                                            borderRadius:
+                                                                BorderRadius
+                                                                    .circular(
+                                                                        7),
+                                                            splashColor:
+                                                                darkPurple,
+                                                            onTap: () async {
+                                                              Get.to(
+                                                                ScheduleAppointmentPage(
+                                                                  nameDoctors[
+                                                                      index],
+                                                                  idDoctors[
+                                                                      index],
+                                                                  slotInitDoctors[
+                                                                      index],
+                                                                  slotEndDoctors[
+                                                                      index],
+                                                                ),
+                                                              );
+                                                              //print(nameDoctors.length);
+                                                            },
+                                                            child: Container(
+                                                              decoration:
+                                                                  BoxDecoration(
+                                                                borderRadius:
+                                                                    BorderRadius
+                                                                        .circular(
+                                                                            7),
+                                                              ),
+                                                              height:
+                                                                  Get.width *
+                                                                      0.08,
+                                                              width: Get.width *
+                                                                  0.43,
+                                                              child: Center(
+                                                                child: Row(
+                                                                  mainAxisAlignment:
+                                                                      MainAxisAlignment
+                                                                          .spaceEvenly,
+                                                                  children: [
+                                                                    Icon(
+                                                                      Icons
+                                                                          .calendar_today_rounded,
+                                                                      color: Colors
+                                                                          .white,
+                                                                      size: 13,
+                                                                    ),
+                                                                    Text(
+                                                                      'Schedule Appointment',
+                                                                      style:
+                                                                          TextStyle(
+                                                                        color: Colors
+                                                                            .white,
+                                                                        fontSize:
+                                                                            12,
+                                                                        fontFamily:
+                                                                            "Poppins",
+                                                                        fontWeight:
+                                                                            FontWeight.w600,
+                                                                      ),
+                                                                    )
+                                                                  ],
+                                                                ),
+                                                              ),
+                                                            ),
+                                                          ),
+                                                        ),
+                                                      ],
+                                                    ),
+                                                  ],
+                                                ),
                                               ),
-                                            ),
-                                            height: Get.width * 0.42,
-                                            decoration: BoxDecoration(
-                                              color: Colors.white,
-                                              borderRadius:
-                                                  BorderRadius.circular(10),
+                                              height: Get.width * 0.42,
+                                              decoration: BoxDecoration(
+                                                color: Colors.white,
+                                                borderRadius:
+                                                    BorderRadius.circular(10),
+                                              ),
                                             ),
                                           ),
                                         );

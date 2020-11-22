@@ -62,31 +62,34 @@ class _SignUpPasswordPageState extends State<SignUpPasswordPage> {
                           Row(
                             mainAxisAlignment: MainAxisAlignment.end,
                             children: [
-                              Material(
-                                borderRadius: BorderRadius.circular(13),
-                                color: lightPurple,
-                                child: InkWell(
+                              FadeIn(
+                                0.5,
+                                Material(
                                   borderRadius: BorderRadius.circular(13),
-                                  splashColor: darkPurple,
-                                  onTap: () {
-                                    Get.back();
-                                  },
-                                  child: Container(
-                                    decoration: BoxDecoration(
-                                      borderRadius: BorderRadius.circular(13),
-                                    ),
-                                    height: Get.width * 0.12,
-                                    width: Get.width * 0.12,
-                                    child: Center(
-                                      child: Row(
-                                        mainAxisAlignment:
-                                            MainAxisAlignment.center,
-                                        children: [
-                                          Icon(
-                                            Icons.arrow_back,
-                                            color: Colors.white,
-                                          )
-                                        ],
+                                  color: lightPurple,
+                                  child: InkWell(
+                                    borderRadius: BorderRadius.circular(13),
+                                    splashColor: darkPurple,
+                                    onTap: () {
+                                      Get.back();
+                                    },
+                                    child: Container(
+                                      decoration: BoxDecoration(
+                                        borderRadius: BorderRadius.circular(13),
+                                      ),
+                                      height: Get.width * 0.12,
+                                      width: Get.width * 0.12,
+                                      child: Center(
+                                        child: Row(
+                                          mainAxisAlignment:
+                                              MainAxisAlignment.center,
+                                          children: [
+                                            Icon(
+                                              Icons.arrow_back,
+                                              color: Colors.white,
+                                            )
+                                          ],
+                                        ),
                                       ),
                                     ),
                                   ),
@@ -97,74 +100,77 @@ class _SignUpPasswordPageState extends State<SignUpPasswordPage> {
                           SizedBox(
                             height: 24,
                           ),
-                          Container(
-                            decoration: BoxDecoration(
-                              boxShadow: [
-                                BoxShadow(
-                                  color: Color.fromRGBO(0, 0, 0, 0.25),
-                                  blurRadius: 10,
-                                  spreadRadius: -10,
-                                )
-                              ],
-                              color: Colors.white,
-                              borderRadius: BorderRadius.circular(13),
-                            ),
-                            height: Get.width * 0.14,
-                            child: Padding(
-                              padding: const EdgeInsets.only(
-                                left: 15.0,
-                                right: 15.0,
-                                top: 2,
+                          FadeIn(
+                            0.8,
+                            Container(
+                              decoration: BoxDecoration(
+                                boxShadow: [
+                                  BoxShadow(
+                                    color: Color.fromRGBO(0, 0, 0, 0.25),
+                                    blurRadius: 10,
+                                    spreadRadius: -10,
+                                  )
+                                ],
+                                color: Colors.white,
+                                borderRadius: BorderRadius.circular(13),
                               ),
-                              child: Theme(
-                                data: ThemeData(
-                                  textSelectionTheme: TextSelectionThemeData(
-                                    selectionColor:
-                                        Color.fromRGBO(98, 112, 221, 0.34),
-                                    selectionHandleColor:
-                                        Color.fromRGBO(98, 112, 221, 0.34),
-                                  ),
+                              height: Get.width * 0.14,
+                              child: Padding(
+                                padding: const EdgeInsets.only(
+                                  left: 15.0,
+                                  right: 15.0,
+                                  top: 2,
                                 ),
-                                child: TextField(
-                                  onChanged: (text) {
-                                    if (6 > text.length) {
-                                      setState(() {
-                                        pswdError = true;
-                                        pswdConditions = false;
-                                      });
-                                    }
-                                    if (text.length >= 6) {
-                                      setState(() {
-                                        pswdError = false;
-                                        pswdConditions = true;
-                                      });
-                                    }
-                                  },
-                                  controller: passwordController,
-                                  maxLength: 12,
-                                  obscureText: true,
-                                  cursorColor: lightPurple,
-                                  cursorRadius: Radius.circular(30),
-                                  cursorWidth: 3,
-                                  decoration: InputDecoration(
-                                      counterText: '',
-                                      disabledBorder: InputBorder.none,
-                                      focusedBorder: InputBorder.none,
-                                      enabledBorder: InputBorder.none,
-                                      hintText: 'Password',
-                                      hintStyle: TextStyle(
-                                        color:
-                                            Color.fromRGBO(98, 112, 221, 0.34),
-                                        fontSize: 20,
-                                      )),
-                                  strutStyle: StrutStyle(
-                                    fontFamily: 'Poppins',
+                                child: Theme(
+                                  data: ThemeData(
+                                    textSelectionTheme: TextSelectionThemeData(
+                                      selectionColor:
+                                          Color.fromRGBO(98, 112, 221, 0.34),
+                                      selectionHandleColor:
+                                          Color.fromRGBO(98, 112, 221, 0.34),
+                                    ),
                                   ),
-                                  style: TextStyle(
-                                    fontFamily: 'Poppins',
-                                    fontSize: 20,
-                                    fontWeight: FontWeight.w600,
-                                    color: lightPurple,
+                                  child: TextField(
+                                    onChanged: (text) {
+                                      if (6 > text.length) {
+                                        setState(() {
+                                          pswdError = true;
+                                          pswdConditions = false;
+                                        });
+                                      }
+                                      if (text.length >= 6) {
+                                        setState(() {
+                                          pswdError = false;
+                                          pswdConditions = true;
+                                        });
+                                      }
+                                    },
+                                    controller: passwordController,
+                                    maxLength: 12,
+                                    obscureText: true,
+                                    cursorColor: lightPurple,
+                                    cursorRadius: Radius.circular(30),
+                                    cursorWidth: 3,
+                                    decoration: InputDecoration(
+                                        counterText: '',
+                                        disabledBorder: InputBorder.none,
+                                        focusedBorder: InputBorder.none,
+                                        enabledBorder: InputBorder.none,
+                                        hintText: 'Password',
+                                        hintStyle: TextStyle(
+                                          color: Color.fromRGBO(
+                                              98, 112, 221, 0.34),
+                                          fontSize: 20,
+                                        )),
+                                    strutStyle: StrutStyle(
+                                      fontFamily: 'Poppins',
+                                    ),
+                                    style: TextStyle(
+                                      fontFamily: 'Poppins',
+                                      fontSize: 20,
+                                      fontWeight: FontWeight.w600,
+                                      color: lightPurple,
+                                    ),
                                   ),
                                 ),
                               ),
@@ -173,60 +179,63 @@ class _SignUpPasswordPageState extends State<SignUpPasswordPage> {
                           SizedBox(
                             height: 12,
                           ),
-                          Container(
-                            decoration: BoxDecoration(
-                              boxShadow: [
-                                BoxShadow(
-                                  color: Color.fromRGBO(0, 0, 0, 0.25),
-                                  blurRadius: 10,
-                                  spreadRadius: -10,
-                                )
-                              ],
-                              color: Colors.white,
-                              borderRadius: BorderRadius.circular(13),
-                            ),
-                            height: Get.width * 0.14,
-                            child: Padding(
-                              padding: const EdgeInsets.only(
-                                left: 15.0,
-                                right: 15.0,
-                                top: 2,
+                          FadeIn(
+                            1.1,
+                            Container(
+                              decoration: BoxDecoration(
+                                boxShadow: [
+                                  BoxShadow(
+                                    color: Color.fromRGBO(0, 0, 0, 0.25),
+                                    blurRadius: 10,
+                                    spreadRadius: -10,
+                                  )
+                                ],
+                                color: Colors.white,
+                                borderRadius: BorderRadius.circular(13),
                               ),
-                              child: Theme(
-                                data: ThemeData(
-                                  textSelectionTheme: TextSelectionThemeData(
-                                    selectionColor:
-                                        Color.fromRGBO(98, 112, 221, 0.34),
-                                    selectionHandleColor:
-                                        Color.fromRGBO(98, 112, 221, 0.34),
-                                  ),
+                              height: Get.width * 0.14,
+                              child: Padding(
+                                padding: const EdgeInsets.only(
+                                  left: 15.0,
+                                  right: 15.0,
+                                  top: 2,
                                 ),
-                                child: TextField(
-                                  controller: passwordConfirmController,
-                                  maxLength: 12,
-                                  obscureText: true,
-                                  cursorColor: lightPurple,
-                                  cursorRadius: Radius.circular(30),
-                                  cursorWidth: 3,
-                                  decoration: InputDecoration(
-                                      counterText: '',
-                                      disabledBorder: InputBorder.none,
-                                      focusedBorder: InputBorder.none,
-                                      enabledBorder: InputBorder.none,
-                                      hintText: 'Confirm Password',
-                                      hintStyle: TextStyle(
-                                        color:
-                                            Color.fromRGBO(98, 112, 221, 0.34),
-                                        fontSize: 20,
-                                      )),
-                                  strutStyle: StrutStyle(
-                                    fontFamily: 'Poppins',
+                                child: Theme(
+                                  data: ThemeData(
+                                    textSelectionTheme: TextSelectionThemeData(
+                                      selectionColor:
+                                          Color.fromRGBO(98, 112, 221, 0.34),
+                                      selectionHandleColor:
+                                          Color.fromRGBO(98, 112, 221, 0.34),
+                                    ),
                                   ),
-                                  style: TextStyle(
-                                    fontFamily: 'Poppins',
-                                    fontSize: 20,
-                                    fontWeight: FontWeight.w600,
-                                    color: lightPurple,
+                                  child: TextField(
+                                    controller: passwordConfirmController,
+                                    maxLength: 12,
+                                    obscureText: true,
+                                    cursorColor: lightPurple,
+                                    cursorRadius: Radius.circular(30),
+                                    cursorWidth: 3,
+                                    decoration: InputDecoration(
+                                        counterText: '',
+                                        disabledBorder: InputBorder.none,
+                                        focusedBorder: InputBorder.none,
+                                        enabledBorder: InputBorder.none,
+                                        hintText: 'Confirm Password',
+                                        hintStyle: TextStyle(
+                                          color: Color.fromRGBO(
+                                              98, 112, 221, 0.34),
+                                          fontSize: 20,
+                                        )),
+                                    strutStyle: StrutStyle(
+                                      fontFamily: 'Poppins',
+                                    ),
+                                    style: TextStyle(
+                                      fontFamily: 'Poppins',
+                                      fontSize: 20,
+                                      fontWeight: FontWeight.w600,
+                                      color: lightPurple,
+                                    ),
                                   ),
                                 ),
                               ),
@@ -235,13 +244,16 @@ class _SignUpPasswordPageState extends State<SignUpPasswordPage> {
                           SizedBox(
                             height: 5,
                           ),
-                          Text(
-                            'Password minimum length is 6',
-                            style: TextStyle(
-                              color: !(pswdError) ? bgColor : Colors.red[100],
-                              fontSize: 14,
-                              fontWeight: FontWeight.w600,
-                              fontFamily: 'Poppins',
+                          FadeIn(
+                            1.1,
+                            Text(
+                              'Password minimum length is 6',
+                              style: TextStyle(
+                                color: !(pswdError) ? bgColor : Colors.red[100],
+                                fontSize: 14,
+                                fontWeight: FontWeight.w600,
+                                fontFamily: 'Poppins',
+                              ),
                             ),
                           ),
                           SizedBox(
@@ -250,67 +262,95 @@ class _SignUpPasswordPageState extends State<SignUpPasswordPage> {
                           Spacer(
                             flex: 1,
                           ),
-                          Material(
-                            borderRadius: BorderRadius.circular(13),
-                            color: lightPurple,
-                            child: InkWell(
+                          FadeIn(
+                            1.4,
+                            Material(
                               borderRadius: BorderRadius.circular(13),
-                              splashColor: darkPurple,
-                              onTap: () {
-                                if (passwordController.text ==
-                                    passwordConfirmController.text) {
-                                  if (passwordController.text.length > 6) {
-                                    if (userRole == 'Patient') {
-                                      _signupPatient(
-                                          userEmail,
-                                          passwordController.text,
-                                          userName,
-                                          userMobile,
-                                          (userHouse +
-                                              ', ' +
-                                              userLocality +
-                                              ', ' +
-                                              userCity +
-                                              ', ' +
-                                              userState +
-                                              ', ' +
-                                              userPincode),
-                                          context);
+                              color: lightPurple,
+                              child: InkWell(
+                                borderRadius: BorderRadius.circular(13),
+                                splashColor: darkPurple,
+                                onTap: () {
+                                  if (passwordController.text ==
+                                      passwordConfirmController.text) {
+                                    if (passwordController.text.length > 6) {
+                                      if (userRole == 'Patient') {
+                                        _signupPatient(
+                                            userEmail,
+                                            passwordController.text,
+                                            userName,
+                                            userMobile,
+                                            (userHouse +
+                                                ', ' +
+                                                userLocality +
+                                                ', ' +
+                                                userCity +
+                                                ', ' +
+                                                userState +
+                                                ', ' +
+                                                userPincode),
+                                            context);
+                                      } else {
+                                        _signupDoctor(
+                                            userEmail,
+                                            passwordController.text,
+                                            userName,
+                                            userMobile,
+                                            (userHouse +
+                                                ', ' +
+                                                userLocality +
+                                                ', ' +
+                                                userCity +
+                                                ', ' +
+                                                userState +
+                                                ', ' +
+                                                userPincode),
+                                            userSpecialization,
+                                            userQualification,
+                                            ('1970-01-01 ' +
+                                                userPeriodInit +
+                                                ':00:00'),
+                                            ('1970-01-01 ' +
+                                                userPeriodFinal +
+                                                ':00:00'),
+                                            context);
+                                      }
                                     } else {
-                                      _signupDoctor(
-                                          userEmail,
-                                          passwordController.text,
-                                          userName,
-                                          userMobile,
-                                          (userHouse +
-                                              ', ' +
-                                              userLocality +
-                                              ', ' +
-                                              userCity +
-                                              ', ' +
-                                              userState +
-                                              ', ' +
-                                              userPincode),
-                                          userSpecialization,
-                                          userQualification,
-                                          ('1970-01-01 ' +
-                                              userPeriodInit +
-                                              ':00:00'),
-                                          ('1970-01-01 ' +
-                                              userPeriodFinal +
-                                              ':00:00'),
-                                          context);
+                                      Get.snackbar(
+                                        'Insecure',
+                                        "Password should be greater than 6 characters",
+                                        barBlur: 0,
+                                        snackPosition: SnackPosition.TOP,
+                                        backgroundColor: bgColor,
+                                        borderRadius: 10,
+                                        titleText: Text(
+                                          'Insecure',
+                                          style: TextStyle(
+                                            fontFamily: 'Trueno',
+                                            fontWeight: FontWeight.w800,
+                                            color: lightPurple,
+                                          ),
+                                        ),
+                                        messageText: Text(
+                                          'Password should be greater than 6 characters',
+                                          style: TextStyle(
+                                            fontFamily: 'Trueno',
+                                            fontWeight: FontWeight.w400,
+                                            color: lightPurple,
+                                          ),
+                                        ),
+                                      );
                                     }
                                   } else {
                                     Get.snackbar(
-                                      'Insecure',
-                                      "Password should be greater than 6 characters",
+                                      'Error',
+                                      "Passwords do not match",
                                       barBlur: 0,
                                       snackPosition: SnackPosition.TOP,
                                       backgroundColor: bgColor,
                                       borderRadius: 10,
                                       titleText: Text(
-                                        'Insecure',
+                                        'Error',
                                         style: TextStyle(
                                           fontFamily: 'Trueno',
                                           fontWeight: FontWeight.w800,
@@ -318,7 +358,7 @@ class _SignUpPasswordPageState extends State<SignUpPasswordPage> {
                                         ),
                                       ),
                                       messageText: Text(
-                                        'Password should be greater than 6 characters',
+                                        'Passwords do not match',
                                         style: TextStyle(
                                           fontFamily: 'Trueno',
                                           fontWeight: FontWeight.w400,
@@ -327,52 +367,28 @@ class _SignUpPasswordPageState extends State<SignUpPasswordPage> {
                                       ),
                                     );
                                   }
-                                } else {
-                                  Get.snackbar(
-                                    'Error',
-                                    "Passwords do not match",
-                                    barBlur: 0,
-                                    snackPosition: SnackPosition.TOP,
-                                    backgroundColor: bgColor,
-                                    borderRadius: 10,
-                                    titleText: Text(
-                                      'Error',
-                                      style: TextStyle(
-                                        fontFamily: 'Trueno',
-                                        fontWeight: FontWeight.w800,
-                                        color: lightPurple,
-                                      ),
-                                    ),
-                                    messageText: Text(
-                                      'Passwords do not match',
-                                      style: TextStyle(
-                                        fontFamily: 'Trueno',
-                                        fontWeight: FontWeight.w400,
-                                        color: lightPurple,
-                                      ),
-                                    ),
-                                  );
-                                }
-                              },
-                              child: Container(
-                                decoration: BoxDecoration(
-                                  borderRadius: BorderRadius.circular(13),
-                                ),
-                                height: Get.width * 0.14,
-                                child: Center(
-                                  child: Row(
-                                    mainAxisAlignment: MainAxisAlignment.center,
-                                    children: [
-                                      Text(
-                                        'Proceed',
-                                        style: TextStyle(
-                                          fontFamily: 'Poppins',
-                                          fontSize: 24,
-                                          fontWeight: FontWeight.w600,
-                                          color: Colors.white,
+                                },
+                                child: Container(
+                                  decoration: BoxDecoration(
+                                    borderRadius: BorderRadius.circular(13),
+                                  ),
+                                  height: Get.width * 0.14,
+                                  child: Center(
+                                    child: Row(
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.center,
+                                      children: [
+                                        Text(
+                                          'Proceed',
+                                          style: TextStyle(
+                                            fontFamily: 'Poppins',
+                                            fontSize: 24,
+                                            fontWeight: FontWeight.w600,
+                                            color: Colors.white,
+                                          ),
                                         ),
-                                      ),
-                                    ],
+                                      ],
+                                    ),
                                   ),
                                 ),
                               ),
