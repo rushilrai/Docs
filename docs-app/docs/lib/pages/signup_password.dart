@@ -2,6 +2,7 @@ import 'dart:convert';
 
 import 'package:docs/models/user.dart';
 import 'package:docs/pages/home.dart';
+import 'package:docs/pages/login.dart';
 import 'package:docs/utils/constants.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -467,7 +468,32 @@ void _signupPatient(String id, String password, String name, String contact,
     await prefs.setString('mobile', userMobile);
     await prefs.setString('address', address);
     await prefs.setBool('loggedin', true);
-    Get.offAll(HomePage(name, userRole));
+    print(userRole);
+    Get.offAll(LoginPage());
+    Get.snackbar(
+      'Successful',
+      "Login to continue",
+      barBlur: 0,
+      snackPosition: SnackPosition.TOP,
+      backgroundColor: bgColor,
+      borderRadius: 10,
+      titleText: Text(
+        'Successful',
+        style: TextStyle(
+          fontFamily: 'Trueno',
+          fontWeight: FontWeight.w800,
+          color: lightPurple,
+        ),
+      ),
+      messageText: Text(
+        'Login to continue',
+        style: TextStyle(
+          fontFamily: 'Trueno',
+          fontWeight: FontWeight.w400,
+          color: lightPurple,
+        ),
+      ),
+    );
   } else {
     Get.back();
     Get.snackbar(
@@ -486,7 +512,7 @@ void _signupPatient(String id, String password, String name, String contact,
         ),
       ),
       messageText: Text(
-        'We are having trouble signing up',
+        jsonDecode(signupResponse.body)['msg'],
         style: TextStyle(
           fontFamily: 'Trueno',
           fontWeight: FontWeight.w400,
