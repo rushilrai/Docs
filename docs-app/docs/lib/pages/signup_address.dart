@@ -17,6 +17,12 @@ class _SignUpAddressPageState extends State<SignUpAddressPage> {
   TextEditingController localityController = TextEditingController();
   TextEditingController houseController = TextEditingController();
   @override
+  void initState() {
+    print(userRole);
+    super.initState();
+  }
+
+  @override
   Widget build(BuildContext context) {
     return AnnotatedRegion<SystemUiOverlayStyle>(
       value: SystemUiOverlayStyle(

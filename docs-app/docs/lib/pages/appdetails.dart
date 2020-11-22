@@ -1,3 +1,4 @@
+import 'package:docs/models/appointments.dart';
 import 'package:docs/pages/prescribe.dart';
 import 'package:docs/utils/constants.dart';
 import 'package:flutter/material.dart';
@@ -83,8 +84,13 @@ class _AppointmentDetailsPageState extends State<AppointmentDetailsPage> {
 
   @override
   void initState() {
+    getAppointments().then((value) => (value) ? setState2() : print('none'));
     checkVideo();
     super.initState();
+  }
+
+  void setState2() {
+    setState(() {});
   }
 
   @override
@@ -284,7 +290,7 @@ class _AppointmentDetailsPageState extends State<AppointmentDetailsPage> {
                             children: [
                               Text(
                                 (approved)
-                                    ? 'Approved:'
+                                    ? 'Approved'
                                     : 'Waiting for Approval',
                                 style: TextStyle(
                                   fontFamily: 'Poppins',

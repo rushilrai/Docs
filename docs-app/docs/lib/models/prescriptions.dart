@@ -20,6 +20,8 @@ class Meds {
 
   Meds(this.id, this.name, this.quantity, this.comment);
 
+  Meds.prescr(this.name, this.quantity, this.comment);
+
   Map toJson() => {
         '_id': id,
         'name': name,

@@ -19,6 +19,7 @@ class _AllOrdersPageState extends State<AllOrdersPage> {
   void updateOrders() async {
     final refresh = await getOrders();
     if (refresh == 'refresh') {
+      print('ss');
       setState(() {});
     }
   }
@@ -60,6 +61,66 @@ class _AllOrdersPageState extends State<AllOrdersPage> {
                           Row(
                             mainAxisAlignment: MainAxisAlignment.end,
                             children: [
+                              FadeIn(
+                                0.5,
+                                Material(
+                                  borderRadius: BorderRadius.circular(13),
+                                  color: lightPurple,
+                                  child: InkWell(
+                                    borderRadius: BorderRadius.circular(13),
+                                    splashColor: darkPurple,
+                                    onTap: () {
+                                      Get.snackbar(
+                                        'Refreshing',
+                                        "Fetching all Orders",
+                                        barBlur: 0,
+                                        snackPosition: SnackPosition.TOP,
+                                        backgroundColor: bgColor,
+                                        borderRadius: 10,
+                                        titleText: Text(
+                                          'Refreshing',
+                                          style: TextStyle(
+                                            fontFamily: 'Trueno',
+                                            fontWeight: FontWeight.w800,
+                                            color: lightPurple,
+                                          ),
+                                        ),
+                                        messageText: Text(
+                                          'Fetching all Orders',
+                                          style: TextStyle(
+                                            fontFamily: 'Trueno',
+                                            fontWeight: FontWeight.w400,
+                                            color: lightPurple,
+                                          ),
+                                        ),
+                                      );
+                                      updateOrders();
+                                    },
+                                    child: Container(
+                                      decoration: BoxDecoration(
+                                        borderRadius: BorderRadius.circular(13),
+                                      ),
+                                      height: Get.width * 0.12,
+                                      width: Get.width * 0.12,
+                                      child: Center(
+                                        child: Row(
+                                          mainAxisAlignment:
+                                              MainAxisAlignment.center,
+                                          children: [
+                                            Icon(
+                                              Icons.refresh,
+                                              color: Colors.white,
+                                            )
+                                          ],
+                                        ),
+                                      ),
+                                    ),
+                                  ),
+                                ),
+                              ),
+                              SizedBox(
+                                width: 15,
+                              ),
                               FadeIn(
                                 0.5,
                                 Material(

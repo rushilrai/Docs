@@ -31,6 +31,7 @@ class _HomePageState extends State<HomePage> {
   _HomePageState(this.name, this.role);
   @override
   void initState() {
+    print(role);
     getAppointments().then((value) => (value) ? setState2() : print('same'));
     getPrescriptions();
     getOrders();
@@ -231,18 +232,35 @@ class _HomePageState extends State<HomePage> {
                                         ),
                                         Row(
                                           children: [
-                                            Text(
-                                              appointmentsList[
-                                                      appointmentsList.length -
-                                                          1]
-                                                  .patientName,
-                                              style: TextStyle(
-                                                fontFamily: 'Poppins',
-                                                fontSize: 32,
-                                                fontWeight: FontWeight.w600,
-                                                color: darkPurple,
-                                              ),
-                                            ),
+                                            (role == 'patient')
+                                                ? Text(
+                                                    appointmentsList[
+                                                            appointmentsList
+                                                                    .length -
+                                                                1]
+                                                        .docName,
+                                                    style: TextStyle(
+                                                      fontFamily: 'Poppins',
+                                                      fontSize: 32,
+                                                      fontWeight:
+                                                          FontWeight.w600,
+                                                      color: darkPurple,
+                                                    ),
+                                                  )
+                                                : Text(
+                                                    appointmentsList[
+                                                            appointmentsList
+                                                                    .length -
+                                                                1]
+                                                        .patientName,
+                                                    style: TextStyle(
+                                                      fontFamily: 'Poppins',
+                                                      fontSize: 32,
+                                                      fontWeight:
+                                                          FontWeight.w600,
+                                                      color: darkPurple,
+                                                    ),
+                                                  ),
                                           ],
                                         ),
                                         Spacer(),
@@ -383,12 +401,12 @@ class _HomePageState extends State<HomePage> {
                             ),
                           ),
                         ),
-                        (role == 'patient')
+                        (role == 'patient' || role == 'Patient')
                             ? Spacer(
                                 flex: 3,
                               )
                             : Container(),
-                        (role == 'patient')
+                        (role == 'patient' || role == 'Patient')
                             ? FadeIn(
                                 1.1,
                                 GestureDetector(
@@ -438,7 +456,7 @@ class _HomePageState extends State<HomePage> {
                                 ),
                               )
                             : Container(),
-                        (role == 'patient')
+                        (role == 'patient' || role == 'Patient')
                             ? Spacer(
                                 flex: 3,
                               )
@@ -498,7 +516,7 @@ class _HomePageState extends State<HomePage> {
                                 Expanded(
                                   child: InkWell(
                                     onTap: () {
-                                      (role == 'doctor')
+                                      (role == 'doctor' || role == 'Doctor')
                                           ? Get.to(RequestsPage())
                                           : Get.to(AllOrdersPage());
                                     },
@@ -509,7 +527,8 @@ class _HomePageState extends State<HomePage> {
                                         crossAxisAlignment:
                                             CrossAxisAlignment.center,
                                         children: [
-                                          (role == 'patient')
+                                          (role == 'patient' ||
+                                                  role == 'Patient')
                                               ? Image.asset(
                                                   'assets/images/pill.png',
                                                   width: Get.width * 0.22,
@@ -518,7 +537,8 @@ class _HomePageState extends State<HomePage> {
                                                   'assets/images/request.png',
                                                   width: Get.width * 0.22,
                                                 ),
-                                          (role == 'patient')
+                                          (role == 'patient' ||
+                                                  role == 'Patient')
                                               ? Text(
                                                   'Orders',
                                                   style: TextStyle(

@@ -474,8 +474,7 @@ class _PrescribePageState extends State<PrescribePage> {
                                                             0 &&
                                                         medComment.text.length >
                                                             0) {
-                                                      var med = Meds(
-                                                          '',
+                                                      var med = Meds.prescr(
                                                           medName.text,
                                                           medQuant.text,
                                                           medComment.text);
@@ -787,7 +786,7 @@ void newPrescription(context, userid, docid, List<Meds> meds, password) async {
       },
     ),
   );
-  print(prescNewResponse.statusCode);
+  print(prescNewResponse.body);
   await getPrescriptions();
   Get.back();
   Get.back();
