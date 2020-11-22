@@ -14,6 +14,12 @@ class AllApointmentsPage extends StatefulWidget {
 
 class _AllApointmentsPageState extends State<AllApointmentsPage> {
   @override
+  void initState() {
+    getAppointments();
+    super.initState();
+  }
+
+  @override
   Widget build(BuildContext context) {
     return AnnotatedRegion<SystemUiOverlayStyle>(
       value: SystemUiOverlayStyle(

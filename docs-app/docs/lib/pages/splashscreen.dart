@@ -74,16 +74,13 @@ class _SplashScreenState extends State<SplashScreen> {
             ),
             Material(
               type: MaterialType.transparency,
-              child: Hero(
-                tag: 'docs',
-                child: Text(
-                  'Docs.',
-                  style: TextStyle(
-                    fontFamily: 'Poppins',
-                    fontWeight: FontWeight.w600,
-                    fontSize: 40,
-                    color: Colors.white,
-                  ),
+              child: Text(
+                'Docs.',
+                style: TextStyle(
+                  fontFamily: 'Poppins',
+                  fontWeight: FontWeight.w600,
+                  fontSize: 40,
+                  color: Colors.white,
                 ),
               ),
             ),
