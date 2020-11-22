@@ -193,7 +193,8 @@ class _AllOrdersPageState extends State<AllOrdersPage> {
                                                         fontSize: 14,
                                                         fontWeight:
                                                             FontWeight.w600,
-                                                        color: lightPurple,
+                                                        color: Color.fromRGBO(
+                                                            76, 76, 81, 0.8),
                                                       ),
                                                     ),
                                                     Text(
@@ -229,7 +230,8 @@ class _AllOrdersPageState extends State<AllOrdersPage> {
                                                         fontSize: 14,
                                                         fontWeight:
                                                             FontWeight.w600,
-                                                        color: lightPurple,
+                                                        color: Color.fromRGBO(
+                                                            76, 76, 81, 0.8),
                                                       ),
                                                     ),
                                                     Text(
