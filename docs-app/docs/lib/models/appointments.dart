@@ -49,7 +49,12 @@ Future<bool> getAppointments() async {
       print('updated');
     } else {
       appointmentsList = tempAppointmentsList;
-      print('changing');
+      appointmentsList.sort((a, b) {
+        var adate = a.timeStart;
+        var bdate = b.timeStart;
+        return adate.compareTo(bdate);
+      });
+      print(appointmentsList);
       change = true;
       //return true;
     }

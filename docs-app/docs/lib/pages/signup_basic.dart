@@ -102,753 +102,774 @@ class _SignUpBasicPageState extends State<SignUpBasicPage> {
                           SizedBox(
                             height: 24,
                           ),
-                          Container(
-                            decoration: BoxDecoration(
-                              boxShadow: [
-                                BoxShadow(
-                                  color: Color.fromRGBO(0, 0, 0, 0.25),
-                                  blurRadius: 10,
-                                  spreadRadius: -10,
-                                )
-                              ],
-                              color: Colors.white,
-                              borderRadius: BorderRadius.circular(13),
-                            ),
-                            height: Get.width * 0.14,
-                            child: Padding(
-                              padding: const EdgeInsets.only(
-                                left: 15.0,
-                                right: 15.0,
-                                top: 2,
-                              ),
-                              child: Theme(
-                                data: ThemeData(
-                                  textSelectionTheme: TextSelectionThemeData(
-                                    selectionColor:
-                                        Color.fromRGBO(98, 112, 221, 0.34),
-                                    selectionHandleColor:
-                                        Color.fromRGBO(98, 112, 221, 0.34),
-                                  ),
+                          ListView(
+                            shrinkWrap: true,
+                            children: [
+                              Container(
+                                decoration: BoxDecoration(
+                                  boxShadow: [
+                                    BoxShadow(
+                                      color: Color.fromRGBO(0, 0, 0, 0.25),
+                                      blurRadius: 10,
+                                      spreadRadius: -10,
+                                    )
+                                  ],
+                                  color: Colors.white,
+                                  borderRadius: BorderRadius.circular(13),
                                 ),
-                                child: TextField(
-                                  controller: nameController,
-                                  cursorColor: lightPurple,
-                                  cursorRadius: Radius.circular(30),
-                                  cursorWidth: 3,
-                                  decoration: InputDecoration(
-                                      disabledBorder: InputBorder.none,
-                                      focusedBorder: InputBorder.none,
-                                      enabledBorder: InputBorder.none,
-                                      hintText: 'Name',
-                                      hintStyle: TextStyle(
-                                        color:
+                                height: Get.width * 0.14,
+                                child: Padding(
+                                  padding: const EdgeInsets.only(
+                                    left: 15.0,
+                                    right: 15.0,
+                                    top: 2,
+                                  ),
+                                  child: Theme(
+                                    data: ThemeData(
+                                      textSelectionTheme:
+                                          TextSelectionThemeData(
+                                        selectionColor:
                                             Color.fromRGBO(98, 112, 221, 0.34),
-                                        fontSize: 20,
-                                      )),
-                                  strutStyle: StrutStyle(
-                                    fontFamily: 'Poppins',
-                                  ),
-                                  style: TextStyle(
-                                    fontFamily: 'Poppins',
-                                    fontSize: 20,
-                                    fontWeight: FontWeight.w600,
-                                    color: lightPurple,
-                                  ),
-                                ),
-                              ),
-                            ),
-                          ),
-                          SizedBox(
-                            height: 12,
-                          ),
-                          Container(
-                            decoration: BoxDecoration(
-                              boxShadow: [
-                                BoxShadow(
-                                  color: Color.fromRGBO(0, 0, 0, 0.25),
-                                  blurRadius: 10,
-                                  spreadRadius: -10,
-                                )
-                              ],
-                              color: Colors.white,
-                              borderRadius: BorderRadius.circular(13),
-                            ),
-                            height: Get.width * 0.14,
-                            child: Padding(
-                              padding: const EdgeInsets.only(
-                                left: 15.0,
-                                right: 15.0,
-                                top: 2,
-                              ),
-                              child: Theme(
-                                data: ThemeData(
-                                  textSelectionTheme: TextSelectionThemeData(
-                                    selectionColor:
-                                        Color.fromRGBO(98, 112, 221, 0.34),
-                                    selectionHandleColor:
-                                        Color.fromRGBO(98, 112, 221, 0.34),
-                                  ),
-                                ),
-                                child: TextField(
-                                  controller: emailController,
-                                  cursorColor: lightPurple,
-                                  cursorRadius: Radius.circular(30),
-                                  cursorWidth: 3,
-                                  decoration: InputDecoration(
-                                      disabledBorder: InputBorder.none,
-                                      focusedBorder: InputBorder.none,
-                                      enabledBorder: InputBorder.none,
-                                      hintText: 'E-Mail',
-                                      hintStyle: TextStyle(
-                                        color:
+                                        selectionHandleColor:
                                             Color.fromRGBO(98, 112, 221, 0.34),
+                                      ),
+                                    ),
+                                    child: TextField(
+                                      controller: nameController,
+                                      cursorColor: lightPurple,
+                                      cursorRadius: Radius.circular(30),
+                                      cursorWidth: 3,
+                                      decoration: InputDecoration(
+                                          disabledBorder: InputBorder.none,
+                                          focusedBorder: InputBorder.none,
+                                          enabledBorder: InputBorder.none,
+                                          hintText: 'Name',
+                                          hintStyle: TextStyle(
+                                            color: Color.fromRGBO(
+                                                98, 112, 221, 0.34),
+                                            fontSize: 20,
+                                          )),
+                                      strutStyle: StrutStyle(
+                                        fontFamily: 'Poppins',
+                                      ),
+                                      style: TextStyle(
+                                        fontFamily: 'Poppins',
                                         fontSize: 20,
-                                      )),
-                                  strutStyle: StrutStyle(
-                                    fontFamily: 'Poppins',
-                                  ),
-                                  style: TextStyle(
-                                    fontFamily: 'Poppins',
-                                    fontSize: 20,
-                                    fontWeight: FontWeight.w600,
-                                    color: lightPurple,
-                                  ),
-                                ),
-                              ),
-                            ),
-                          ),
-                          SizedBox(
-                            height: 12,
-                          ),
-                          GestureDetector(
-                            onTap: () {
-                              Get.bottomSheet(
-                                BottomSheet(
-                                  elevation: 1,
-                                  shape: RoundedRectangleBorder(
-                                    borderRadius: BorderRadius.only(
-                                      topLeft: Radius.circular(20),
-                                      topRight: Radius.circular(20),
+                                        fontWeight: FontWeight.w600,
+                                        color: lightPurple,
+                                      ),
                                     ),
                                   ),
-                                  onClosing: () {},
-                                  builder: (context) {
-                                    return Container(
-                                      height: Get.width * 0.8,
-                                      child: Padding(
-                                        padding: const EdgeInsets.only(
-                                          left: 30.0,
-                                          right: 30.0,
-                                          top: 20,
-                                          bottom: 10,
-                                        ),
-                                        child: Column(
-                                          crossAxisAlignment:
-                                              CrossAxisAlignment.end,
-                                          children: [
-                                            Material(
-                                              borderRadius:
-                                                  BorderRadius.circular(13),
-                                              color: lightPurple,
-                                              child: InkWell(
-                                                borderRadius:
-                                                    BorderRadius.circular(13),
-                                                splashColor: darkPurple,
-                                                onTap: () {
-                                                  Get.back();
-                                                },
-                                                child: Container(
-                                                  decoration: BoxDecoration(
-                                                    borderRadius:
-                                                        BorderRadius.circular(
-                                                            13),
-                                                  ),
-                                                  height: Get.width * 0.12,
-                                                  width: Get.width * 0.12,
-                                                  child: Center(
-                                                    child: Row(
-                                                      mainAxisAlignment:
-                                                          MainAxisAlignment
-                                                              .center,
-                                                      children: [
-                                                        Icon(
-                                                          Icons.arrow_back,
-                                                          color: Colors.white,
-                                                        )
-                                                      ],
-                                                    ),
-                                                  ),
-                                                ),
-                                              ),
-                                            ),
-                                            SizedBox(
-                                              height: 20,
-                                            ),
-                                            Material(
-                                              borderRadius:
-                                                  BorderRadius.circular(13),
-                                              color: (maleSelected)
-                                                  ? lightPurple
-                                                  : Colors.white,
-                                              child: InkWell(
-                                                borderRadius:
-                                                    BorderRadius.circular(13),
-                                                splashColor: darkPurple,
-                                                onTap: () {
-                                                  setState(() {
-                                                    maleSelected = true;
-                                                    femaleSelected = false;
-                                                    othersSelected = false;
-                                                    Get.back();
-                                                  });
-                                                },
-                                                child: Container(
-                                                  decoration: BoxDecoration(
-                                                    borderRadius:
-                                                        BorderRadius.circular(
-                                                            13),
-                                                  ),
-                                                  height: Get.width * 0.14,
-                                                  child: Center(
-                                                    child: Row(
-                                                      mainAxisAlignment:
-                                                          MainAxisAlignment
-                                                              .center,
-                                                      children: [
-                                                        Text(
-                                                          'Male',
-                                                          style: TextStyle(
-                                                            fontFamily:
-                                                                'Poppins',
-                                                            fontSize: 24,
-                                                            fontWeight:
-                                                                FontWeight.w600,
-                                                            color: (maleSelected)
-                                                                ? Colors.white
-                                                                : lightPurple,
-                                                          ),
-                                                        ),
-                                                      ],
-                                                    ),
-                                                  ),
-                                                ),
-                                              ),
-                                            ),
-                                            SizedBox(
-                                              height: 10,
-                                            ),
-                                            Material(
-                                              borderRadius:
-                                                  BorderRadius.circular(13),
-                                              color: (femaleSelected)
-                                                  ? lightPurple
-                                                  : Colors.white,
-                                              child: InkWell(
-                                                borderRadius:
-                                                    BorderRadius.circular(13),
-                                                splashColor: darkPurple,
-                                                onTap: () {
-                                                  setState(() {
-                                                    maleSelected = false;
-                                                    femaleSelected = true;
-                                                    othersSelected = false;
-                                                    Get.back();
-                                                  });
-                                                },
-                                                child: Container(
-                                                  decoration: BoxDecoration(
-                                                    borderRadius:
-                                                        BorderRadius.circular(
-                                                            13),
-                                                  ),
-                                                  height: Get.width * 0.14,
-                                                  child: Center(
-                                                    child: Row(
-                                                      mainAxisAlignment:
-                                                          MainAxisAlignment
-                                                              .center,
-                                                      children: [
-                                                        Text(
-                                                          'Female',
-                                                          style: TextStyle(
-                                                            fontFamily:
-                                                                'Poppins',
-                                                            fontSize: 24,
-                                                            fontWeight:
-                                                                FontWeight.w600,
-                                                            color:
-                                                                (femaleSelected)
-                                                                    ? Colors
-                                                                        .white
-                                                                    : lightPurple,
-                                                          ),
-                                                        ),
-                                                      ],
-                                                    ),
-                                                  ),
-                                                ),
-                                              ),
-                                            ),
-                                            SizedBox(
-                                              height: 10,
-                                            ),
-                                            Material(
-                                              borderRadius:
-                                                  BorderRadius.circular(13),
-                                              color: (othersSelected)
-                                                  ? lightPurple
-                                                  : Colors.white,
-                                              child: InkWell(
-                                                borderRadius:
-                                                    BorderRadius.circular(13),
-                                                splashColor: darkPurple,
-                                                onTap: () {
-                                                  setState(() {
-                                                    maleSelected = false;
-                                                    femaleSelected = false;
-                                                    othersSelected = true;
-                                                    Get.back();
-                                                  });
-                                                },
-                                                child: Container(
-                                                  decoration: BoxDecoration(
-                                                    borderRadius:
-                                                        BorderRadius.circular(
-                                                            13),
-                                                  ),
-                                                  height: Get.width * 0.14,
-                                                  child: Center(
-                                                    child: Row(
-                                                      mainAxisAlignment:
-                                                          MainAxisAlignment
-                                                              .center,
-                                                      children: [
-                                                        Text(
-                                                          'Others',
-                                                          style: TextStyle(
-                                                            fontFamily:
-                                                                'Poppins',
-                                                            fontSize: 24,
-                                                            fontWeight:
-                                                                FontWeight.w600,
-                                                            color:
-                                                                (othersSelected)
-                                                                    ? Colors
-                                                                        .white
-                                                                    : lightPurple,
-                                                          ),
-                                                        ),
-                                                      ],
-                                                    ),
-                                                  ),
-                                                ),
-                                              ),
-                                            ),
-                                            SizedBox(
-                                              height: 20,
-                                            ),
-                                          ],
+                                ),
+                              ),
+                              SizedBox(
+                                height: 12,
+                              ),
+                              Container(
+                                decoration: BoxDecoration(
+                                  boxShadow: [
+                                    BoxShadow(
+                                      color: Color.fromRGBO(0, 0, 0, 0.25),
+                                      blurRadius: 10,
+                                      spreadRadius: -10,
+                                    )
+                                  ],
+                                  color: Colors.white,
+                                  borderRadius: BorderRadius.circular(13),
+                                ),
+                                height: Get.width * 0.14,
+                                child: Padding(
+                                  padding: const EdgeInsets.only(
+                                    left: 15.0,
+                                    right: 15.0,
+                                    top: 2,
+                                  ),
+                                  child: Theme(
+                                    data: ThemeData(
+                                      textSelectionTheme:
+                                          TextSelectionThemeData(
+                                        selectionColor:
+                                            Color.fromRGBO(98, 112, 221, 0.34),
+                                        selectionHandleColor:
+                                            Color.fromRGBO(98, 112, 221, 0.34),
+                                      ),
+                                    ),
+                                    child: TextField(
+                                      controller: emailController,
+                                      cursorColor: lightPurple,
+                                      cursorRadius: Radius.circular(30),
+                                      cursorWidth: 3,
+                                      decoration: InputDecoration(
+                                          disabledBorder: InputBorder.none,
+                                          focusedBorder: InputBorder.none,
+                                          enabledBorder: InputBorder.none,
+                                          hintText: 'E-Mail',
+                                          hintStyle: TextStyle(
+                                            color: Color.fromRGBO(
+                                                98, 112, 221, 0.34),
+                                            fontSize: 20,
+                                          )),
+                                      strutStyle: StrutStyle(
+                                        fontFamily: 'Poppins',
+                                      ),
+                                      style: TextStyle(
+                                        fontFamily: 'Poppins',
+                                        fontSize: 20,
+                                        fontWeight: FontWeight.w600,
+                                        color: lightPurple,
+                                      ),
+                                    ),
+                                  ),
+                                ),
+                              ),
+                              SizedBox(
+                                height: 12,
+                              ),
+                              GestureDetector(
+                                onTap: () {
+                                  Get.bottomSheet(
+                                    BottomSheet(
+                                      elevation: 1,
+                                      shape: RoundedRectangleBorder(
+                                        borderRadius: BorderRadius.only(
+                                          topLeft: Radius.circular(20),
+                                          topRight: Radius.circular(20),
                                         ),
                                       ),
-                                      decoration: BoxDecoration(),
-                                    );
-                                  },
-                                ),
-                              );
-                            },
-                            child: Container(
-                              decoration: BoxDecoration(
-                                boxShadow: [
-                                  BoxShadow(
-                                    color: Color.fromRGBO(0, 0, 0, 0.25),
-                                    blurRadius: 10,
-                                    spreadRadius: -10,
-                                  )
-                                ],
-                                color: Colors.white,
-                                borderRadius: BorderRadius.circular(13),
-                              ),
-                              height: Get.width * 0.14,
-                              child: Padding(
-                                padding: const EdgeInsets.only(
-                                  left: 15.0,
-                                  right: 15.0,
-                                  top: 2,
-                                ),
-                                child: Theme(
-                                  data: ThemeData(
-                                    textSelectionTheme: TextSelectionThemeData(
-                                      selectionColor:
-                                          Color.fromRGBO(98, 112, 221, 0.34),
-                                      selectionHandleColor:
-                                          Color.fromRGBO(98, 112, 221, 0.34),
+                                      onClosing: () {},
+                                      builder: (context) {
+                                        return Container(
+                                          height: Get.width * 0.8,
+                                          child: Padding(
+                                            padding: const EdgeInsets.only(
+                                              left: 30.0,
+                                              right: 30.0,
+                                              top: 20,
+                                              bottom: 10,
+                                            ),
+                                            child: Column(
+                                              crossAxisAlignment:
+                                                  CrossAxisAlignment.end,
+                                              children: [
+                                                Material(
+                                                  borderRadius:
+                                                      BorderRadius.circular(13),
+                                                  color: lightPurple,
+                                                  child: InkWell(
+                                                    borderRadius:
+                                                        BorderRadius.circular(
+                                                            13),
+                                                    splashColor: darkPurple,
+                                                    onTap: () {
+                                                      Get.back();
+                                                    },
+                                                    child: Container(
+                                                      decoration: BoxDecoration(
+                                                        borderRadius:
+                                                            BorderRadius
+                                                                .circular(13),
+                                                      ),
+                                                      height: Get.width * 0.12,
+                                                      width: Get.width * 0.12,
+                                                      child: Center(
+                                                        child: Row(
+                                                          mainAxisAlignment:
+                                                              MainAxisAlignment
+                                                                  .center,
+                                                          children: [
+                                                            Icon(
+                                                              Icons.arrow_back,
+                                                              color:
+                                                                  Colors.white,
+                                                            )
+                                                          ],
+                                                        ),
+                                                      ),
+                                                    ),
+                                                  ),
+                                                ),
+                                                SizedBox(
+                                                  height: 20,
+                                                ),
+                                                Material(
+                                                  borderRadius:
+                                                      BorderRadius.circular(13),
+                                                  color: (maleSelected)
+                                                      ? lightPurple
+                                                      : Colors.white,
+                                                  child: InkWell(
+                                                    borderRadius:
+                                                        BorderRadius.circular(
+                                                            13),
+                                                    splashColor: darkPurple,
+                                                    onTap: () {
+                                                      setState(() {
+                                                        maleSelected = true;
+                                                        femaleSelected = false;
+                                                        othersSelected = false;
+                                                        Get.back();
+                                                      });
+                                                    },
+                                                    child: Container(
+                                                      decoration: BoxDecoration(
+                                                        borderRadius:
+                                                            BorderRadius
+                                                                .circular(13),
+                                                      ),
+                                                      height: Get.width * 0.14,
+                                                      child: Center(
+                                                        child: Row(
+                                                          mainAxisAlignment:
+                                                              MainAxisAlignment
+                                                                  .center,
+                                                          children: [
+                                                            Text(
+                                                              'Male',
+                                                              style: TextStyle(
+                                                                fontFamily:
+                                                                    'Poppins',
+                                                                fontSize: 24,
+                                                                fontWeight:
+                                                                    FontWeight
+                                                                        .w600,
+                                                                color: (maleSelected)
+                                                                    ? Colors
+                                                                        .white
+                                                                    : lightPurple,
+                                                              ),
+                                                            ),
+                                                          ],
+                                                        ),
+                                                      ),
+                                                    ),
+                                                  ),
+                                                ),
+                                                SizedBox(
+                                                  height: 10,
+                                                ),
+                                                Material(
+                                                  borderRadius:
+                                                      BorderRadius.circular(13),
+                                                  color: (femaleSelected)
+                                                      ? lightPurple
+                                                      : Colors.white,
+                                                  child: InkWell(
+                                                    borderRadius:
+                                                        BorderRadius.circular(
+                                                            13),
+                                                    splashColor: darkPurple,
+                                                    onTap: () {
+                                                      setState(() {
+                                                        maleSelected = false;
+                                                        femaleSelected = true;
+                                                        othersSelected = false;
+                                                        Get.back();
+                                                      });
+                                                    },
+                                                    child: Container(
+                                                      decoration: BoxDecoration(
+                                                        borderRadius:
+                                                            BorderRadius
+                                                                .circular(13),
+                                                      ),
+                                                      height: Get.width * 0.14,
+                                                      child: Center(
+                                                        child: Row(
+                                                          mainAxisAlignment:
+                                                              MainAxisAlignment
+                                                                  .center,
+                                                          children: [
+                                                            Text(
+                                                              'Female',
+                                                              style: TextStyle(
+                                                                fontFamily:
+                                                                    'Poppins',
+                                                                fontSize: 24,
+                                                                fontWeight:
+                                                                    FontWeight
+                                                                        .w600,
+                                                                color: (femaleSelected)
+                                                                    ? Colors
+                                                                        .white
+                                                                    : lightPurple,
+                                                              ),
+                                                            ),
+                                                          ],
+                                                        ),
+                                                      ),
+                                                    ),
+                                                  ),
+                                                ),
+                                                SizedBox(
+                                                  height: 10,
+                                                ),
+                                                Material(
+                                                  borderRadius:
+                                                      BorderRadius.circular(13),
+                                                  color: (othersSelected)
+                                                      ? lightPurple
+                                                      : Colors.white,
+                                                  child: InkWell(
+                                                    borderRadius:
+                                                        BorderRadius.circular(
+                                                            13),
+                                                    splashColor: darkPurple,
+                                                    onTap: () {
+                                                      setState(() {
+                                                        maleSelected = false;
+                                                        femaleSelected = false;
+                                                        othersSelected = true;
+                                                        Get.back();
+                                                      });
+                                                    },
+                                                    child: Container(
+                                                      decoration: BoxDecoration(
+                                                        borderRadius:
+                                                            BorderRadius
+                                                                .circular(13),
+                                                      ),
+                                                      height: Get.width * 0.14,
+                                                      child: Center(
+                                                        child: Row(
+                                                          mainAxisAlignment:
+                                                              MainAxisAlignment
+                                                                  .center,
+                                                          children: [
+                                                            Text(
+                                                              'Others',
+                                                              style: TextStyle(
+                                                                fontFamily:
+                                                                    'Poppins',
+                                                                fontSize: 24,
+                                                                fontWeight:
+                                                                    FontWeight
+                                                                        .w600,
+                                                                color: (othersSelected)
+                                                                    ? Colors
+                                                                        .white
+                                                                    : lightPurple,
+                                                              ),
+                                                            ),
+                                                          ],
+                                                        ),
+                                                      ),
+                                                    ),
+                                                  ),
+                                                ),
+                                                SizedBox(
+                                                  height: 20,
+                                                ),
+                                              ],
+                                            ),
+                                          ),
+                                          decoration: BoxDecoration(),
+                                        );
+                                      },
                                     ),
+                                  );
+                                },
+                                child: Container(
+                                  decoration: BoxDecoration(
+                                    boxShadow: [
+                                      BoxShadow(
+                                        color: Color.fromRGBO(0, 0, 0, 0.25),
+                                        blurRadius: 10,
+                                        spreadRadius: -10,
+                                      )
+                                    ],
+                                    color: Colors.white,
+                                    borderRadius: BorderRadius.circular(13),
                                   ),
-                                  child: TextField(
-                                    enabled: false,
-                                    cursorColor: lightPurple,
-                                    cursorRadius: Radius.circular(30),
-                                    cursorWidth: 3,
-                                    decoration: InputDecoration(
-                                        suffixIcon: Icon(
-                                          Icons.arrow_drop_down,
-                                          color: Color.fromRGBO(
+                                  height: Get.width * 0.14,
+                                  child: Padding(
+                                    padding: const EdgeInsets.only(
+                                      left: 15.0,
+                                      right: 15.0,
+                                      top: 2,
+                                    ),
+                                    child: Theme(
+                                      data: ThemeData(
+                                        textSelectionTheme:
+                                            TextSelectionThemeData(
+                                          selectionColor: Color.fromRGBO(
+                                              98, 112, 221, 0.34),
+                                          selectionHandleColor: Color.fromRGBO(
                                               98, 112, 221, 0.34),
                                         ),
-                                        disabledBorder: InputBorder.none,
-                                        focusedBorder: InputBorder.none,
-                                        enabledBorder: InputBorder.none,
-                                        hintText: (maleSelected)
-                                            ? 'Male'
-                                            : (femaleSelected)
-                                                ? 'Female'
-                                                : (othersSelected)
-                                                    ? 'Others'
-                                                    : 'Gender',
-                                        hintStyle: TextStyle(
-                                          color: (maleSelected)
-                                              ? lightPurple
-                                              : (femaleSelected)
+                                      ),
+                                      child: TextField(
+                                        enabled: false,
+                                        cursorColor: lightPurple,
+                                        cursorRadius: Radius.circular(30),
+                                        cursorWidth: 3,
+                                        decoration: InputDecoration(
+                                            suffixIcon: Icon(
+                                              Icons.arrow_drop_down,
+                                              color: Color.fromRGBO(
+                                                  98, 112, 221, 0.34),
+                                            ),
+                                            disabledBorder: InputBorder.none,
+                                            focusedBorder: InputBorder.none,
+                                            enabledBorder: InputBorder.none,
+                                            hintText: (maleSelected)
+                                                ? 'Male'
+                                                : (femaleSelected)
+                                                    ? 'Female'
+                                                    : (othersSelected)
+                                                        ? 'Others'
+                                                        : 'Gender',
+                                            hintStyle: TextStyle(
+                                              color: (maleSelected)
                                                   ? lightPurple
-                                                  : (othersSelected)
+                                                  : (femaleSelected)
                                                       ? lightPurple
-                                                      : Color.fromRGBO(
-                                                          98, 112, 221, 0.34),
+                                                      : (othersSelected)
+                                                          ? lightPurple
+                                                          : Color.fromRGBO(98,
+                                                              112, 221, 0.34),
+                                              fontSize: 20,
+                                            )),
+                                        strutStyle: StrutStyle(
+                                          fontFamily: 'Poppins',
+                                        ),
+                                        style: TextStyle(
+                                          fontFamily: 'Poppins',
                                           fontSize: 20,
-                                        )),
-                                    strutStyle: StrutStyle(
-                                      fontFamily: 'Poppins',
-                                    ),
-                                    style: TextStyle(
-                                      fontFamily: 'Poppins',
-                                      fontSize: 20,
-                                      fontWeight: FontWeight.w600,
-                                      color: lightPurple,
+                                          fontWeight: FontWeight.w600,
+                                          color: lightPurple,
+                                        ),
+                                      ),
                                     ),
                                   ),
                                 ),
                               ),
-                            ),
-                          ),
-                          SizedBox(
-                            height: 12,
-                          ),
-                          Container(
-                            decoration: BoxDecoration(
-                              boxShadow: [
-                                BoxShadow(
-                                  color: Color.fromRGBO(0, 0, 0, 0.25),
-                                  blurRadius: 10,
-                                  spreadRadius: -10,
-                                )
-                              ],
-                              color: Colors.white,
-                              borderRadius: BorderRadius.circular(13),
-                            ),
-                            height: Get.width * 0.14,
-                            child: Padding(
-                              padding: const EdgeInsets.only(
-                                left: 15.0,
-                                right: 15.0,
-                                top: 2,
+                              SizedBox(
+                                height: 12,
                               ),
-                              child: Theme(
-                                data: ThemeData(
-                                  textSelectionTheme: TextSelectionThemeData(
-                                    selectionColor:
-                                        Color.fromRGBO(98, 112, 221, 0.34),
-                                    selectionHandleColor:
-                                        Color.fromRGBO(98, 112, 221, 0.34),
-                                  ),
+                              Container(
+                                decoration: BoxDecoration(
+                                  boxShadow: [
+                                    BoxShadow(
+                                      color: Color.fromRGBO(0, 0, 0, 0.25),
+                                      blurRadius: 10,
+                                      spreadRadius: -10,
+                                    )
+                                  ],
+                                  color: Colors.white,
+                                  borderRadius: BorderRadius.circular(13),
                                 ),
-                                child: TextField(
-                                  keyboardType: TextInputType.phone,
-                                  maxLength: 10,
-                                  controller: mobileController,
-                                  cursorColor: lightPurple,
-                                  cursorRadius: Radius.circular(30),
-                                  cursorWidth: 3,
-                                  decoration: InputDecoration(
-                                      counterText: '',
-                                      disabledBorder: InputBorder.none,
-                                      focusedBorder: InputBorder.none,
-                                      enabledBorder: InputBorder.none,
-                                      hintText: 'Mobile Number',
-                                      hintStyle: TextStyle(
-                                        color:
+                                height: Get.width * 0.14,
+                                child: Padding(
+                                  padding: const EdgeInsets.only(
+                                    left: 15.0,
+                                    right: 15.0,
+                                    top: 2,
+                                  ),
+                                  child: Theme(
+                                    data: ThemeData(
+                                      textSelectionTheme:
+                                          TextSelectionThemeData(
+                                        selectionColor:
                                             Color.fromRGBO(98, 112, 221, 0.34),
+                                        selectionHandleColor:
+                                            Color.fromRGBO(98, 112, 221, 0.34),
+                                      ),
+                                    ),
+                                    child: TextField(
+                                      keyboardType: TextInputType.phone,
+                                      maxLength: 10,
+                                      controller: mobileController,
+                                      cursorColor: lightPurple,
+                                      cursorRadius: Radius.circular(30),
+                                      cursorWidth: 3,
+                                      decoration: InputDecoration(
+                                          counterText: '',
+                                          disabledBorder: InputBorder.none,
+                                          focusedBorder: InputBorder.none,
+                                          enabledBorder: InputBorder.none,
+                                          hintText: 'Mobile Number',
+                                          hintStyle: TextStyle(
+                                            color: Color.fromRGBO(
+                                                98, 112, 221, 0.34),
+                                            fontSize: 20,
+                                          )),
+                                      strutStyle: StrutStyle(
+                                        fontFamily: 'Poppins',
+                                      ),
+                                      style: TextStyle(
+                                        fontFamily: 'Poppins',
                                         fontSize: 20,
-                                      )),
-                                  strutStyle: StrutStyle(
-                                    fontFamily: 'Poppins',
-                                  ),
-                                  style: TextStyle(
-                                    fontFamily: 'Poppins',
-                                    fontSize: 20,
-                                    fontWeight: FontWeight.w600,
-                                    color: lightPurple,
+                                        fontWeight: FontWeight.w600,
+                                        color: lightPurple,
+                                      ),
+                                    ),
                                   ),
                                 ),
                               ),
-                            ),
-                          ),
-                          SizedBox(
-                            height: 12,
-                          ),
-                          GestureDetector(
-                            onTap: () {
-                              Get.bottomSheet(
-                                BottomSheet(
-                                  elevation: 1,
-                                  shape: RoundedRectangleBorder(
-                                    borderRadius: BorderRadius.only(
-                                      topLeft: Radius.circular(20),
-                                      topRight: Radius.circular(20),
-                                    ),
-                                  ),
-                                  onClosing: () {},
-                                  builder: (context) {
-                                    return Container(
-                                      height: Get.width * 0.7,
-                                      child: Padding(
-                                        padding: const EdgeInsets.only(
-                                          left: 30.0,
-                                          right: 30.0,
-                                          top: 20,
-                                          bottom: 10,
-                                        ),
-                                        child: Column(
-                                          crossAxisAlignment:
-                                              CrossAxisAlignment.end,
-                                          children: [
-                                            Material(
-                                              borderRadius:
-                                                  BorderRadius.circular(13),
-                                              color: lightPurple,
-                                              child: InkWell(
-                                                borderRadius:
-                                                    BorderRadius.circular(13),
-                                                splashColor: darkPurple,
-                                                onTap: () {
-                                                  Get.back();
-                                                },
-                                                child: Container(
-                                                  decoration: BoxDecoration(
-                                                    borderRadius:
-                                                        BorderRadius.circular(
-                                                            13),
-                                                  ),
-                                                  height: Get.width * 0.12,
-                                                  width: Get.width * 0.12,
-                                                  child: Center(
-                                                    child: Row(
-                                                      mainAxisAlignment:
-                                                          MainAxisAlignment
-                                                              .center,
-                                                      children: [
-                                                        Icon(
-                                                          Icons.arrow_back,
-                                                          color: Colors.white,
-                                                        )
-                                                      ],
-                                                    ),
-                                                  ),
-                                                ),
-                                              ),
-                                            ),
-                                            SizedBox(
-                                              height: 20,
-                                            ),
-                                            Material(
-                                              borderRadius:
-                                                  BorderRadius.circular(13),
-                                              color: (doctorSelected)
-                                                  ? lightPurple
-                                                  : Colors.white,
-                                              child: InkWell(
-                                                borderRadius:
-                                                    BorderRadius.circular(13),
-                                                splashColor: darkPurple,
-                                                onTap: () {
-                                                  setState(() {
-                                                    doctorSelected = true;
-                                                    patientSelected = false;
-                                                    Get.back();
-                                                  });
-                                                },
-                                                child: Container(
-                                                  decoration: BoxDecoration(
-                                                    borderRadius:
-                                                        BorderRadius.circular(
-                                                            13),
-                                                  ),
-                                                  height: Get.width * 0.14,
-                                                  child: Center(
-                                                    child: Row(
-                                                      mainAxisAlignment:
-                                                          MainAxisAlignment
-                                                              .center,
-                                                      children: [
-                                                        Text(
-                                                          'Doctor',
-                                                          style: TextStyle(
-                                                            fontFamily:
-                                                                'Poppins',
-                                                            fontSize: 24,
-                                                            fontWeight:
-                                                                FontWeight.w600,
-                                                            color:
-                                                                (doctorSelected)
-                                                                    ? Colors
-                                                                        .white
-                                                                    : lightPurple,
-                                                          ),
-                                                        ),
-                                                      ],
-                                                    ),
-                                                  ),
-                                                ),
-                                              ),
-                                            ),
-                                            SizedBox(
-                                              height: 10,
-                                            ),
-                                            Material(
-                                              borderRadius:
-                                                  BorderRadius.circular(13),
-                                              color: (patientSelected)
-                                                  ? lightPurple
-                                                  : Colors.white,
-                                              child: InkWell(
-                                                borderRadius:
-                                                    BorderRadius.circular(13),
-                                                splashColor: darkPurple,
-                                                onTap: () {
-                                                  setState(() {
-                                                    doctorSelected = false;
-                                                    patientSelected = true;
-                                                    Get.back();
-                                                  });
-                                                },
-                                                child: Container(
-                                                  decoration: BoxDecoration(
-                                                    borderRadius:
-                                                        BorderRadius.circular(
-                                                            13),
-                                                  ),
-                                                  height: Get.width * 0.14,
-                                                  child: Center(
-                                                    child: Row(
-                                                      mainAxisAlignment:
-                                                          MainAxisAlignment
-                                                              .center,
-                                                      children: [
-                                                        Text(
-                                                          'Patient',
-                                                          style: TextStyle(
-                                                            fontFamily:
-                                                                'Poppins',
-                                                            fontSize: 24,
-                                                            fontWeight:
-                                                                FontWeight.w600,
-                                                            color:
-                                                                (patientSelected)
-                                                                    ? Colors
-                                                                        .white
-                                                                    : lightPurple,
-                                                          ),
-                                                        ),
-                                                      ],
-                                                    ),
-                                                  ),
-                                                ),
-                                              ),
-                                            ),
-                                            SizedBox(
-                                              height: 20,
-                                            ),
-                                          ],
-                                        ),
-                                      ),
-                                      decoration: BoxDecoration(),
-                                    );
-                                  },
-                                ),
-                              );
-                            },
-                            child: Container(
-                              decoration: BoxDecoration(
-                                boxShadow: [
-                                  BoxShadow(
-                                    color: Color.fromRGBO(0, 0, 0, 0.25),
-                                    blurRadius: 10,
-                                    spreadRadius: -10,
-                                  )
-                                ],
-                                color: Colors.white,
-                                borderRadius: BorderRadius.circular(13),
+                              SizedBox(
+                                height: 12,
                               ),
-                              height: Get.width * 0.14,
-                              child: Padding(
-                                padding: const EdgeInsets.only(
-                                  left: 15.0,
-                                  right: 15.0,
-                                  top: 2,
-                                ),
-                                child: Theme(
-                                  data: ThemeData(
-                                    textSelectionTheme: TextSelectionThemeData(
-                                      selectionColor:
-                                          Color.fromRGBO(98, 112, 221, 0.34),
-                                      selectionHandleColor:
-                                          Color.fromRGBO(98, 112, 221, 0.34),
-                                    ),
-                                  ),
-                                  child: TextField(
-                                    enabled: false,
-                                    cursorColor: lightPurple,
-                                    cursorRadius: Radius.circular(30),
-                                    cursorWidth: 3,
-                                    decoration: InputDecoration(
-                                      suffixIcon: Icon(
-                                        Icons.arrow_drop_down,
-                                        color:
-                                            Color.fromRGBO(98, 112, 221, 0.34),
+                              GestureDetector(
+                                onTap: () {
+                                  Get.bottomSheet(
+                                    BottomSheet(
+                                      elevation: 1,
+                                      shape: RoundedRectangleBorder(
+                                        borderRadius: BorderRadius.only(
+                                          topLeft: Radius.circular(20),
+                                          topRight: Radius.circular(20),
+                                        ),
                                       ),
-                                      disabledBorder: InputBorder.none,
-                                      focusedBorder: InputBorder.none,
-                                      enabledBorder: InputBorder.none,
-                                      hintText: (doctorSelected)
-                                          ? 'Doctor'
-                                          : (patientSelected)
-                                              ? 'Patient'
-                                              : 'User Type',
-                                      hintStyle: TextStyle(
-                                        color: (doctorSelected)
-                                            ? lightPurple
-                                            : (patientSelected)
+                                      onClosing: () {},
+                                      builder: (context) {
+                                        return Container(
+                                          height: Get.width * 0.7,
+                                          child: Padding(
+                                            padding: const EdgeInsets.only(
+                                              left: 30.0,
+                                              right: 30.0,
+                                              top: 20,
+                                              bottom: 10,
+                                            ),
+                                            child: Column(
+                                              crossAxisAlignment:
+                                                  CrossAxisAlignment.end,
+                                              children: [
+                                                Material(
+                                                  borderRadius:
+                                                      BorderRadius.circular(13),
+                                                  color: lightPurple,
+                                                  child: InkWell(
+                                                    borderRadius:
+                                                        BorderRadius.circular(
+                                                            13),
+                                                    splashColor: darkPurple,
+                                                    onTap: () {
+                                                      Get.back();
+                                                    },
+                                                    child: Container(
+                                                      decoration: BoxDecoration(
+                                                        borderRadius:
+                                                            BorderRadius
+                                                                .circular(13),
+                                                      ),
+                                                      height: Get.width * 0.12,
+                                                      width: Get.width * 0.12,
+                                                      child: Center(
+                                                        child: Row(
+                                                          mainAxisAlignment:
+                                                              MainAxisAlignment
+                                                                  .center,
+                                                          children: [
+                                                            Icon(
+                                                              Icons.arrow_back,
+                                                              color:
+                                                                  Colors.white,
+                                                            )
+                                                          ],
+                                                        ),
+                                                      ),
+                                                    ),
+                                                  ),
+                                                ),
+                                                SizedBox(
+                                                  height: 20,
+                                                ),
+                                                Material(
+                                                  borderRadius:
+                                                      BorderRadius.circular(13),
+                                                  color: (doctorSelected)
+                                                      ? lightPurple
+                                                      : Colors.white,
+                                                  child: InkWell(
+                                                    borderRadius:
+                                                        BorderRadius.circular(
+                                                            13),
+                                                    splashColor: darkPurple,
+                                                    onTap: () {
+                                                      setState(() {
+                                                        doctorSelected = true;
+                                                        patientSelected = false;
+                                                        Get.back();
+                                                      });
+                                                    },
+                                                    child: Container(
+                                                      decoration: BoxDecoration(
+                                                        borderRadius:
+                                                            BorderRadius
+                                                                .circular(13),
+                                                      ),
+                                                      height: Get.width * 0.14,
+                                                      child: Center(
+                                                        child: Row(
+                                                          mainAxisAlignment:
+                                                              MainAxisAlignment
+                                                                  .center,
+                                                          children: [
+                                                            Text(
+                                                              'Doctor',
+                                                              style: TextStyle(
+                                                                fontFamily:
+                                                                    'Poppins',
+                                                                fontSize: 24,
+                                                                fontWeight:
+                                                                    FontWeight
+                                                                        .w600,
+                                                                color: (doctorSelected)
+                                                                    ? Colors
+                                                                        .white
+                                                                    : lightPurple,
+                                                              ),
+                                                            ),
+                                                          ],
+                                                        ),
+                                                      ),
+                                                    ),
+                                                  ),
+                                                ),
+                                                SizedBox(
+                                                  height: 10,
+                                                ),
+                                                Material(
+                                                  borderRadius:
+                                                      BorderRadius.circular(13),
+                                                  color: (patientSelected)
+                                                      ? lightPurple
+                                                      : Colors.white,
+                                                  child: InkWell(
+                                                    borderRadius:
+                                                        BorderRadius.circular(
+                                                            13),
+                                                    splashColor: darkPurple,
+                                                    onTap: () {
+                                                      setState(() {
+                                                        doctorSelected = false;
+                                                        patientSelected = true;
+                                                        Get.back();
+                                                      });
+                                                    },
+                                                    child: Container(
+                                                      decoration: BoxDecoration(
+                                                        borderRadius:
+                                                            BorderRadius
+                                                                .circular(13),
+                                                      ),
+                                                      height: Get.width * 0.14,
+                                                      child: Center(
+                                                        child: Row(
+                                                          mainAxisAlignment:
+                                                              MainAxisAlignment
+                                                                  .center,
+                                                          children: [
+                                                            Text(
+                                                              'Patient',
+                                                              style: TextStyle(
+                                                                fontFamily:
+                                                                    'Poppins',
+                                                                fontSize: 24,
+                                                                fontWeight:
+                                                                    FontWeight
+                                                                        .w600,
+                                                                color: (patientSelected)
+                                                                    ? Colors
+                                                                        .white
+                                                                    : lightPurple,
+                                                              ),
+                                                            ),
+                                                          ],
+                                                        ),
+                                                      ),
+                                                    ),
+                                                  ),
+                                                ),
+                                                SizedBox(
+                                                  height: 20,
+                                                ),
+                                              ],
+                                            ),
+                                          ),
+                                          decoration: BoxDecoration(),
+                                        );
+                                      },
+                                    ),
+                                  );
+                                },
+                                child: Container(
+                                  decoration: BoxDecoration(
+                                    boxShadow: [
+                                      BoxShadow(
+                                        color: Color.fromRGBO(0, 0, 0, 0.25),
+                                        blurRadius: 10,
+                                        spreadRadius: -10,
+                                      )
+                                    ],
+                                    color: Colors.white,
+                                    borderRadius: BorderRadius.circular(13),
+                                  ),
+                                  height: Get.width * 0.14,
+                                  child: Padding(
+                                    padding: const EdgeInsets.only(
+                                      left: 15.0,
+                                      right: 15.0,
+                                      top: 2,
+                                    ),
+                                    child: Theme(
+                                      data: ThemeData(
+                                        textSelectionTheme:
+                                            TextSelectionThemeData(
+                                          selectionColor: Color.fromRGBO(
+                                              98, 112, 221, 0.34),
+                                          selectionHandleColor: Color.fromRGBO(
+                                              98, 112, 221, 0.34),
+                                        ),
+                                      ),
+                                      child: TextField(
+                                        enabled: false,
+                                        cursorColor: lightPurple,
+                                        cursorRadius: Radius.circular(30),
+                                        cursorWidth: 3,
+                                        decoration: InputDecoration(
+                                          suffixIcon: Icon(
+                                            Icons.arrow_drop_down,
+                                            color: Color.fromRGBO(
+                                                98, 112, 221, 0.34),
+                                          ),
+                                          disabledBorder: InputBorder.none,
+                                          focusedBorder: InputBorder.none,
+                                          enabledBorder: InputBorder.none,
+                                          hintText: (doctorSelected)
+                                              ? 'Doctor'
+                                              : (patientSelected)
+                                                  ? 'Patient'
+                                                  : 'User Type',
+                                          hintStyle: TextStyle(
+                                            color: (doctorSelected)
                                                 ? lightPurple
-                                                : Color.fromRGBO(
-                                                    98, 112, 221, 0.34),
-                                        fontSize: 20,
+                                                : (patientSelected)
+                                                    ? lightPurple
+                                                    : Color.fromRGBO(
+                                                        98, 112, 221, 0.34),
+                                            fontSize: 20,
+                                          ),
+                                        ),
+                                        strutStyle: StrutStyle(
+                                          fontFamily: 'Poppins',
+                                        ),
+                                        style: TextStyle(
+                                          fontFamily: 'Poppins',
+                                          fontSize: 20,
+                                          fontWeight: FontWeight.w600,
+                                          color: lightPurple,
+                                        ),
                                       ),
-                                    ),
-                                    strutStyle: StrutStyle(
-                                      fontFamily: 'Poppins',
-                                    ),
-                                    style: TextStyle(
-                                      fontFamily: 'Poppins',
-                                      fontSize: 20,
-                                      fontWeight: FontWeight.w600,
-                                      color: lightPurple,
                                     ),
                                   ),
                                 ),
                               ),
-                            ),
-                          ),
-                          SizedBox(
-                            height: 12,
+                              SizedBox(
+                                height: 12,
+                              ),
+                            ],
                           ),
                           Spacer(
                             flex: 1,

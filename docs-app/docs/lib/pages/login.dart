@@ -65,13 +65,19 @@ class _LoginPageState extends State<LoginPage> {
                             mainAxisAlignment: MainAxisAlignment.end,
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
-                              Text(
-                                'Docs.',
-                                style: TextStyle(
-                                  fontFamily: 'Poppins',
-                                  fontSize: 54,
-                                  fontWeight: FontWeight.w600,
-                                  color: Colors.white,
+                              Material(
+                                type: MaterialType.transparency,
+                                child: Hero(
+                                  tag: 'docs',
+                                  child: Text(
+                                    'Docs.',
+                                    style: TextStyle(
+                                      fontFamily: 'Poppins',
+                                      fontSize: 54,
+                                      fontWeight: FontWeight.w600,
+                                      color: Colors.white,
+                                    ),
+                                  ),
                                 ),
                               ),
                               Text(
@@ -614,6 +620,7 @@ void _login(
       <String, String>{"_id": email, "password": password},
     ),
   );
+  print(loginResponse.statusCode);
   if (loginResponse.statusCode == 200) {
     String loginResponseJson = loginResponse.body;
     print(loginResponseJson);

@@ -1,3 +1,4 @@
+import 'package:docs/pages/prescribe.dart';
 import 'package:docs/utils/constants.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -9,6 +10,8 @@ import 'package:shared_preferences/shared_preferences.dart';
 
 // ignore: must_be_immutable
 class AppointmentDetailsPage extends StatefulWidget {
+  String patientid;
+  String role;
   String id;
   String patientName;
   String docName;
@@ -16,14 +19,24 @@ class AppointmentDetailsPage extends StatefulWidget {
   String timeEnd;
   String desc;
   bool approved;
-  AppointmentDetailsPage(this.id, this.patientName, this.docName,
-      this.timeStart, this.timeEnd, this.desc, this.approved);
+  AppointmentDetailsPage(this.patientid, this.role, this.id, this.patientName,
+      this.docName, this.timeStart, this.timeEnd, this.desc, this.approved);
   @override
   _AppointmentDetailsPageState createState() => _AppointmentDetailsPageState(
-      id, patientName, docName, timeStart, timeEnd, desc, approved);
+      patientid,
+      role,
+      id,
+      patientName,
+      docName,
+      timeStart,
+      timeEnd,
+      desc,
+      approved);
 }
 
 class _AppointmentDetailsPageState extends State<AppointmentDetailsPage> {
+  String patientid;
+  String role;
   String id;
   String patientName;
   String docName;
@@ -31,21 +44,32 @@ class _AppointmentDetailsPageState extends State<AppointmentDetailsPage> {
   String timeEnd;
   String desc;
   bool approved;
-  _AppointmentDetailsPageState(this.id, this.patientName, this.docName,
-      this.timeStart, this.timeEnd, this.desc, this.approved);
+  _AppointmentDetailsPageState(
+      this.patientid,
+      this.role,
+      this.id,
+      this.patientName,
+      this.docName,
+      this.timeStart,
+      this.timeEnd,
+      this.desc,
+      this.approved);
   bool video;
-  Duration difference;
+  var difference;
   DateTime now;
   void checkVideo() {
     now = DateTime.now();
-    difference = DateTime.parse(timeEnd).difference(now);
-    print(difference.inHours);
-    if (difference.inHours < 1) {
+    difference = int.parse(DateTime.parse(timeEnd).hour.toString()) -
+        int.parse(
+          now.hour.toString(),
+        );
+    //print(DateTime.parse(timeEnd).hour);
+    //print(difference);
+    if (difference == 1) {
       video = true;
     } else {
       video = false;
     }
-    difference.inHours;
   }
 
   Map<FeatureFlagEnum, bool> featureFlags = {
@@ -188,7 +212,7 @@ class _AppointmentDetailsPageState extends State<AppointmentDetailsPage> {
                             ],
                           ),
                           SizedBox(
-                            height: 20,
+                            height: 30,
                           ),
                           Row(
                             children: [
@@ -206,11 +230,11 @@ class _AppointmentDetailsPageState extends State<AppointmentDetailsPage> {
                           Row(
                             children: [
                               Text(
-                                DateFormat('hh:mm').format(
+                                DateFormat('H:mm').format(
                                       DateTime.parse(timeStart),
                                     ) +
                                     ' - ' +
-                                    DateFormat('hh:mm').format(
+                                    DateFormat('H:mm').format(
                                       DateTime.parse(timeEnd),
                                     ),
                                 style: TextStyle(
@@ -230,7 +254,7 @@ class _AppointmentDetailsPageState extends State<AppointmentDetailsPage> {
                                 ),
                                 style: TextStyle(
                                   fontFamily: 'Poppins',
-                                  fontSize: 24,
+                                  fontSize: 18,
                                   fontWeight: FontWeight.w600,
                                   color: lightPurple,
                                 ),
@@ -238,7 +262,7 @@ class _AppointmentDetailsPageState extends State<AppointmentDetailsPage> {
                             ],
                           ),
                           SizedBox(
-                            height: 20,
+                            height: 30,
                           ),
                           Row(
                             children: [
@@ -274,15 +298,15 @@ class _AppointmentDetailsPageState extends State<AppointmentDetailsPage> {
                             height: 20,
                           ),
                           Row(
-                            mainAxisAlignment: MainAxisAlignment.center,
+                            mainAxisAlignment: MainAxisAlignment.spaceAround,
                             children: [
                               Material(
-                                borderRadius: BorderRadius.circular(13),
+                                borderRadius: BorderRadius.circular(8),
                                 color: (video)
                                     ? lightPurple
                                     : Color.fromRGBO(98, 112, 221, 0.7),
                                 child: InkWell(
-                                  borderRadius: BorderRadius.circular(13),
+                                  borderRadius: BorderRadius.circular(8),
                                   splashColor: darkPurple,
                                   onTap: () async {
                                     SharedPreferences prefs =
@@ -351,7 +375,9 @@ class _AppointmentDetailsPageState extends State<AppointmentDetailsPage> {
                                           ),
                                         ),
                                         messageText: Text(
-                                          'Your appointment is yet to be approved',
+                                          (role == 'patient')
+                                              ? 'Your appointment is yet to be approved'
+                                              : 'You have not approved this appointment',
                                           style: TextStyle(
                                             fontFamily: 'Trueno',
                                             fontWeight: FontWeight.w400,
@@ -363,10 +389,12 @@ class _AppointmentDetailsPageState extends State<AppointmentDetailsPage> {
                                   },
                                   child: Container(
                                     decoration: BoxDecoration(
-                                      borderRadius: BorderRadius.circular(13),
+                                      borderRadius: BorderRadius.circular(8),
                                     ),
                                     height: Get.width * 0.12,
-                                    width: Get.width * 0.85,
+                                    width: (role == 'patient')
+                                        ? Get.width * 0.85
+                                        : Get.width * 0.4,
                                     child: Center(
                                       child: Row(
                                         mainAxisAlignment:
@@ -380,7 +408,7 @@ class _AppointmentDetailsPageState extends State<AppointmentDetailsPage> {
                                             width: 10,
                                           ),
                                           Text(
-                                            'Video Consultation',
+                                            'Consult',
                                             style: TextStyle(
                                               fontFamily: 'Poppins',
                                               fontSize: 18,
@@ -394,6 +422,57 @@ class _AppointmentDetailsPageState extends State<AppointmentDetailsPage> {
                                   ),
                                 ),
                               ),
+                              (role == 'doctor')
+                                  ? Material(
+                                      borderRadius: BorderRadius.circular(8),
+                                      color: lightPurple,
+                                      child: InkWell(
+                                        borderRadius: BorderRadius.circular(8),
+                                        splashColor: darkPurple,
+                                        onTap: () async {
+                                          Get.to(
+                                            PrescribePage(
+                                                patientid, patientName),
+                                          );
+                                        },
+                                        child: Container(
+                                          decoration: BoxDecoration(
+                                            borderRadius:
+                                                BorderRadius.circular(8),
+                                          ),
+                                          height: Get.width * 0.12,
+                                          width: Get.width * 0.4,
+                                          child: Center(
+                                            child: Row(
+                                              mainAxisAlignment:
+                                                  MainAxisAlignment.center,
+                                              children: [
+                                                Icon(
+                                                  Icons.note_add_sharp,
+                                                  color: Colors.white,
+                                                ),
+                                                SizedBox(
+                                                  width: 10,
+                                                ),
+                                                Text(
+                                                  'Prescribe',
+                                                  style: TextStyle(
+                                                    fontFamily: 'Poppins',
+                                                    fontSize: 18,
+                                                    fontWeight: FontWeight.w600,
+                                                    color: Colors.white,
+                                                  ),
+                                                )
+                                              ],
+                                            ),
+                                          ),
+                                        ),
+                                      ),
+                                    )
+                                  : Container(
+                                      width: 0,
+                                      height: 0,
+                                    ),
                             ],
                           ),
                         ],
