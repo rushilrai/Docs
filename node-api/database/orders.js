@@ -2,7 +2,6 @@
 const mongoose = require ('mongoose');
 const User =  require ('./users.js');
 const Prescription = require('./prescriptions.js');
-const Mail = require('../mailers/mailer.js');
 
 // Order template
 class Order {
@@ -53,9 +52,6 @@ class Order {
             if (prescriptionValid.success) {    // if prescription is valid
                 return this.order.save()        // saving all data
                 .then((result) => {             // successful save
-
-                    // send receipt to mail
-                    Mail.sendConfimation(order_json);
                     
                     return {                
                         success: true,
