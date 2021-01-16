@@ -15,9 +15,9 @@ https://www.youtube.com/watch?v=cj4fOWwAZg4
 <b>Screenshots:</b>
 
 <img src="Screenshots/Samsung Galaxy S20+ Screenshot 0.png" width=400> <img src="Screenshots/Samsung Galaxy S20+ Screenshot 1.png" width=400> 
-<br>
+<br><br><br>
 <img src="Screenshots/Samsung Galaxy S20+ Screenshot 2.png" width=400> <img src="Screenshots/Samsung Galaxy S20+ Screenshot 3.png" width=400> 
-<br>
+<br><br><br>
 <img src="Screenshots/Samsung Galaxy S20+ Screenshot 4.png" width=400> <img src="Screenshots/Samsung Galaxy S20+ Screenshot 5.png" width=400> 
-<br>
+<br><br><br>
 <img src="Screenshots/Samsung Galaxy S20+ Screenshot 6.png" width=400> <img src="Screenshots/Samsung Galaxy S20+ Screenshot 7.png" width=400> 
