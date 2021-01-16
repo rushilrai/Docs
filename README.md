@@ -8,6 +8,14 @@ as well as allowing exchange of Digitally Signed Prescriptions,
 <br>
 to ensure legitimacy of Prescriptions.
 
+<b>Contributors:</b>
+<br>
+<a href="https://github.com/hberiwal">Himanshu Beriwal</a>
+<br>
+<a href="https://github.com/mihirs16">Mihir Singh</a>
+<br>
+<a href="https://github.com/rushilrai">Rushil Rai</a>
+
 <b>Demo Video:</b>
 <br>
 https://www.youtube.com/watch?v=cj4fOWwAZg4
